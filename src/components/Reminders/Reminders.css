@@ -1,0 +1,29 @@
+.Blue{
+    background-color: #3C5E90;
+    height: auto;
+    width: 90%;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 7px;
+    
+}
+.header{
+    z-index: 2;
+    height:auto;
+    width: 100%;
+    background-color: white;
+
+    border-radius: 20px;
+}
+.item{
+    z-index: 2;
+    height:auto;
+    width: 90%;
+    background-color: white;
+    margin-left: 5%;
+    border-radius: 20px;
+}
+ul{
+    padding:0;
+}
