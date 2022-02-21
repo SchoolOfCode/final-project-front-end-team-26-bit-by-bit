@@ -1,6 +1,11 @@
 import React from "react";
 import "./Menu.css";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 const Menu = () =>{
 
     function openNav() {
@@ -22,7 +27,7 @@ const Menu = () =>{
  
           <div className="overlay-content">
             <a href="#">Profile</a>
-            <a href="#">Dashboard</a>
+            <Link to="/dashboard">Dashboard</Link>
             <a href="#">Customise</a>
             <a href="#">Settings</a>
             <a href="#">Sign Out</a>

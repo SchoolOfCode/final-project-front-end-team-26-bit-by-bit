@@ -6,14 +6,16 @@
     margin-left: 5%;
     margin-right: 5%;
     padding-bottom: 7px;
-    
+    margin-top: 20px;
 }
 .header{
     z-index: 2;
     height:auto;
     width: 100%;
     background-color: white;
-
+    display: grid;
+    grid-template-columns:auto 50px ;
+    grid-template-rows: 1fr;
     border-radius: 20px;
 }
 .item{
@@ -26,5 +28,17 @@
 
 }
 ul{
+    
     padding:0;
+}
+.ToDo{
+    display: block;
+}
+h2{
+    padding-left: 50px;
+    margin: 0;
+}
+.AddButton{
+    justify-self: center;
+    align-self: center;
 }

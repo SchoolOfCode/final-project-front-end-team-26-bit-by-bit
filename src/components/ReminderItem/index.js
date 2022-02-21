@@ -3,7 +3,7 @@ const ReminderItem = ({name}) =>{
    
     return(
         <div className="item">
-            <h3 className="remName">{name}</h3>
+            <h3 className="remName">{name}</h3> 
         </div>
     )
 }

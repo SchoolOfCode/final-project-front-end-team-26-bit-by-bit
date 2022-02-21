@@ -3,7 +3,7 @@ const ToDoListItem = ({name}) =>{
    
     return(
         <div className="item">
-            <h2>{name}</h2>
+            <h3>{name}</h3>
         </div>
     )
 }
