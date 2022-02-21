@@ -5,6 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
+    "enzyme": "^3.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -14,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test2" : "jest",
+    "testMenu": "react-scripts test ./src/components/Menu/index.test.js",
+    "test2": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,6 +39,8 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0"
+    "@testing-library/user-event": "^13.5.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "sinon": "^13.0.1"
   }
 }
