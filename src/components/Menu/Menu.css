@@ -34,6 +34,7 @@
 /* When you mouse over the navigation links, change their color */
 .overlay a:hover, .overlay a:focus {
   text-decoration: underline;
+  
 }
 
 /* Position the close button (top right corner) */
@@ -54,5 +55,6 @@
   }
 }
 #menuIcon{
-  font-size: 30px
+  font-size: 30px;
+  padding-left: 5vw;
 }

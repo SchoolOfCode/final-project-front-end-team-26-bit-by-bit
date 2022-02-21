@@ -21,12 +21,13 @@ const Menu = () =>{
         
  
           <div className="overlay-content">
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="#">Profile</a>
+            <a href="#">Dashboard</a>
+            <a href="#">Customise</a>
+            <a href="#">Settings</a>
+            <a href="#">Sign Out</a>
           </div>
-        
+
         </div>
         
  
