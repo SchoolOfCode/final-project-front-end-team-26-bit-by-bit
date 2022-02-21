@@ -14,10 +14,10 @@ const Menu = () =>{
         document.getElementById("myNav").style.width = "0%";}
     }
     return(
-        <div className="Menu">
+        <div className="Menu" >
         <div id="myNav" className="overlay">
 
-          <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
+          <a href="javascript:void(0)" data-testid="custom-element"  className="closebtn" onClick={closeNav}>&times;</a>
         
  
           <div className="overlay-content">
