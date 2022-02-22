@@ -10,7 +10,7 @@ function AddTodoListButton ({items,setItems}) {
     }
     return (
 		<div className="AddItem">
-			 <Link to="/add">
+			<Link to="/add" className="addLink">
 			<FaPlus className="AddButton" onClick={handleClick}/>
 			</Link>
 		</div>

@@ -81,6 +81,10 @@ input{
     align-self: center;
     box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
 }
+button:hover{
+    box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+}
+
 .urgencyDiv{
     display: grid;
     grid-template-columns: 3em 3em 3em;
@@ -95,4 +99,7 @@ input{
 }
 #green{
     background-color: #A3F596;
+}
+input{
+    box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
 }
