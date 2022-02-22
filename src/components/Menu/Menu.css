@@ -27,7 +27,7 @@
   font-size: 36px;
   color: #EDF3FF;
   display: block; /* Display block instead of inline */
-  transition: 0.3s; /* Transition effects on hover (color) */
+  transition: text-decoration 1s; /* Transition effects on hover (color) */
 }
 
 
