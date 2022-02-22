@@ -36,7 +36,6 @@ const Menu = () =>{
             <Link to="/dashboard">Dashboard</Link>
             <a href="#">Customise</a>
             <a href="#">Settings</a>
-            <a href="#">Sign Out</a>
             <SignOutButton/>
             
           </div>
