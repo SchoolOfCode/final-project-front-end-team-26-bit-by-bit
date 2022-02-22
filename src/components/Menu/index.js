@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import SignOutButton from '../SignOutButton';
 const Menu = () =>{
 
     function openNav() {
@@ -31,6 +32,8 @@ const Menu = () =>{
             <a href="#">Customise</a>
             <a href="#">Settings</a>
             <a href="#">Sign Out</a>
+            <SignOutButton/>
+            
           </div>
 
         </div>
