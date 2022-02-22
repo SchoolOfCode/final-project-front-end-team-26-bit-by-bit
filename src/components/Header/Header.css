@@ -1,0 +1,17 @@
+.Header{
+    width: 100%;
+    height: 11vh;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr;
+
+}
+.Menu{
+
+    justify-self: center;
+    align-self: center;
+}
+.Logo{
+    justify-self: center;
+    align-self: center;
+}
