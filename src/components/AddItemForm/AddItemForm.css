@@ -1,0 +1,98 @@
+.InpToDo{
+    height: auto;
+    width: 90%;
+    background-color: #B9D5FF;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-self: center;
+    justify-self: center;
+    border-radius: 40px;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+}
+.BlueForm{
+    background-color: #3C5E90;
+    height: auto;
+    width: 90%;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 7px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    row-gap: 20px;
+}
+.TitleForm{
+    background-color: white;
+    border-radius: 20px;
+    padding: 0;
+    height: 40px;
+}
+h4{
+    font-size: 1.5em;
+}
+input{
+    height: 3em;
+    border-radius: 20px;
+    border: none;
+    align-self: center;
+    justify-self:center;
+    width: 90%;
+    text-align: center;
+}
+.submitForm{
+    width: 20%;
+    height: 3rem;
+    border-radius: 1.5rem;
+    border: none;
+    align-self: center;
+    justify-self: center;
+    background-color:#B9D5FF;
+    font-size: 1.5em;
+    color: #3C5E90;
+    
+}
+
+
+.recurring{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 1fr;
+
+}
+.recurringCheck{
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    border:none;
+    align-self: center;
+    justify-self: center;
+    background-color: red;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+}
+.urgency{
+    height: 2.5em;
+    width: 3em;
+    border-radius: 1.25em;
+    border:0;
+    justify-self: center;
+    align-self: center;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+}
+.urgencyDiv{
+    display: grid;
+    grid-template-columns: 3em 3em 3em;
+    grid-template-rows: 1fr;
+    
+}
+#red{
+    background-color: red;
+}
+#yellow{
+    background-color: #FFD159;
+}
+#green{
+    background-color: #A3F596;
+}
