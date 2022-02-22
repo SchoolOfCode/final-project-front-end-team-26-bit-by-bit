@@ -1,6 +1,6 @@
 import "./App.css";
 import Dashboard from "../Dashboard";
-import SignIn from "../SignIn";
+import SignInButton from "../SignInButton";
 import { Routes,Route } from "react-router-dom";
 import { FaSkiingNordic } from "react-icons/fa";
 
@@ -13,7 +13,7 @@ function App() {
         
       </Routes>
       <Routes>
-        <Route path="/" element={<SignIn/>}/>
+        <Route path="/" element={<SignInButton/>}/>
         
       </Routes>
     </div>
