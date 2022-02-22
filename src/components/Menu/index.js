@@ -7,6 +7,8 @@ import {
   Link
 } from "react-router-dom";
 import SignOutButton from '../SignOutButton';
+import Profile from "../Profile";
+
 const Menu = () =>{
 
     function openNav() {
@@ -27,7 +29,10 @@ const Menu = () =>{
         
  
           <div className="overlay-content">
-            <a href="#">Profile</a>
+            <Profile />
+            <Link to="/profile">Profile</Link>
+            
+            
             <Link to="/dashboard">Dashboard</Link>
             <a href="#">Customise</a>
             <a href="#">Settings</a>

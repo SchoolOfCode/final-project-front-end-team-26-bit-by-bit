@@ -1,6 +1,7 @@
 import "./App.css";
 import Dashboard from "../Dashboard";
-import Profile from "../Profile";
+import ProfilePage from "../ProfilePage";
+
 import SignInButton from "../SignInButton";
 import SignOutButton from "../SignOutButton";
 import { Routes,Route } from "react-router-dom";
@@ -12,11 +13,11 @@ function App() {
        
     <SignOutButton/>
     <SignInButton/>
-     <Profile/>
+     
         
       <Routes>
         <Route path="/dashboard" element={<Dashboard/>}/>
-        
+        <Route path="/profile" element={<ProfilePage/>}/>
       </Routes>
      
     </div>
