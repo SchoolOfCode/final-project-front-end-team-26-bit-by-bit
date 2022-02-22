@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ToDoListItem from "../ToDoListItem";
-import { FaPlus } from "react-icons/fa";
+//import { FaPlus } from "react-icons/fa";
 import AddTodoListButton from "../AddToDoListButton";
-const ToDoList = ({}) =>{
+const ToDoList = () =>{
     const [items,setItems]=useState(["a","b","c","d"])
     return(
         <div className="Blue">
