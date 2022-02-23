@@ -1,0 +1,26 @@
+.Switch{
+    height: 3em;
+    width: 7em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background-color: white;
+    border-radius: 1.5em;
+    box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    justify-self: flex-end;
+    align-self: center;
+    margin-right: 10px;
+}
+.Buttonswitch{
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    border:none;
+    align-self: center;
+    justify-self: center;
+    background-color: red;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    justify-self: flex-start;
+    transition: all 1s ease-in;
+}
+

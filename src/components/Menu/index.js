@@ -28,8 +28,8 @@ const Menu = () =>{
           <div className="overlay-content">
             <a href="#">Profile</a>
             <Link to="/dashboard">Dashboard</Link>
-            <a href="#">Customise</a>
-            <a href="#">Settings</a>
+            <Link to="/customise">Customise</Link>
+            <Link to="/settings">Settings</Link>
             <a href="#">Sign Out</a>
           </div>
 
