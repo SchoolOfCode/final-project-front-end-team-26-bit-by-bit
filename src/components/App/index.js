@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={!isAuthenticated ? <SignInPage/>: <Dashboard/>}/>
         
         {/* <Route path="/dashboard" element={isAuthenticated && <Dashboard/>} /> */}
-        <Route path="/profile" element={<ProfilePage/>}/>
+        <Route path="/profile" element={!isAuthenticated ? <SignInPage/>: <ProfilePage/>}/>
           
       </Routes>
      
