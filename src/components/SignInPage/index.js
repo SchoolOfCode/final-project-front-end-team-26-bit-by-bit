@@ -1,5 +1,6 @@
 import React from 'react'
-import SignInButton from '../SignInButton'
+import SignInButton from '../SignInButton';
+
 
 export function SignInPage(props) {
     
