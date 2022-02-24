@@ -1,5 +1,6 @@
 import React from 'react'
 import SignInButton from '../SignInButton';
+import './SignInPage.css'
 
 
 export function SignInPage(props) {
@@ -7,7 +8,8 @@ export function SignInPage(props) {
 
     return (
     <div className="SignInPage">
-      <h1> This is our sign in page</h1>
+      <h2 className="welcome-title"> Welcome to </h2>
+      <h1 className="name-app"> Simple </h1>
         <SignInButton/>
      
     </div>
