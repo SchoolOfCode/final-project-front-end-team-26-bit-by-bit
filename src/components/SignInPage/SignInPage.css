@@ -1,14 +1,22 @@
-.name-app{
 
-    font-size: 100px;
-
+.SignInPage{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
-.welcome-title{
+.name-app{
+    font-size: 7rem;
+    font-weight: 350;
+    margin: 0px;
+    margin-bottom: 20vh;
+}
 
-        font-size: 40px;
-        text-align: center;
-        margin-right: 40px;
-        margin-top: 50px;
+.welcome-title{
+    font-size: 2.5rem;
+    margin-top: 30vh;
+    font-weight: 200;
+    margin-bottom: 0px;
 }

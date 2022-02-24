@@ -2,8 +2,10 @@ import React, { useEffect,useState } from "react";
 import ReminderItem from "../ReminderItem";
 import "./Reminders.css"
 import { FaPlus } from "react-icons/fa";
+import ReminderData from "../ReminderData"
+
 const Reminders = () =>{
-    const[reminderData, setReminderData]=useState([]);
+    const[reminderData, setReminderData]=useState(["help"]);
     let dataFetched = false
     async function fetchReminders(){
         const data = await fetch(`https://simple-room26.herokuapp.com/users/1/reminders`);
@@ -16,7 +18,10 @@ const Reminders = () =>{
         setReminderData(fetchReminders());
         dataFetched = true
     }, []);
-    
+    useEffect(()=>{
+        
+        console.log(reminderData)
+    }, [reminderData]);
 
     return(
         <div className="Blue">
@@ -25,7 +30,7 @@ const Reminders = () =>{
                 <FaPlus className="AddButton"/>
             </div>
 
-            {<ul>{reminderData.map((e)=><ReminderItem key={e} name={e}/>)}</ul>}
+            <ReminderData dataFetched={dataFetched} reminderData={reminderData} /> 
         </div>
     )
 }

@@ -1,14 +1,15 @@
-import react from "react";
+import React from "react";
 import Profile from '../Profile';
-import Menu from '../Menu';
-
+import Goals from "../Goals";
+import Header from "../Header";
+import "./ProfilePage.css"
 
 function ProfilePage() {
   return (
     <div className="ProfilePage">
-    <Menu/>
-      <h1>Profile page</h1>
+      <Header/>
       <Profile />
+      <Goals/>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import SignOutButton from '../SignOutButton';
-import Profile from "../Profile";
+
 
 const Menu = () =>{
 
@@ -29,7 +29,7 @@ const Menu = () =>{
         
  
           <div className="overlay-content">
-            <Profile />
+            
             <Link to="/profile">Profile</Link>
             
             
