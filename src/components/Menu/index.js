@@ -34,10 +34,14 @@ const Menu = () =>{
             
             
             <Link to="/dashboard">Dashboard</Link>
-            <a href="#">Customise</a>
-            <a href="#">Settings</a>
+
+            <Link to="/customise">Customise</Link>
+            <Link to="/settings">Settings</Link>
+
+
             <SignOutButton/>
             
+
           </div>
 
         </div>

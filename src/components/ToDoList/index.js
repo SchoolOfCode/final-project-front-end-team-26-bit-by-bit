@@ -10,7 +10,7 @@ const ToDoList = () =>{
                 <h2>To Do List</h2>
                 <AddTodoListButton setItems={setItems} items={items}/>
             </div>
-            <ul className="ToDo" style={{display:"block"}}>{items.map((e)=><ToDoListItem key={e} name={e}/>)}</ul>
+            <ul className="ToDo" style={{display:"block"}}>{items.map((e)=><ToDoListItem key={e} name={e} items={items} setItems={setItems}/>)}</ul>
         </div>
     )
 }
