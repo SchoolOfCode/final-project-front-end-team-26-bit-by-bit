@@ -1,0 +1,10 @@
+.Goals{
+    background-color: white;
+    height: 50vh;
+    width: 80vw;
+    align-self: center;
+    justify-self: center;
+    border-radius: 2em;
+    margin: auto;
+    margin-bottom: 2em;
+}

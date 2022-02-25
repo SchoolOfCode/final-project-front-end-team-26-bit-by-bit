@@ -1,0 +1,12 @@
+.sign-btn{
+    width: 60%;
+    height: 3rem;
+    border-radius: 1.5rem;
+    border: none;
+    align-self: center;
+    justify-self: center;
+    background-color:#3C5E90;
+    font-size: 1.5em;
+    color: #B9D5FF;
+    
+}
