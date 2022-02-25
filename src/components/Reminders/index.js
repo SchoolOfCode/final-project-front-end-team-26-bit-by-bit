@@ -1,36 +1,31 @@
 import React, { useEffect,useState } from "react";
 import ReminderItem from "../ReminderItem";
 import "./Reminders.css"
-import { FaPlus } from "react-icons/fa";
-import ReminderData from "../ReminderData"
+import AddTodoListButton from "../AddToDoListButton";
 
-const Reminders = () =>{
-    const[reminderData, setReminderData]=useState(["help"]);
-    let dataFetched = false
-    async function fetchReminders(){
-        const data = await fetch(`https://simple-room26.herokuapp.com/users/1/reminders`);
-        const response = await data.json();
-        console.log(response.payload)
-        return(response.payload);
-    }
-    useEffect(()=>{
-        
-        setReminderData(fetchReminders());
-        dataFetched = true
-    }, []);
-    useEffect(()=>{
-        
-        console.log(reminderData)
-    }, [reminderData]);
+
+const Reminders = ({id}) =>{
+    //const[reminderData, setReminderData]=useState([]);
+    const [items,setItems]=useState([])
+    useEffect(() => {
+        fetch(`https://us-tables-backend.herokuapp.com/api/1/reminders`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            if (data.success) {
+                setItems(data.payload)
+            }
+        });
+    }, [])
 
     return(
         <div className="Blue">
             <div className="header">
                 <h2>Reminder </h2>
-                <FaPlus className="AddButton"/>
+                <AddTodoListButton page={"Reminders"}setItems={setItems} items={items}/>
             </div>
 
-            <ReminderData dataFetched={dataFetched} reminderData={reminderData} /> 
+            <ul style={{display:"block"}}>{items.map((item)=><ReminderItem key={item.id} item={item} />)}</ul>
         </div>
     )
 }

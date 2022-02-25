@@ -1,9 +1,9 @@
 import React from "react";
-const ReminderItem = ({name}) =>{
-   
+
+const ReminderItem = ({item})=>{
     return(
         <div className="item">
-            <h3 className="remName">{name}</h3> 
+            <h3>{item.text}</h3>
         </div>
     )
 }
