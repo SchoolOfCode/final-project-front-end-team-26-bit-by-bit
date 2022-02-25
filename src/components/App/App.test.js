@@ -1,12 +1,12 @@
 import App from ".";
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Enzyme, { mount, shallow } from "enzyme";
+import Enzyme, { mount } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 Enzyme.configure({ adapter: new Adapter() });
+
 // could change this to enzyme?
 // change text to app name
-
 // useRoutes() may be used only in the context of a <Router> component
 
 //test in react
