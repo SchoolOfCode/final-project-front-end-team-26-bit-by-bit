@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddItemForm.css";
 import Header from "../Header";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function AddItemForm() {
@@ -138,9 +138,11 @@ function AddItemForm() {
             </div>
           </div>
         </form>
+        <Link to="/dashboard">
           <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
           </button>
+        </Link>
       </div>
     );
   } else if (page === "Todos") {
@@ -214,6 +216,7 @@ function AddItemForm() {
             </div>
           </div>
         </form>
+        <Link to="/dashboard">
           <button
             type="submit"
             className="submitForm"
@@ -221,6 +224,7 @@ function AddItemForm() {
           >
             Submit
           </button>
+        </Link>
       </div>
     );
   }
