@@ -3,9 +3,13 @@ import "./Reminders.css";
 // import { FaCommentsDollar, FaPlus } from "react-icons/fa";
 import ReminderData from "../ReminderData";
 import AddTodoListButton from "../AddButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const Reminders = ({ user_id, url}) => {
+const Reminders = () => {
   const [reminderData, setReminderData] = useState([]);
+
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
 
   useEffect(() => {
     async function fetchReminders() {
@@ -22,7 +26,7 @@ const Reminders = ({ user_id, url}) => {
       setReminderData(newArray);
     }
     setRem();
-  }, [user_id, url]);
+  }, [user_id]);
 
   useEffect(() => {
     //console.log("rd", reminderData);
@@ -33,9 +37,9 @@ const Reminders = ({ user_id, url}) => {
     <div className="Blue">
       <div className="header">
         <h2>Reminder </h2>
-        <AddTodoListButton user_id={user_id} url={url} page={"Reminders"} />
+        <AddTodoListButton page={"Reminders"} />
       </div>
-      <ReminderData reminderData={reminderData} />
+      <ReminderData reminderData={reminderData} setReminderData={setReminderData} />
     </div>
   );
 };

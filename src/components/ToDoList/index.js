@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import ToDoListItem from "../ToDoListItem";
 // import { FaPlus } from "react-icons/fa";
 import AddTodoListButton from "../AddButton";
-const ToDoList = ({ user_id, url }) => {
+import { useAuth0 } from "@auth0/auth0-react";
+
+const ToDoList = () => {
   const [items, setItems] = useState([]);
-//
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+
   useEffect(() => {
     async function getTodo() {
       let response = await fetch(
@@ -16,23 +20,22 @@ const ToDoList = ({ user_id, url }) => {
       }
     }
     getTodo();
-  }, [user_id, url]);
+  }, [user_id]);
 
   return (
     <div className="Blue">
       <div className="header">
         <h2>To Do List</h2>
-        <AddTodoListButton user_id={user_id} page={"Todos"} url={url} />
+        <AddTodoListButton user_id={user_id} page={"Todos"} />
       </div>
       <ul className="ToDo" style={{ display: "block" }}>
-        {items.map((item, index) => (
+        {items.map((item) => (
           <ToDoListItem
             key={item.todo_id}
             item={item}
             setItems={setItems}
             items={items}
-            user_id={user_id}
-            todo_id={index}
+            todo_id={item.todo_id}
             time={item.time} 
             date={item.date}
           />

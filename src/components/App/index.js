@@ -13,7 +13,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const { user, isAuthenticated } = useAuth0();
-  console.log(user, isAuthenticated);
+  // console.log(user, isAuthenticated);
   return (
     <div className="App">
       {/* {isAuthenticated ? <PrivateRoute /> : <PublicRoute />} */}

@@ -1,10 +1,11 @@
 import React from "react";
 
-const ToDoListItem = ({ item, setItems, items, user_id, todo_id }) => {
+const ToDoListItem = ({ item, setItems, items }) => {
   function handleClick(e) {
     e.target.style.backgroundColor = "#A3F596";
     e.target.style.borderRadius = "20px";
     console.log(e.target.innerText);
+    // this deletes if inner text is the same, can we delete by key?
     function remove(f) {
       // async function deleteItem() {
       //   let response = await fetch(
@@ -25,6 +26,7 @@ const ToDoListItem = ({ item, setItems, items, user_id, todo_id }) => {
     }
     setTimeout(() => remove(e), 1000);
   }
+
   return (
     <div className="item" onClick={handleClick}>
       <h3>{item.text}</h3>

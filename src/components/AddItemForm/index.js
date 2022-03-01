@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import "./AddItemForm.css";
 import Header from "../Header";
 import { useLocation } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function AddItemForm({ user_id, url }) {
+function AddItemForm() {
   const location = useLocation();
   let page = location.state;
-  const [priority, setPriority] = useState("");
+  
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
 
   let text = "";
   let time = 0;
   let date = "2022/10/10";
-
-
+  let priority = "low"
+  
   //   function recurringCheck() {
   //     console.log("clicked");
   //     const ratio = document.getElementsByClassName("recurringCheck")[0];
@@ -25,10 +28,10 @@ function AddItemForm({ user_id, url }) {
 
   function reminderClick() {
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
-    console.log(text, time, date)
-    async function fetchPostUsers() {
+
+    async function fetchPostRem() {
       let response = await fetch(
-        `https://simple-room27.herokuapp.com/users/1055/reminders`,
+        `https://simple-room27.herokuapp.com/users/${user_id}/reminders`,
         {
           method: "POST",
           headers: {
@@ -36,11 +39,11 @@ function AddItemForm({ user_id, url }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            user_id: 1055,
+            user_id: user_id,
             reminder_id: reminder_id,
-            text: "text",
-            due_date: "2022/10/10",
-            time: 4,
+            text: text,
+            due_date: date,
+            time: time,
             iscompleted: false
           })
         }
@@ -48,16 +51,39 @@ function AddItemForm({ user_id, url }) {
       let data = await response.json();
       console.log("post dp", data);
     }
-    fetchPostUsers();
-
-    console.log(priority);
+    fetchPostRem();
   }
 
-  //
-  function todoClick(priority) {
-    console.log(priority);
-  }
+  // user_id int,
 
+
+  function todoClick() {
+    let todo_id = Math.floor(1000 + Math.random() * 9000);
+    console.log(text, todo_id, priority, time, user_id)
+    async function fetchPostTodos() {
+      let response = await fetch(
+        `https://simple-room27.herokuapp.com/users/${user_id}/todo`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_id: user_id,
+            todo_id: todo_id,
+            text: text,
+            priority: priority,
+            time: time,
+            iscompleted: false
+          })
+        })
+        let data = await response.json();
+        console.log("post dp", data);
+      }
+      fetchPostTodos()
+  }
+      
   if (page === "Reminders") {
     return (
       <div>
@@ -81,12 +107,7 @@ function AddItemForm({ user_id, url }) {
               placeholder="YYYY/MM/DD"
               type="date"
               onChange={(event) => {
-                //   let rearrangeDate = event.target.value
-                //     .split("/")
-                //     .reverse()
-                //     .join("/");
                 date = event.target.value.split("/").reverse().join("/")
-                //console.log(date);
               }}
             ></input>
           </div>
@@ -94,8 +115,10 @@ function AddItemForm({ user_id, url }) {
             <h3>Time</h3>
             <div className="time">
               <input
-                //required
+                required
                 type="number"
+                min="0"
+                max="24"
                 // type="time"
                 placeholder="Time"
                 onChange={(event) => {
@@ -115,14 +138,12 @@ function AddItemForm({ user_id, url }) {
             </div>
           </div>
         </form>
-        <a href="/dashboard">
           <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
           </button>
-        </a>
       </div>
     );
-  } else {
+  } else if (page === "Todos") {
     return (
       <div>
         <Header bool={"form"} />
@@ -130,13 +151,38 @@ function AddItemForm({ user_id, url }) {
           <h2 className="TitleForm">Add To Do</h2>
           <div className="InpToDo">
             <h3>Task Name</h3>
-            <input></input>
+            <input
+              required
+              placeholder="Task name"
+              onChange={(event) => {
+                text = event.target.value;
+              }}
+            ></input>
           </div>
           <div className="InpToDo">
-            <h3>Date</h3>
-            <input placeholder="YY/MM/DDDD"></input>
-          </div>
-
+          <h3>Time</h3>
+              <input
+                required
+                type="number"
+                min="0"
+                max="24"
+                // type="time"
+                placeholder="Time"
+                onChange={(event) => {
+                  //   let intTime = Number(
+                  //     String(event.target.value).substring(0, 2)
+                  //   );
+                  //   setTime(intTime);
+                  time = event.target.value;
+                }}
+              ></input>
+              {/* 
+              <button
+                type="button"
+                onClick={recurringCheck}
+                className="recurringCheck"
+              ></button> */}
+            </div>
           <div className="InpToDo">
             <h3>Urgency</h3>
             <div className="urgencyDiv">
@@ -145,8 +191,8 @@ function AddItemForm({ user_id, url }) {
                 type="button"
                 id="red"
                 onClick={() => {
-                  setPriority("high");
-                  console.log(priority);
+                  priority = "high";
+
                 }}
               ></button>
               <button
@@ -154,8 +200,7 @@ function AddItemForm({ user_id, url }) {
                 type="button"
                 id="yellow"
                 onClick={() => {
-                  setPriority("medium");
-                  console.log(priority);
+                  priority = "medium";
                 }}
               ></button>
               <button
@@ -163,22 +208,19 @@ function AddItemForm({ user_id, url }) {
                 type="button"
                 id="green"
                 onClick={() => {
-                  setPriority("low");
-                  console.log(priority);
+                  priority = "low";
                 }}
               ></button>
             </div>
           </div>
         </form>
-        {/* <a href="/dashboard"> */}
           <button
             type="submit"
             className="submitForm"
-            onClick={() => todoClick(priority)}
+            onClick={todoClick}
           >
             Submit
           </button>
-        {/* </a> */}
       </div>
     );
   }

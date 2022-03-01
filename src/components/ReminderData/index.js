@@ -1,12 +1,13 @@
 import React from "react";
 import ReminderItem from "../ReminderItem";
 
-const ReminderData = ({ reminderData }) => {
-  //   if (true) {
+const ReminderData = ({ reminderData, setReminderData }) => {
+  
+
   return (
     <ul>
       {reminderData.map((e, index) => {
-        return <ReminderItem key={index} index={index} name={e.text} time={e.time} date={e.date} />;
+        return <ReminderItem key={index} index={index} name={e.text} time={e.time} date={e.date} reminderData={reminderData} setReminderData={setReminderData} />;
       })}
     </ul>
   );
