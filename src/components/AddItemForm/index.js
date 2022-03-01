@@ -10,6 +10,12 @@ function AddItemForm() {
   
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+  
+  
+
+  const red = document.getElementById("red")
+  const yellow = document.getElementById("yellow")
+  const green = document.getElementById("green")
 
   let text = "";
   let time = 0;
@@ -194,7 +200,11 @@ function AddItemForm() {
                 id="red"
                 onClick={() => {
                   priority = "high";
-
+                  if(red && yellow && green){
+                  red.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                  green.style.boxShadow  = "none"
+                  yellow.style.boxShadow  = "none"
+                  }
                 }}
               ></button>
               <button
@@ -203,6 +213,10 @@ function AddItemForm() {
                 id="yellow"
                 onClick={() => {
                   priority = "medium";
+                  if(red && yellow && green){
+                  red.style.boxShadow  = "none"
+                  green.style.boxShadow  = "none"
+                  yellow.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"}
                 }}
               ></button>
               <button
@@ -211,6 +225,11 @@ function AddItemForm() {
                 id="green"
                 onClick={() => {
                   priority = "low";
+                  if(red && yellow && green){
+                  red.style.boxShadow  = "none"
+                  green.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                  yellow.style.boxShadow  = "none"
+                  }
                 }}
               ></button>
             </div>

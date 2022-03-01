@@ -29,7 +29,11 @@ const ToDoList = () => {
         <AddTodoListButton user_id={user_id} page={"Todos"} />
       </div>
       <ul className="ToDo" style={{ display: "block" }}>
-        {items.map((item) => (
+        {items.sort(function(a,b){
+          if(a.priority <b.priority){return -1}
+          if(a.priority >b.priority){return 1}
+          return 0
+        }).map((item) => (
           <ToDoListItem
             key={item.todo_id}
             item={item}
