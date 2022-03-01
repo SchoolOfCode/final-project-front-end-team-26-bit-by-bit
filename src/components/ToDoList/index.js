@@ -28,7 +28,7 @@ const ToDoList = () => {
         <h2>To Do List</h2>
         <AddTodoListButton user_id={user_id} page={"Todos"} />
       </div>
-      <ul className="ToDo" style={{ display: "block" }}>
+      <div className="ToDo" style={{ display: "block" }}>
         {items.map((item) => (
           <ToDoListItem
             key={item.todo_id}
@@ -40,7 +40,7 @@ const ToDoList = () => {
             date={item.date}
           />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
