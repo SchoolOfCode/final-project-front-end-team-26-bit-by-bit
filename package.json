@@ -22,7 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test-app": "react-scripts test ./app.test.js " 
+    "test-app": "react-scripts test ./app.test.js " ,
+    "test-header": "react-scripts test ./header.test.js" 
 
   },
   "eslintConfig": {
