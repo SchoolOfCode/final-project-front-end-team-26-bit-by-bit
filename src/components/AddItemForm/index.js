@@ -10,11 +10,15 @@ function AddItemForm() {
   
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+  const [text, setText] = useState('');
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
+  const [priority, setPriority] = useState('');
 
-  let text = "";
-  let time = 0;
-  let date = "2022/10/10";
-  let priority = "low"
+  // let text = "";
+  // let time = 0;
+  // let date = "2022/10/10";
+  // let priority = "low"
   
   //   function recurringCheck() {
   //     console.log("clicked");
@@ -27,8 +31,13 @@ function AddItemForm() {
   //   }
 
   function reminderClick() {
+    fetchPostRem();
+    setDate('');
+    setText('');
+    setTime('');
+  }
+    
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
-
     async function fetchPostRem() {
       let response = await fetch(
         `https://simple-room27.herokuapp.com/users/${user_id}/reminders`,
@@ -51,13 +60,17 @@ function AddItemForm() {
       let data = await response.json();
       console.log("post dp", data);
     }
-    fetchPostRem();
-  }
+    
 
   // user_id int,
 
 
   function todoClick() {
+    fetchPostTodos()
+      setText('');
+      setTime('');
+  }
+
     let todo_id = Math.floor(1000 + Math.random() * 9000);
     console.log(text, todo_id, priority, time, user_id)
     async function fetchPostTodos() {
@@ -81,8 +94,7 @@ function AddItemForm() {
         let data = await response.json();
         console.log("post dp", data);
       }
-      fetchPostTodos()
-  }
+      
       
   if (page === "Reminders") {
     return (
@@ -96,9 +108,9 @@ function AddItemForm() {
               required
               placeholder="Task name"
               onChange={(event) => {
-                text = event.target.value;
+                setText(event.target.value)
               }}
-            ></input>
+             value={text}></input>
           </div>
           <div className="InpToDo">
             <h3>Date</h3>
@@ -107,9 +119,9 @@ function AddItemForm() {
               placeholder="YYYY/MM/DD"
               type="date"
               onChange={(event) => {
-                date = event.target.value.split("/").reverse().join("/")
+               setDate(event.target.value)
               }}
-            ></input>
+            value={date}></input>
           </div>
           <div className="InpToDo">
             <h3>Time</h3>
@@ -122,13 +134,9 @@ function AddItemForm() {
                 // type="time"
                 placeholder="Time"
                 onChange={(event) => {
-                  //   let intTime = Number(
-                  //     String(event.target.value).substring(0, 2)
-                  //   );
-                  //   setTime(intTime);
-                  time = event.target.value;
+                 setTime(event.target.value)
                 }}
-              ></input>
+              value={time}></input>
               {/* 
               <button
                 type="button"
@@ -137,10 +145,13 @@ function AddItemForm() {
               ></button> */}
             </div>
           </div>
-        </form>
+          <div>
           <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
           </button>
+          </div>
+        </form>
+         
       </div>
     );
   } else if (page === "Todos") {
@@ -155,9 +166,9 @@ function AddItemForm() {
               required
               placeholder="Task name"
               onChange={(event) => {
-                text = event.target.value;
+                setText(event.target.value)
               }}
-            ></input>
+            value={text}></input>
           </div>
           <div className="InpToDo">
           <h3>Time</h3>
@@ -173,9 +184,9 @@ function AddItemForm() {
                   //     String(event.target.value).substring(0, 2)
                   //   );
                   //   setTime(intTime);
-                  time = event.target.value;
+                  setTime(event.target.value)
                 }}
-              ></input>
+              value={time}></input>
               {/* 
               <button
                 type="button"
@@ -190,8 +201,8 @@ function AddItemForm() {
                 className="urgency"
                 type="button"
                 id="red"
-                onClick={() => {
-                  priority = "high";
+                onClick={(e) => {
+                  setPriority(e.target.id)
 
                 }}
               ></button>
@@ -199,21 +210,21 @@ function AddItemForm() {
                 className="urgency"
                 type="button"
                 id="yellow"
-                onClick={() => {
-                  priority = "medium";
+                onClick={(e) => {
+                  setPriority(e.target.id)
                 }}
               ></button>
               <button
                 className="urgency"
                 type="button"
                 id="green"
-                onClick={() => {
-                  priority = "low";
+                onClick={(e) => {
+                  setPriority(e.target.id)
                 }}
               ></button>
             </div>
           </div>
-        </form>
+          <div>
           <button
             type="submit"
             className="submitForm"
@@ -221,6 +232,9 @@ function AddItemForm() {
           >
             Submit
           </button>
+          </div>
+        </form>
+          
       </div>
     );
   }
