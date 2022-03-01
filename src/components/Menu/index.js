@@ -25,19 +25,15 @@ const Menu = () =>{
         <div className="Menu">
         <div id="myNav" className="overlay">
 
-          <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
+          <a href="javascript:void(0)" className="closebtn" aria-label="close button" onClick={closeNav}>&times;</a>
         
  
           <div className="overlay-content">
             
-            <Link to="/profile">Profile</Link>
-            
-            
-            <Link to="/dashboard">Dashboard</Link>
-
-            <Link to="/customise">Customise</Link>
-            <Link to="/settings">Settings</Link>
-
+            <Link to="/profile" aria-label="profile">Profile</Link>
+            <Link to="/dashboard" aria-label="dashboard">Dashboard</Link>
+            <Link to="/customise" aria-label="customise">Customise</Link>
+            <Link to="/settings" aria-label="settings">Settings</Link>
 
             <SignOutButton/>
             
