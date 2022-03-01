@@ -6,9 +6,9 @@ import { Routes, Route } from "react-router-dom";
 import AddItemForm from "../AddItemForm";
 import Settings from "../Settings";
 import Customise from "../Customise";
-import { FaSkiingNordic } from "react-icons/fa";
-import PrivateRoute from "../private-route";
-import PublicRoute from "../public-route";
+// import { FaSkiingNordic } from "react-icons/fa";
+// import PrivateRoute from "../private-route";
+// import PublicRoute from "../public-route";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {

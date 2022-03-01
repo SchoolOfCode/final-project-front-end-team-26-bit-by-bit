@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Reminders from "../Reminders";
 import ToDoList from "../ToDoList";
 import Header from "../Header";
@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Dashboard = () => {
   //const{isAuthenticated}=useAuth0;
   const { user, isAuthenticated, isLoading } = useAuth0();
-
+console.log(user, isAuthenticated, isLoading)
  const url = "https://simple-room27.herokuapp.com/users"
 
  const user_id = user.sub.substring(14, 18);

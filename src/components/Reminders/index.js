@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ReminderItem from "../ReminderItem";
 import "./Reminders.css";
-import { FaCommentsDollar, FaPlus } from "react-icons/fa";
+// import { FaCommentsDollar, FaPlus } from "react-icons/fa";
 import ReminderData from "../ReminderData";
 import AddTodoListButton from "../AddButton";
 

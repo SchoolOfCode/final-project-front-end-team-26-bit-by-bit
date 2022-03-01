@@ -12,6 +12,7 @@ function AddItemForm({ user_id, url }) {
   let time = 0;
   let date = "2022/10/10";
 
+
   //   function recurringCheck() {
   //     console.log("clicked");
   //     const ratio = document.getElementsByClassName("recurringCheck")[0];
@@ -24,6 +25,7 @@ function AddItemForm({ user_id, url }) {
 
   function reminderClick() {
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
+    console.log(text, time, date)
     async function fetchPostUsers() {
       let response = await fetch(
         `https://simple-room27.herokuapp.com/users/1055/reminders`,
