@@ -1,47 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ToDoListItem from "../ToDoListItem";
 import { FaPlus } from "react-icons/fa";
-import AddTodoListButton from "../AddToDoListButton";
-const ToDoList = () => {
-  //const [items,setItems]=useState(["a","b","c","d"])
+import AddTodoListButton from "../AddButton";
+const ToDoList = ({ user_id, url }) => {
   const [items, setItems] = useState([]);
 
-  async function fetchTodos() {
-    let user_id = 1;
-    const data = await fetch(
-      `https://simple-room26.herokuapp.com/users/${user_id}/todo`
-    );
-    const response = await data.json();
-    console.log(response.payload);
-    return response.payload;
-  }
-
   useEffect(() => {
-    async function setTodo() {
-      let newArray = await fetchTodos();
-      setItems(newArray);
+    async function getTodo() {
+      let response = await fetch(
+        `https://simple-room27.herokuapp.com/users/${user_id}/todo`
+      );
+      let data = await response.json();
+      if (data.success) {
+        setItems(data.payload);
+      }
     }
-    setTodo();
-  }, []);
-
-  //   useEffect(() => {
-  //     //console.log("rd", reminderData);
-  //     //newArray = fetchReminders();
-  //   }, [items]);
+    getTodo();
+  }, [user_id, url]);
 
   return (
     <div className="Blue">
       <div className="header">
         <h2>To Do List</h2>
-        <AddTodoListButton setItems={setItems} items={items} />
+        <AddTodoListButton user_id={user_id} page={"Todos"} url={url} />
       </div>
       <ul className="ToDo" style={{ display: "block" }}>
-        {items.map((e) => (
+        {items.map((item, index) => (
           <ToDoListItem
-            key={e.text}
-            name={e.text}
-            items={items}
+            key={item.todo_id}
+            item={item}
             setItems={setItems}
+            items={items}
+            user_id={user_id}
+            todo_id={index}
+            time={item.time} 
+            date={item.date}
           />
         ))}
       </ul>

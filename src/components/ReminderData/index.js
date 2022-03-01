@@ -5,8 +5,8 @@ const ReminderData = ({ reminderData }) => {
   //   if (true) {
   return (
     <ul>
-      {reminderData.map((e) => {
-        return <ReminderItem key={e.text} name={e.text} />;
+      {reminderData.map((e, index) => {
+        return <ReminderItem key={index} index={index} name={e.text} time={e.time} date={e.date} />;
       })}
     </ul>
   );

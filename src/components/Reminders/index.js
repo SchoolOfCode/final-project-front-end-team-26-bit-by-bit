@@ -1,31 +1,29 @@
 import React, { useEffect, useState } from "react";
 import ReminderItem from "../ReminderItem";
 import "./Reminders.css";
-import { FaPlus } from "react-icons/fa";
+import { FaCommentsDollar, FaPlus } from "react-icons/fa";
 import ReminderData from "../ReminderData";
+import AddTodoListButton from "../AddButton";
 
-const Reminders = () => {
+const Reminders = ({ user_id, url}) => {
   const [reminderData, setReminderData] = useState([]);
 
-  async function fetchReminders() {
-    let user_id = 1;
-    const data = await fetch(
-      `https://simple-room26.herokuapp.com/users/${user_id}/reminders`
-    );
-    const response = await data.json();
-    //console.log(response.payload);
-    return response.payload;
-  }
-
-  //let newArray = fetchReminders();
-
   useEffect(() => {
+    async function fetchReminders() {
+      const response = await fetch(
+        `https://simple-room27.herokuapp.com/users/${user_id}/reminders`
+      );
+      const data = await response.json();
+      //console.log(response.payload);
+      return data.payload;
+    }
     async function setRem() {
       let newArray = await fetchReminders();
+      console.log(newArray);
       setReminderData(newArray);
     }
     setRem();
-  }, []);
+  }, [user_id, url]);
 
   useEffect(() => {
     //console.log("rd", reminderData);
@@ -36,9 +34,8 @@ const Reminders = () => {
     <div className="Blue">
       <div className="header">
         <h2>Reminder </h2>
-        <FaPlus className="AddButton" />
+        <AddTodoListButton user_id={user_id} url={url} page={"Reminders"} />
       </div>
-
       <ReminderData reminderData={reminderData} />
     </div>
   );

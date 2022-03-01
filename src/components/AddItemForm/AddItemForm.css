@@ -56,10 +56,10 @@ input{
 }
 
 
-.recurring{
+.time{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 4fr;
 
 }
 .recurringCheck{
