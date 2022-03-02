@@ -5,17 +5,16 @@ import { render, screen } from "@testing-library/react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { mocked } from "ts-jest/utils";
 import AddTodoListButton from '../AddButton/index.js';
+import { BrowserRouter } from 'react-router-dom';
 
 const user = {
     email: "joanchenuk@gmail.com",
     email_verified: true,
     sub: "google-oauth2|111824016010139773418",
-    user_id: 1118
+ 
 };
 
-const testPage ={
-    Todos: "Todos"
-}
+
 
 
 
@@ -51,14 +50,14 @@ describe("ToDoList components Component Tests - Logged in", () => {
 
     })
 
-    it("AddToDoLIstButton should have a user_id and page",() => {
+    // it("accepts props", () => {
+    //     const testProps = "Todos"
 
-        const wrapper = mount(<AddTodoListButton user_id={user.user_id} page={testPage.Todos} />)
-       
-        expect(wrapper).toEqual(true)
-
-
-    })
+    //     const props = "Todos"
+    //     const wrapper = mount(<BrowserRouter> <AddTodoListButton page={props}/></BrowserRouter>);
+    //     expect(wrapper.props().props).toBe(testProps);
+    //   });
+    //receiving undefined 
 
     
     

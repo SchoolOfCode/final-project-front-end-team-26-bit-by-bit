@@ -26,7 +26,7 @@ const ToDoList = () => {
     <div className="Blue">
       <div className="header">
         <h2 className="todo-header">To Do List</h2>
-        <AddTodoListButton user_id={user_id} page={"Todos"} />
+        <AddTodoListButton page={"Todos"} />
       </div>
     
       <ul className="ToDo" style={{ display: "block" }}>
