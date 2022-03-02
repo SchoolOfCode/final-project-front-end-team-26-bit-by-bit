@@ -1,7 +1,9 @@
 import React from 'react';
-import App from './index.js';
 import { shallow } from 'enzyme';
 import Header from './index.js';
+import Menu from "../Menu";
+import FormExitButton from "../FormExitButton";
+
 
 describe('<Header /> rendering', () => {
     it('render Header Component without crashing', () => {
@@ -16,13 +18,13 @@ describe('<Header /> rendering', () => {
 
 
     })
-//  it('render Menu Component without crashing', () => {
-//       //testing a single component without child components
-//         shallow(<Menu/>);
-//     })
-//     it('render FormExitButton Component without crashing', () => {
-//       //testing a single component without child components
-//         shallow(<FormExitButton/>);
-//     })
+ it('render Menu Component without crashing', () => {
+      //testing a single component without child components
+        shallow(<Menu/>);
+    })
+    it('render FormExitButton Component without crashing', () => {
+      //testing a single component without child components
+        shallow(<FormExitButton/>);
+    })
 })
     
