@@ -50,8 +50,7 @@ describe('<Dashboard /> rendering', () => {
     });
 });
     
-  
-  
+ 
   
   
   

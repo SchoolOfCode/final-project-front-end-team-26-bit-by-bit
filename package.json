@@ -30,7 +30,8 @@
     "test-reminders": "react-scripts test ./reminders.test.js",
     "test-profile": "react-scripts test ./profile.test.js",
     "test-profilepage": "react-scripts test ./profilepage.test.js",
-    "test-dashboard": "react-scripts test ./dashboard.test.js"
+    "test-dashboard": "react-scripts test ./dashboard.test.js",
+     "test-additemform": "react-scripts test ./additemform.test.js"
   },
   "eslintConfig": {
     "extends": [
