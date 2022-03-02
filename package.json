@@ -15,6 +15,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "ts-jest": "^27.1.3",
     "web-vitals": "^2.1.3"
   },
   "scripts": {
@@ -22,9 +23,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test-app": "react-scripts test ./app.test.js " ,
-    "test-header": "react-scripts test ./header.test.js" 
-
+    "test-app": "react-scripts test ./app.test.js ",
+    "test-header": "react-scripts test ./header.test.js",
+    "test-todolist": "react-scripts test ./todolist.test.js"
   },
   "eslintConfig": {
     "extends": [

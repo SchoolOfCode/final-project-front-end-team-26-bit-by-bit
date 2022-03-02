@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Header from './index.js';
 import Menu from "../Menu";
+import PanicButton from "../PanicButton/"
 import FormExitButton from "../FormExitButton";
 
 
@@ -25,6 +26,10 @@ describe('<Header /> rendering', () => {
     it('render FormExitButton Component without crashing', () => {
       //testing a single component without child components
         shallow(<FormExitButton/>);
+    })
+    it('render PanicButton Component without crashing', () => {
+      //testing a single component without child components
+        shallow(<PanicButton/>);
     })
 })
     
