@@ -26,9 +26,11 @@
     "test-app": "react-scripts test ./app.test.js ",
     "test-header": "react-scripts test ./header.test.js",
     "test-todolist": "react-scripts test ./todolist.test.js",
+    "test-addtodolistbutton": "react-scripts test ./addbutton.test.js",
     "test-reminders": "react-scripts test ./reminders.test.js",
     "test-profile": "react-scripts test ./profile.test.js",
-    "test-profilepage": "react-scripts test ./profilepage.test.js"
+    "test-profilepage": "react-scripts test ./profilepage.test.js",
+    "test-dashboard": "react-scripts test ./dashboard.test.js"
   },
   "eslintConfig": {
     "extends": [
