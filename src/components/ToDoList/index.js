@@ -28,6 +28,7 @@ const ToDoList = () => {
         <h2 className="todo-header">To Do List</h2>
         <AddTodoListButton user_id={user_id} page={"Todos"} />
       </div>
+    
       <ul className="ToDo" style={{ display: "block" }}>
         {items.map((item) => (
           <ToDoListItem
@@ -41,6 +42,7 @@ const ToDoList = () => {
           />
         ))}
       </ul>
+      
     </div>
   );
 };
