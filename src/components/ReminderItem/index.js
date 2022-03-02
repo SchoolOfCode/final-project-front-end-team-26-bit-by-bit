@@ -1,9 +1,9 @@
-import React, {useState} from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+// import { useAuth0 } from "@auth0/auth0-react";
 const ReminderItem = ({ name, date, time, reminder_id, reminderData, setReminderData }) => {
 
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+  // const { user } = useAuth0();
+  // const user_id = Number(user.sub.substring(14, 18))
 
   function handleClick(e) {
     e.target.style.backgroundColor = "#A3F596";
@@ -28,7 +28,7 @@ const ReminderItem = ({ name, date, time, reminder_id, reminderData, setReminder
   }
   return (
     <div className="item" onClick={handleClick}>
-      <h3>{name}, {date}, {time}</h3>
+      <h3>{name}</h3>
     </div>
   );
 };

@@ -23,13 +23,13 @@ const Reminders = () => {
       setReminderData(newArray);
     }
     setRem();
-  }, []);
+  });
 
   return (
     <div className="Blue">
       <div className="header">
         <h2>Reminder </h2>
-        <AddTodoListButton page={"Reminders"} />
+        <AddTodoListButton page={"/addrem"} />
       </div>
       <div>{reminderData.map((e, index) => <ReminderItem key={index} index={index} name={e.text} time={e.time} date={e.date} reminderData={reminderData} setReminderData={setReminderData} />)}</div>
     </div>

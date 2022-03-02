@@ -5,8 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const ToDoList = () => {
   const [items, setItems] = useState([]);
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const user_id = Number(user.sub.substring(14, 18))
+  const { user } = useAuth0();
+  const user_id = Number(user?.sub.substring(14, 18))
 
   useEffect(() => {
     async function getTodo() {
@@ -19,13 +19,13 @@ const ToDoList = () => {
       }
     }
     getTodo();
-  }, []);
+  });
 
   return (
     <div className="Blue">
       <div className="header">
         <h2>To Do List</h2>
-        <AddTodoListButton user_id={user_id} page={"Todos"} />
+        <AddTodoListButton user_id={user_id} page={"/addtodo"} />
       </div>
       {items.map((e)=>{
         if(e.priority ==="high"){
@@ -37,9 +37,9 @@ const ToDoList = () => {
         else{
           e.value = 0
         }
+        return console.log("sorted")
         
       })}
-      {console.log(items)}
       <ul className="ToDo" style={{ display: "block" }}>
         {items.sort(function(a,b){
           return b.value-a.value

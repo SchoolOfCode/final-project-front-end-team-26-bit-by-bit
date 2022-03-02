@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function AddTodoListButton({ page }) {
   return (
     <div className="AddItem">
-      <Link to="/add" className="addLink" state={page}>
+      <Link to={page} className="addLink" >
         <FaPlus className="AddButton" />
       </Link>
     </div>

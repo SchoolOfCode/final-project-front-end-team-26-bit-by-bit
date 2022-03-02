@@ -7,13 +7,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Dashboard = () => {
   
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
-  const [full_name, setFullName] = useState("");
+  const { user } = useAuth0();
+  const user_id  = useState(Number(user.sub.substring(14, 18)))
+  console.log(user.sub.substring(14, 18))
+
 
   useEffect(() => {
-    setUser_id(Number(user.sub.substring(14, 18)))
-    setFullName(user.name)
           async function fetchPostUsers() {
             let response = await fetch(
               `https://simple-room27.herokuapp.com/users`,
@@ -39,10 +38,7 @@ const Dashboard = () => {
           console.log("get data", data);
       }
       fetchGetUsers();
-  }
-  , [user_id, full_name, user.sub, user.name]
-
-  );
+  });
   return (
     <div className="Dashboard">
       <Header bool={"dashboard"} />
