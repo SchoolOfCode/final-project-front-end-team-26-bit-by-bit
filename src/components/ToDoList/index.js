@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ToDoListItem from "../ToDoListItem";
-// import { FaPlus } from "react-icons/fa";
 import AddTodoListButton from "../AddButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ToDoList = () => {
   const [items, setItems] = useState([]);
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+  const user_id = Number(user.sub.substring(14, 18))
 
   useEffect(() => {
     async function getTodo() {
@@ -20,7 +19,7 @@ const ToDoList = () => {
       }
     }
     getTodo();
-  }, [user_id]);
+  }, []);
 
   return (
     <div className="Blue">
@@ -28,11 +27,22 @@ const ToDoList = () => {
         <h2>To Do List</h2>
         <AddTodoListButton user_id={user_id} page={"Todos"} />
       </div>
+      {items.map((e)=>{
+        if(e.priority ==="high"){
+          e.value = 2
+        }
+        else if(e.priority ==="medium"){
+          e.value = 1
+        }
+        else{
+          e.value = 0
+        }
+        
+      })}
+      {console.log(items)}
       <ul className="ToDo" style={{ display: "block" }}>
         {items.sort(function(a,b){
-          if(a.priority <b.priority){return -1}
-          if(a.priority >b.priority){return 1}
-          return 0
+          return b.value-a.value
         }).map((item) => (
           <ToDoListItem
             key={item.todo_id}

@@ -22,9 +22,8 @@ function PanicButton() {
     return (
     <div className="PanicButton">
         <FaExclamationCircle id ="panic" onClick={()=>handleClick()} className="fa-regular fa-diamond-exclamation" ></FaExclamationCircle>
-        
     </div>
-  );
+  )
 }
 
 export default PanicButton;

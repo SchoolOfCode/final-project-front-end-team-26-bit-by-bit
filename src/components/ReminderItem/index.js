@@ -9,7 +9,7 @@ const ReminderItem = ({ name, date, time, reminder_id, reminderData, setReminder
     e.target.style.backgroundColor = "#A3F596";
     e.target.style.borderRadius = "20px";
     console.log(e.target.innerText); 
-    // this deletes if inner text is the same, can we delete by key?
+  
     function remove(f) {
       // async function deleteItem() {
       //   let response = await fetch(

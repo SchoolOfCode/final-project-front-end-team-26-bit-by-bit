@@ -4,13 +4,10 @@ import "./Profile.css"
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-
   if (isLoading) {
     return <div>Loading ...</div>;
   }
-
   return (
-    
     isAuthenticated && (
       <div className="profile">
         <img className="profilePic" src={user.picture} alt={user.name} />

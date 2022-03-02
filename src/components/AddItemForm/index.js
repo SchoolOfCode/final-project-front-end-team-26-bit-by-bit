@@ -9,7 +9,7 @@ function AddItemForm() {
   let page = location.state;
   
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+  const user_id = Number(user.sub.substring(14, 18))
   
   
 

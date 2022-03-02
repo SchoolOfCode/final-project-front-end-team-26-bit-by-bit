@@ -24,7 +24,6 @@ const Header = ({bool}) =>{
             </div>)
     }
     return(
-        
     <div className="Header">
         <Menu />
         <h1 className="Logo">Simple</h1>

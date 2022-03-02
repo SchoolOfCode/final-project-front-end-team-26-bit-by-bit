@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Reminders.css";
-// import { FaCommentsDollar, FaPlus } from "react-icons/fa";
-import ReminderData from "../ReminderData";
+import ReminderItem from "../ReminderItem";
 import AddTodoListButton from "../AddButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Reminders = () => {
   const [reminderData, setReminderData] = useState([]);
-
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+  const { user } = useAuth0();
+  const user_id = Number(user.sub.substring(14, 18))
 
   useEffect(() => {
     async function fetchReminders() {
@@ -17,7 +15,6 @@ const Reminders = () => {
         `https://simple-room27.herokuapp.com/users/${user_id}/reminders`
       );
       const data = await response.json();
-      //console.log(response.payload);
       return data.payload;
     }
     async function setRem() {
@@ -26,12 +23,7 @@ const Reminders = () => {
       setReminderData(newArray);
     }
     setRem();
-  }, [user_id]);
-
-  useEffect(() => {
-    //console.log("rd", reminderData);
-    //newArray = fetchReminders();
-  }, [reminderData]);
+  }, []);
 
   return (
     <div className="Blue">
@@ -39,7 +31,7 @@ const Reminders = () => {
         <h2>Reminder </h2>
         <AddTodoListButton page={"Reminders"} />
       </div>
-      <ReminderData reminderData={reminderData} setReminderData={setReminderData} />
+      <div>{reminderData.map((e, index) => <ReminderItem key={index} index={index} name={e.text} time={e.time} date={e.date} reminderData={reminderData} setReminderData={setReminderData} />)}</div>
     </div>
   );
 };

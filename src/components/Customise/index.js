@@ -2,10 +2,8 @@ import React from 'react';
 import './Customise.css';
 import Header from "../Header";
 
-
 function Customise() {
     function onClick(e){
-        console.log(e.target.style.backgroundColor)///// help me
         const ratio = e.target
         if (ratio.style.justifySelf !== "flex-end"){
             console.log("clicked1")

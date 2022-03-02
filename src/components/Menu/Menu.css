@@ -43,6 +43,7 @@
   top: 20px;
   right: 45px;
   font-size: 60px;
+  margin: 0px;
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
