@@ -1,11 +1,10 @@
 import React from 'react';
-import ToDoList from '../ToDoList/index.js';
-import { mount, shallow } from 'enzyme';
-import { render, screen } from "@testing-library/react";
+import { shallow } from 'enzyme';
 import { useAuth0 } from "@auth0/auth0-react";
 import { mocked } from "ts-jest/utils";
-import AddTodoListButton from '../AddButton/index.js';
-import { BrowserRouter } from 'react-router-dom';
+import Reminders from '.';
+
+
 
 const user = {
     email: "joanchenuk@gmail.com",
@@ -18,7 +17,7 @@ jest.mock("@auth0/auth0-react");
 
 const mockedUseAuth0 = mocked(useAuth0, true);
 
-describe("ToDoList components Component Tests - Logged in", () => {
+describe("Reminders components Component Tests - Logged in", () => {
     beforeEach(() => {
         mockedUseAuth0.mockReturnValue({
             isAuthenticated: true,
@@ -33,28 +32,17 @@ describe("ToDoList components Component Tests - Logged in", () => {
         });
     });
     test("Logout Button displays when logged in", () => {
-        shallow(<ToDoList/>);
+        shallow(<Reminders/>);
     });
 
     it("header should have a H2 tag",() => {
 
-        const wrapper = shallow(<ToDoList />)
-        const header = (<h2 className="todo-header">To Do List</h2>);
+        const wrapper = shallow(<Reminders />)
+        const header = (<h2 className="reminders-header">Reminder </h2>);
         expect(wrapper.contains(header)).toEqual(true)
 
 
     })
 
-    // it("accepts props", () => {
-    //     const testProps = "Todos"
-
-    //     const props = "Todos"
-    //     const wrapper = mount(<BrowserRouter> <AddTodoListButton page={props}/></BrowserRouter>);
-    //     expect(wrapper.props().props).toBe(testProps);
-    //   });
-    //receiving undefined 
-
-    
-    
+   
 });
-

@@ -1,24 +1,24 @@
 import React from 'react';
-import ToDoList from '../ToDoList/index.js';
-import { mount, shallow } from 'enzyme';
-import { render, screen } from "@testing-library/react";
+import { shallow } from 'enzyme';
 import { useAuth0 } from "@auth0/auth0-react";
 import { mocked } from "ts-jest/utils";
-import AddTodoListButton from '../AddButton/index.js';
-import { BrowserRouter } from 'react-router-dom';
+import Profile from '.';
+
+
 
 const user = {
     email: "joanchenuk@gmail.com",
     email_verified: true,
     sub: "google-oauth2|111824016010139773418",
- 
+    name: "test",
+    picture:"pic.img"
 };
 
 jest.mock("@auth0/auth0-react");
 
 const mockedUseAuth0 = mocked(useAuth0, true);
 
-describe("ToDoList components Component Tests - Logged in", () => {
+describe("Reminders components Component Tests - Logged in", () => {
     beforeEach(() => {
         mockedUseAuth0.mockReturnValue({
             isAuthenticated: true,
@@ -33,28 +33,18 @@ describe("ToDoList components Component Tests - Logged in", () => {
         });
     });
     test("Logout Button displays when logged in", () => {
-        shallow(<ToDoList/>);
+        shallow(<Profile/>);
     });
 
-    it("header should have a H2 tag",() => {
-
-        const wrapper = shallow(<ToDoList />)
-        const header = (<h2 className="todo-header">To Do List</h2>);
+    it("header should have a H1 and profile pictures tag",() => {
+        const wrapper = shallow(<Profile />)
+        const picture = (<img className="profilePic" src={user.picture} alt={user.name} />)
+        const header = (<h1 className="profileName">{user.name}</h1>);
         expect(wrapper.contains(header)).toEqual(true)
+        expect(wrapper.contains(picture)).toEqual(true)
 
 
     })
 
-    // it("accepts props", () => {
-    //     const testProps = "Todos"
-
-    //     const props = "Todos"
-    //     const wrapper = mount(<BrowserRouter> <AddTodoListButton page={props}/></BrowserRouter>);
-    //     expect(wrapper.props().props).toBe(testProps);
-    //   });
-    //receiving undefined 
-
-    
-    
+   
 });
-
