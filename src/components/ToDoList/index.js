@@ -19,7 +19,7 @@ const ToDoList = () => {
       }
     }
     getTodo();
-  });
+  },[user_id]);
 
   return (
     <div className="Blue">

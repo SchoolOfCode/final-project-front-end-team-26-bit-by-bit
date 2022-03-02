@@ -18,7 +18,7 @@ function AddRemForm() {
 
     async function fetchPostRem() {
       let response = await fetch(
-        `https://simple-room27.herokuapp.com/users/${user_id}/reminders`,
+        `https://simple-room26.herokuapp.com/users/${user_id}/reminders`,
         {
           method: "POST",
           headers: {

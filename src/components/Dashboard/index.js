@@ -11,7 +11,6 @@ const Dashboard = () => {
   const user_id  = useState(Number(user.sub.substring(14, 18)))
   console.log(user.sub.substring(14, 18))
 
-
   useEffect(() => {
           async function fetchPostUsers() {
             let response = await fetch(
@@ -38,7 +37,7 @@ const Dashboard = () => {
           console.log("get data", data);
       }
       fetchGetUsers();
-  });
+  },[user_id,user.name]);
   return (
     <div className="Dashboard">
       <Header bool={"dashboard"} />

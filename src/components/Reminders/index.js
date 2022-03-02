@@ -23,7 +23,7 @@ const Reminders = () => {
       setReminderData(newArray);
     }
     setRem();
-  });
+  },[user_id]);
 
   return (
     <div className="Blue">
