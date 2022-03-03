@@ -104,3 +104,22 @@ button:hover{
 input{
     box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
 }
+
+.true {
+    background-color: #A3F596;
+    align-self: center;
+    justify-self: center;
+    border-radius: 5%;
+    
+}
+
+.false {
+    background-color: #B9D5FF;
+    align-self: center;
+    justify-self: center;
+    border-radius: 5%;
+}
+
+.reoccuring {
+margin-left:150%;
+}
