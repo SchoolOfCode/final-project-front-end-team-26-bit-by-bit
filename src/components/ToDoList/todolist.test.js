@@ -18,6 +18,19 @@ jest.mock("@auth0/auth0-react");
 
 const mockedUseAuth0 = mocked(useAuth0, true);
 
+// const mockAddTodoListButton = jest.fn();
+// jest.mock("./TodoList", () => (props) => {
+//     mockAddTodoListButton(props);
+//   return <mockAddTodoListButton />;
+// });
+// test("If AddTodoListButton is passed  page and has data, Link is called with prop page", () => {
+//     render(<ToDoList />);
+//     expect(mockAddTodoListButton).objectContaining({
+//        page:"Todos",})
+  
+//   });
+
+
 describe("ToDoList components Component Tests - Logged in", () => {
     beforeEach(() => {
         mockedUseAuth0.mockReturnValue({
@@ -46,15 +59,22 @@ describe("ToDoList components Component Tests - Logged in", () => {
     })
 
     // it("accepts props", () => {
-    //     const testProps = "Todos"
-
-    //     const props = "Todos"
-    //     const wrapper = mount(<BrowserRouter> <AddTodoListButton page={props}/></BrowserRouter>);
-    //     expect(wrapper.props().props).toBe(testProps);
+    //     AddTodoListButton.propTypes = {
+    //         page: "",
+    //       };
+       
+    //     const wrapper = shallow(<AddTodoListButton page="todos"/>);
+    //     expect(wrapper.props().page).toEqual("todos");
     //   });
+
+      
     //receiving undefined 
 
     
     
 });
+
+
+
+
 

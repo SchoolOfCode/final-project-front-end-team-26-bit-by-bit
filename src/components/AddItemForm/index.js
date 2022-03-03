@@ -4,6 +4,7 @@ import Header from "../Header";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
+
 function AddItemForm() {
   const location = useLocation();
   let page = location.state;
@@ -68,7 +69,7 @@ function AddItemForm() {
   async function fetchPostRem() {
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room27.herokuapp.com/users/${user_id}/reminders`,
+      `https://simple-room26.herokuapp.com/users/${user_id}/reminders`,
       {
         method: "POST",
         headers: {
@@ -109,7 +110,7 @@ function AddItemForm() {
   async function fetchPostTodos() {
     let todo_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room27.herokuapp.com/users/${user_id}/todo`,
+      `https://simple-room26.herokuapp.com/users/${user_id}/todo`,
       {
         method: "POST",
         headers: {
@@ -141,7 +142,8 @@ function AddItemForm() {
     return (
       <div>
         <Header bool={"form"} />
-        <form className="BlueForm">
+        <Link to="/dashboard">
+        <form className="BlueForm" onSubmit={reminderClick} type="submit">
           <h2 className="TitleForm">Add Reminder</h2>
           <div className="InpToDo">
             <h3>Task Name</h3>
@@ -183,19 +185,25 @@ function AddItemForm() {
               ></input>
             </div>
           </div>
-        </form>
-        <Link to="/dashboard">
-          <button type="submit" className="submitForm" onClick={reminderClick}>
+          <div>
+          <button  className="submitForm" >
             Submit
           </button>
+          </div>
+        
+        </form>
         </Link>
+        
       </div>
     );
   } else if (page === "Todos") {
     return (
       <div>
         <Header bool={"form"} />
-        <form className="BlueForm">
+       
+<Link to="/dashboard">
+        <form className="BlueForm" type="submit"
+ onSubmit={todoClick}>
           <h2 className="TitleForm">Add To Do</h2>
 
           <div className="InpToDo">
@@ -309,13 +317,15 @@ function AddItemForm() {
                 }}
               ></button>
             </div>
-          </div>
-        </form>
-        <Link to="/dashboard">
-          <button type="submit" className="submitForm" onClick={todoClick}>
+            </div>
+          <div>
+          <button  className="submitForm">
             Submit
           </button>
+          </div>
+        </form>
         </Link>
+        
       </div>
     );
   }

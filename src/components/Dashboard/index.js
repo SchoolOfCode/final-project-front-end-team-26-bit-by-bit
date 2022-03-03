@@ -25,7 +25,7 @@ const [full_name, setFullName] = useState("");
     setFullName(user.name)
           async function fetchPostUsers() {
             let response = await fetch(
-              `https://simple-room27.herokuapp.com/users`,
+              `https://simple-room26.herokuapp.com/users`,
               {
                 method: "POST",
                 headers: {
@@ -42,7 +42,7 @@ const [full_name, setFullName] = useState("");
 
         async function fetchGetUsers() {
           let response = await fetch(
-            `https://simple-room27.herokuapp.com/users/${user_id}`,
+            `https://simple-room26.herokuapp.com/users/${user_id}`,
           );
           let data = await response.json();
           console.log("get data", data);
