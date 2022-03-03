@@ -36,8 +36,9 @@
       "test-formexitbutton": "react-scripts test ./FormExitButton.test.js",
         "test-goals": "react-scripts test ./goals.test.js",
        "test-PanicButton": "react-scripts test ./PanicButton.test.js",
-        "test-ReminderData": "react-scripts test ./ReminderData.test.js"
-
+        "test-ReminderData": "react-scripts test ./ReminderData.test.js",
+         "test-Settings": "react-scripts test ./Settings.test.js",
+          "test-SignInButton": "react-scripts test ./SignInButton.test.js"
   },
   "eslintConfig": {
     "extends": [
