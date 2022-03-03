@@ -1,20 +1,90 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Settings.css';
 import Header from "../Header";
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Settings() {
+    const { user, isAuthenticated, isLoading } = useAuth0();
+    const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+    //const [darkMode, setDarkMode] = useState(false)
+
+    async function fetchPutSettings(darkMode) {
+        let response = await fetch(
+          `https://simple-room27.herokuapp.com/users/${user_id}/settings`,
+          {
+            method: "PUT",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user_id: user_id,
+              setting_id: 1,
+              darkMode: darkMode
+            })
+          }
+        );
+        let data = await response.json();
+        console.log("post dp", data);
+      }
+
+      
+
+      useEffect(()=>{
+        async function fetchGetSettings() {
+            const response = await fetch(
+              `https://simple-room27.herokuapp.com/users/${user_id}/settings`
+            );
+            const data = await response.json();
+            console.log(data.payload)
+            return data.payload;
+          }
+          let data = fetchGetSettings()
+
+          async function fetchPostSettings(darkMode) {
+            let response = await fetch(
+              `https://simple-room27.herokuapp.com/users/${user_id}/settings`,
+              {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  user_id: user_id,
+                  setting_id: 1,
+                  darkMode: darkMode
+                })
+    
+              }
+            );
+            let data = await response.json();
+            console.log(data.payload)
+      }
+
+          if (data.length === 0) {
+
+    fetchPostSettings(false)
+          } else if (Object.keys(data[0]).contains("darkMode")) {
+            fetchPostSettings(data[0].darkMode)}
+    }, [user_id])
+
+
     function onClick(e){
+
         console.log(e.target.style.backgroundColor)///// help me
         const ratio = e.target
         if (ratio.style.justifySelf !== "flex-end"){
             console.log("clicked1")
             ratio.style.backgroundColor = "#A3F596"
             ratio.style.justifySelf="flex-end"
+            fetchPutSettings(true)
+            
         }else{
             console.log("clicked2")
             ratio.style.backgroundColor = "red"
             ratio.style.justifySelf="flex-start"
+            fetchPutSettings(false)
         }
     }
     return(
