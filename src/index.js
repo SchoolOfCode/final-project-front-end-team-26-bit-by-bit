@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter} from "react-router-dom"
-import { Auth0Provider } from "@auth0/auth0-react"
+import { Auth0Provider } from "@auth0/auth0-react";
+
 
 ReactDOM.render(
   <BrowserRouter>

@@ -9,22 +9,15 @@ function AddItemForm() {
   let page = location.state;
   
   const { user, isAuthenticated, isLoading } = useAuth0();
+
   const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
   const [isActive, setIsActive]  = useState(false);
 
 
-
-  let text = "";
-  let time = 0;
-  let date = "2022/10/10";
-  let priority = "low"
-  // let isMonday = false;
-  // let isTuesday = false;
-  // let isWednesday = false;
-  // let isThursday = false;
-  // let isFriday = false;
-  // let isSaturday = false;
-  // let isSunday = false;
+  const [text, setText] = useState('');
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
+  const [priority, setPriority] = useState('');
 
  const [isMonday, setIsMonday] = useState(false)
  const [isTuesday, setIsTuesday] = useState(false)
@@ -42,6 +35,7 @@ function AddItemForm() {
 function handleTuesday() {
   setIsTuesday(!isTuesday)
 }
+
   
   function handleWednesday() {
     setIsWednesday(!isWednesday)
@@ -74,8 +68,13 @@ function handleSunday() {
   //   }
 
   function reminderClick() {
+    fetchPostRem();
+    setDate('');
+    setText('');
+    setTime('');
+  }
+    
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
-
     async function fetchPostRem() {
       let response = await fetch(
         `https://simple-room27.herokuapp.com/users/${user_id}/reminders`,
@@ -98,13 +97,17 @@ function handleSunday() {
       let data = await response.json();
       console.log("post dp", data);
     }
-    fetchPostRem();
-  }
+    
 
   // user_id int,
 
 
   function todoClick() {
+    fetchPostTodos()
+      setText('');
+      setTime('');
+  }
+
     let todo_id = Math.floor(1000 + Math.random() * 9000);
 
     console.log(text, todo_id, priority, time, user_id)
@@ -136,8 +139,7 @@ function handleSunday() {
         let data = await response.json();
         console.log("post dp", data);
       }
-      fetchPostTodos()
-  }
+      
       
   if (page === "Reminders") {
     return (
@@ -151,9 +153,9 @@ function handleSunday() {
               required
               placeholder="Task name"
               onChange={(event) => {
-                text = event.target.value;
+                setText(event.target.value)
               }}
-            ></input>
+             value={text}></input>
           </div>
           <div className="InpToDo">
             <h3>Date</h3>
@@ -162,9 +164,9 @@ function handleSunday() {
               placeholder="YYYY/MM/DD"
               type="date"
               onChange={(event) => {
-                date = event.target.value.split("/").reverse().join("/")
+               setDate(event.target.value)
               }}
-            ></input>
+            value={date}></input>
           </div>
           <div className="InpToDo">
             <h3>Time</h3>
@@ -177,16 +179,12 @@ function handleSunday() {
                 // type="time"
                 placeholder="Time"
                 onChange={(event) => {
-                  //   let intTime = Number(
-                  //     String(event.target.value).substring(0, 2)
-                  //   );
-                  //   setTime(intTime);
-                  time = event.target.value;
+                 setTime(event.target.value)
                 }}
-              ></input>
+              value={time}></input>
             </div>
-          </div>
-        </form>
+          </di
+        <form>
         <Link to="/dashboard">
           <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
@@ -206,9 +204,9 @@ function handleSunday() {
               required
               placeholder="Task name"
               onChange={(event) => {
-                text = event.target.value;
+                setText(event.target.value)
               }}
-            ></input>
+            value={text}></input>
           </div>
           <div className="InpToDo">
           <h3>Time</h3>
@@ -224,9 +222,9 @@ function handleSunday() {
                   //     String(event.target.value).substring(0, 2)
                   //   );
                   //   setTime(intTime);
-                  time = event.target.value;
+                  setTime(event.target.value)
                 }}
-              ></input>
+              value={time}></input>
             </div>
 
             <div className="InpToDo">
@@ -252,8 +250,8 @@ function handleSunday() {
                 className="urgency"
                 type="button"
                 id="red"
-                onClick={() => {
-                  priority = "high";
+                onClick={(e) => {
+                  setPriority(e.target.id)
 
                 }}
               ></button>
@@ -261,16 +259,16 @@ function handleSunday() {
                 className="urgency"
                 type="button"
                 id="yellow"
-                onClick={() => {
-                  priority = "medium";
+                onClick={(e) => {
+                  setPriority(e.target.id)
                 }}
               ></button>
               <button
                 className="urgency"
                 type="button"
                 id="green"
-                onClick={() => {
-                  priority = "low";
+                onClick={(e) => {
+                  setPriority(e.target.id)
                 }}
               ></button>
             </div>
@@ -285,7 +283,9 @@ function handleSunday() {
           >
             Submit
           </button>
+
         </Link>
+
       </div>
     );
   }
