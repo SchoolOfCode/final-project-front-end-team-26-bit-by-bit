@@ -43,15 +43,16 @@ input{
     text-align: center;
 }
 .submitForm{
+    margin-top: 10px;
     width: 20%;
     height: 3rem;
     border-radius: 1.5rem;
     border: none;
     align-self: center;
     justify-self: center;
-    background-color:#B9D5FF;
+    background-color: #3C5E90;
     font-size: 1.5em;
-    color: #3C5E90;
+    color: #B9D5FF;
     
 }
 
