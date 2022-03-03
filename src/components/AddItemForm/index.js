@@ -232,46 +232,53 @@ function AddItemForm() {
 
           <div className="InpToDo">
             <h3>Reoccuring</h3>
+            <div className="urgencyDiv">
+              <button onClick={handleActive}>Choose day</button>
 
-            <button onClick={handleActive}>Choose day</button>
-
-            {isActive ? (
-              <div>
-                <button className={String(isMonday)} onClick={handleMonday}>
-                  {" "}
-                  Monday{" "}
-                </button>
-                <button className={String(isTuesday)} onClick={handleTuesday}>
-                  {" "}
-                  Tuesday{" "}
-                </button>
-                <button
-                  className={String(isWednesday)}
-                  onClick={handleWednesday}
-                >
-                  {" "}
-                  Wednesday{" "}
-                </button>
-                <button className={String(isThursday)} onClick={handleThursday}>
-                  {" "}
-                  Thursday{" "}
-                </button>
-                <button className={String(isFriday)} onClick={handleFriday}>
-                  {" "}
-                  Friday{" "}
-                </button>
-                <button className={String(isSaturday)} onClick={handleSaturday}>
-                  {" "}
-                  Saturday{" "}
-                </button>
-                <button className={String(isSunday)} onClick={handleSunday}>
-                  {" "}
-                  Sunday{" "}
-                </button>
-              </div>
-            ) : (
-              <div></div>
-            )}
+              {isActive ? (
+                <div>
+                  <button className={String(isMonday)} onClick={handleMonday}>
+                    {" "}
+                    Monday{" "}
+                  </button>
+                  <button className={String(isTuesday)} onClick={handleTuesday}>
+                    {" "}
+                    Tuesday{" "}
+                  </button>
+                  <button
+                    className={String(isWednesday)}
+                    onClick={handleWednesday}
+                  >
+                    {" "}
+                    Wednesday{" "}
+                  </button>
+                  <button
+                    className={String(isThursday)}
+                    onClick={handleThursday}
+                  >
+                    {" "}
+                    Thursday{" "}
+                  </button>
+                  <button className={String(isFriday)} onClick={handleFriday}>
+                    {" "}
+                    Friday{" "}
+                  </button>
+                  <button
+                    className={String(isSaturday)}
+                    onClick={handleSaturday}
+                  >
+                    {" "}
+                    Saturday{" "}
+                  </button>
+                  <button className={String(isSunday)} onClick={handleSunday}>
+                    {" "}
+                    Sunday{" "}
+                  </button>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
 
           <div className="InpToDo">
