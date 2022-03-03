@@ -32,7 +32,11 @@
     "test-profilepage": "react-scripts test ./profilepage.test.js",
     "test-dashboard": "react-scripts test ./dashboard.test.js",
      "test-additemform": "react-scripts test ./additemform.test.js",
-     "test-customise": "react-scripts test ./customise.test.js"
+     "test-customise": "react-scripts test ./customise.test.js",
+      "test-formexitbutton": "react-scripts test ./FormExitButton.test.js",
+        "test-goals": "react-scripts test ./goals.test.js",
+       "test-PanicButton": "react-scripts test ./PanicButton.test.js",
+        "test-ReminderData": "react-scripts test ./ReminderData.test.js"
 
   },
   "eslintConfig": {
