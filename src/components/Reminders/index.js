@@ -36,7 +36,7 @@ const Reminders = () => {
   return (
     <div className="Blue">
       <div className="header">
-        <h2>Reminder </h2>
+        <h2 className="reminders-header">Reminder </h2>
         <AddTodoListButton page={"Reminders"} />
       </div>
       <ReminderData reminderData={reminderData} setReminderData={setReminderData} />
