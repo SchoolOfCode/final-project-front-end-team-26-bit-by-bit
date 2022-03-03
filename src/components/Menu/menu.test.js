@@ -1,9 +1,8 @@
 import React from "react";
 import Menu from ".";
-import { render, getByText, screen, fireEvent } from "@testing-library/react";
-import Enzyme, { mount, shallow } from "enzyme";
-import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-Enzyme.configure({ adapter: new Adapter() });
+import  { mount, shallow } from "enzyme";
+
+
 
 /// attribute syntax ([href="foo"] href selector
 // const handleClick = jest.spyOn(React, "useState");

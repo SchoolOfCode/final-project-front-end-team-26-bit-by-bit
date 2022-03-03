@@ -183,8 +183,8 @@ function handleSunday() {
                 }}
               value={time}></input>
             </div>
-          </di
-        <form>
+          </div>
+        </form>
         <Link to="/dashboard">
           <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
