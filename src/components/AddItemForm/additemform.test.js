@@ -18,11 +18,6 @@ jest.mock("@auth0/auth0-react");
 
 const mockedUseAuth0 = mocked(useAuth0, true);
 
-
-
-
-
-
 describe("AddItemForm components Component Tests - Logged in", () => {
   beforeEach(() => {
       mockedUseAuth0.mockReturnValue({
