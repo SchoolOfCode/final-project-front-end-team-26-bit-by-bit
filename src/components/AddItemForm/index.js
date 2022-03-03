@@ -10,7 +10,7 @@ function AddItemForm() {
 
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
+  const [user_id, setUser_id] = useState(Number(user?.sub.substring(14, 18)));
   const [isActive, setIsActive] = useState(false);
 
   const [text, setText] = useState("");
@@ -184,7 +184,7 @@ function AddItemForm() {
             </div>
           </div>
         </form>
-        <Link to="/dashboard">
+        <Link to="/">
           <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
           </button>
@@ -311,7 +311,7 @@ function AddItemForm() {
             </div>
           </div>
         </form>
-        <Link to="/dashboard">
+        <Link to="/">
           <button type="submit" className="submitForm" onClick={todoClick}>
             Submit
           </button>

@@ -31,7 +31,7 @@ const Menu = () =>{
           <div className="overlay-content">
             
             <Link to="/profile" aria-label="profile">Profile</Link>
-            <Link to="/dashboard" aria-label="dashboard">Dashboard</Link>
+            <Link to="/" aria-label="dashboard">Dashboard</Link>
             <Link to="/customise" aria-label="customise">Customise</Link>
             <Link to="/settings" aria-label="settings">Settings</Link>
 
