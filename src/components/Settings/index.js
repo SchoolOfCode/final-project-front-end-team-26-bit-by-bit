@@ -39,7 +39,7 @@ function Settings() {
     }
     let data = fetchGetSettings();
 
-    async function fetchPostSettings(darkMode) {
+    async function fetchPostSettings(is_dark) {
       let response = await fetch(
         `https://simple-room27.herokuapp.com/users/${user_id}/settings`,
         {
@@ -51,7 +51,7 @@ function Settings() {
           body: JSON.stringify({
             user_id: user_id,
             setting_id: 1,
-            darkMode: is_dark,
+            is_dark: is_dark,
           }),
         }
       );
