@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ToDoListItem from "../ToDoListItem";
-// import { FaPlus } from "react-icons/fa";
+
 import AddTodoListButton from "../AddButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -99,8 +99,23 @@ const ToDoList = () => {
         </h2>
         <AddTodoListButton page={"Todos"} />
       </div>
-      <div className="ToDo" style={{ display: "block" }}>
-        {items.map((item) => (
+      {items.map((e)=>{
+        if(e.priority ==="high"){
+          e.value = 2
+        }
+        else if(e.priority ==="medium"){
+          e.value = 1
+        }
+        else{
+          e.value = 0
+        }
+        return console.log("sorted")
+        
+      })}
+      <ul className ="ToDo" style={{ display: "block" }}>
+        {items.sort(function(a,b){
+          return b.value-a.value
+        }).map((item) => (
           <ToDoListItem
             key={item.todo_id}
             item={item}
@@ -111,7 +126,8 @@ const ToDoList = () => {
             date={item.date}
           />
         ))}
-      </div>
+      </ul>
+      
     </div>
   );
 };
