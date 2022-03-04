@@ -135,7 +135,7 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Date</h3>
             <input
-              requihigh
+              required
               placeholder="YYYY/MM/DD"
               type="date"
               onChange={(event) => {
