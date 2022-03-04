@@ -194,7 +194,7 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Time</h3>
             <input
-              requihigh
+              required
               type="number"
               min="0"
               max="24"
