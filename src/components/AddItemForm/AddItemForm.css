@@ -19,7 +19,7 @@
     border-radius: 20px;
     margin-left: 5%;
     margin-right: 5%;
-    padding-bottom: 5%;
+    padding-bottom: 20px;
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
@@ -34,7 +34,7 @@
     border-radius: 20px;
     margin-left: 5%;
     margin-right: 5%;
-    padding-bottom: 5%;
+    padding-bottom: 20px;
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
@@ -65,7 +65,7 @@ input{
 }
 .submitForm{
     margin-top: 10px;
-    width: 20%;
+    width: 25%;
     height: 3rem;
     border-radius: 1.5rem;
     border: none;
@@ -128,43 +128,69 @@ input{
 
 .true {
     background-color: #A3F596;
-    /* align-self: center;
-    justify-self: center; */
-    width: 50%;
-    height: auto;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+
+    width: 80%;
+    border: 1px solid #3C5E90;
+    height: 1.5em;
+    border-radius: 20px;
+    color: #3C5E90;
+    margin-bottom: 1px;
+    margin-top: 1px;
+
     
 }
 
 .false {
     background-color: #B9D5FF;
-    /* align-self: center;
-    justify-self: center; */
-    width: 50%;
-    height: auto;
-}
 
+    width: 80%;
+    border: 1px solid #3C5E90;
+    height: 1.5em;
+    border-radius: 20px;
+    color: #3C5E90;
+    margin-bottom: 1px;
+    margin-top: 1px;
+
+}
+.doneButton{
+    background-color: #3C5E90;
+
+    width: 80%;
+    border: 1px solid #3C5E90;
+    height: 1.5em;
+    border-radius: 20px;
+    color: #B9D5FF;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
 .dateSection {
-    border-radius: 10%;
-    margin-top: 6%;
-    margin-bottom: 6%;
-    margin-right: 6%;
-    /* width: 100%; */
-    background-color: #B9D5FF;
+    
+    display: grid;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+
     height: auto;
 }
 
 .activeButton {
     background-color: #B9D5FF;
-    width: 60%;
-    height: auto;
+    width: 90%;
+    border: 1px solid #3C5E90;
+    height: 3em;
+    border-radius: 20px;
+    color: #3C5E90;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+
 }
 
 .buttonForm {
     height: auto;
-    background-color: #B9D5FF;
+    width: 100%;
     display: grid;
-    grid-template-columns: 150%;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin-left: 20%;
 
 }
