@@ -214,13 +214,7 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Reoccuring</h3>
             <div className="dateSection">
-              <button
-                type="button"
-                className="activeButton"
-                onClick={handleActive}
-              >
-                Choose day
-              </button>
+
 
               {isActive ? (
                 <div className="buttonForm">
@@ -229,6 +223,8 @@ function AddItemForm() {
                     className={String(isMonday)}
                     onClick={() => {
                       setIsMonday(!isMonday);
+                      
+                      
                     }}
                   >
                     {" "}
@@ -239,6 +235,7 @@ function AddItemForm() {
                     className={String(isTuesday)}
                     onClick={() => {
                       setIsTuesday(!isTuesday);
+                      
                     }}
                   >
                     {" "}
@@ -249,6 +246,7 @@ function AddItemForm() {
                     className={String(isWednesday)}
                     onClick={() => {
                       setIsWednesday(!isWednesday);
+                     
                     }}
                   >
                     {" "}
@@ -259,6 +257,7 @@ function AddItemForm() {
                     className={String(isThursday)}
                     onClick={() => {
                       setIsThursday(!isThursday);
+                      
                     }}
                   >
                     {" "}
@@ -269,6 +268,7 @@ function AddItemForm() {
                     className={String(isFriday)}
                     onClick={() => {
                       setIsFriday(!isFriday);
+                      
                     }}
                   >
                     {" "}
@@ -279,6 +279,7 @@ function AddItemForm() {
                     className={String(isSaturday)}
                     onClick={() => {
                       setIsSaturday(!isSaturday);
+                      
                     }}
                   >
                     {" "}
@@ -289,14 +290,28 @@ function AddItemForm() {
                     className={String(isSunday)}
                     onClick={() => {
                       setIsSunday(!isSunday);
+                      
                     }}
                   >
                     {" "}
                     Sunday{" "}
                   </button>
+                  <button
+                      type="button"
+                      className="doneButton"
+                      onClick={handleActive}
+                    >
+                    Done
+                  </button>
                 </div>
               ) : (
-                <></>
+                <button
+                type="button"
+                className="activeButton"
+                onClick={handleActive}
+              >
+                Choose day
+              </button>
               )}
             </div>
           </div>
