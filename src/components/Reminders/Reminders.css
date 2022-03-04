@@ -42,3 +42,11 @@ h2{
     justify-self: center;
     align-self: center;
 }
+
+.daybutton {
+    background-color: white;
+    color: #3C5E90;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-style: none;
+}
