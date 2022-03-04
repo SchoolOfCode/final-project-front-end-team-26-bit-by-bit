@@ -85,7 +85,7 @@ const ToDoList = () => {
           >
             {"<"}{" "}
           </button>
-          To Do List {day.substring(2)}
+          {day.substring(2)} To Do List
           <button
             type="button"
             className="daybutton"

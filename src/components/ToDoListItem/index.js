@@ -15,37 +15,38 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
       let ud = String(item.user_id);
       let td = String(item.todo_id);
       console.log(ud, td);
-      console.log(item);
+      console.log(item.time);
 
-    //   let response = await fetch(
-    //     `https://simple-room27.herokuapp.com/users/${ud}/todo/${td}`,
-    //     {
-    //       method: "PUT",
-    //       headers: {
-    //         Accept: "application/json",
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-    //         user_id: item.user_id,
-    //         todo_id: item.todo_id,
-    //         text: item.text,
-    //         priority: item.priority,
-    //         time: item.time,
-    //         ismonday: item.ismonday,
-    //         istuesday: item.istuesday,
-    //         iswednesday: item.iswednesday,
-    //         isthursday: item.isthursday,
-    //         isfriday: item.isfriday,
-    //         issaturday: item.issaturday,
-    //         issunday: item.issunday,
-    //         iscompleted: true,
-    //       }),
-    //     }
-    //   );
-    //   let data = await response.json();
-    //   console.log("post dp", data);
-    // }
-    // fetchPutTodos();
+      let response = await fetch(
+        `https://simple-room27.herokuapp.com/users/${ud}/todo/${td}`,
+        {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_id: item.user_id,
+            todo_id: item.todo_id,
+            text: item.text,
+            priority: item.priority,
+            time: item.time,
+            ismonday: item.ismonday,
+            istuesday: item.istuesday,
+            iswednesday: item.iswednesday,
+            isthursday: item.isthursday,
+            isfriday: item.isfriday,
+            issaturday: item.issaturday,
+            issunday: item.issunday,
+            iscompleted: true,
+            created: item.created,
+          }),
+        }
+      );
+      let data = await response.json();
+      console.log("put dp", data.payload);
+    }
+    fetchPutTodos();
 
     function remove(f) {
       setItems(
