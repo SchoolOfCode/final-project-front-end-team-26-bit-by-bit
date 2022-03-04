@@ -32,7 +32,7 @@ const ReminderItem = ({
             },
             body: JSON.stringify({
               user_id: item.user_id,
-              todo_id: item.reminder_id,
+              reminder_id: item.reminder_id,
               text: item.text,
               due_date: item.due_date,
               time: item.time,
