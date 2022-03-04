@@ -4,14 +4,13 @@ import Header from "../Header";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
-
 function AddItemForm() {
   const location = useLocation();
   let page = location.state;
 
   const { user, isAuthenticated, isLoading } = useAuth0();
 
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
+  const [user_id, setUser_id] = useState(Number(user?.sub.substring(14, 18)));
   const [isActive, setIsActive] = useState(false);
 
   const [text, setText] = useState("");
@@ -27,36 +26,13 @@ function AddItemForm() {
   const [isSaturday, setIsSaturday] = useState(false);
   const [isSunday, setIsSunday] = useState(false);
 
+  const red = document.getElementById("red")
+  const yellow = document.getElementById("yellow")
+  const green = document.getElementById("green")
   function handleActive() {
     setIsActive(!isActive);
   }
-  function handleMonday() {
-    setIsMonday(!isMonday);
-  }
 
-  function handleTuesday() {
-    setIsTuesday(!isTuesday);
-  }
-
-  function handleWednesday() {
-    setIsWednesday(!isWednesday);
-  }
-  //
-  function handleThursday() {
-    setIsThursday(!isThursday);
-  }
-  //
-  function handleFriday() {
-    setIsFriday(!isFriday);
-  }
-  //
-  function handleSaturday() {
-    setIsSaturday(!isSaturday);
-  }
-  //
-  function handleSunday() {
-    setIsSunday(!isSunday);
-  }
   //
 
   function reminderClick() {
@@ -69,7 +45,7 @@ function AddItemForm() {
   async function fetchPostRem() {
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room26.herokuapp.com/users/${user_id}/reminders`,
+      `https://simple-room27.herokuapp.com/users/${user_id}/reminders`,
       {
         method: "POST",
         headers: {
@@ -93,6 +69,7 @@ function AddItemForm() {
   // user_id int,
 
   function todoClick() {
+    console.log(text, time, priority, isCompleted, isMonday, user_id);
     fetchPostTodos();
     setText("");
     setTime("");
@@ -110,7 +87,7 @@ function AddItemForm() {
   async function fetchPostTodos() {
     let todo_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room26.herokuapp.com/users/${user_id}/todo`,
+      `https://simple-room27.herokuapp.com/users/${user_id}/todo`,
       {
         method: "POST",
         headers: {
@@ -123,13 +100,13 @@ function AddItemForm() {
           text: text,
           priority: priority,
           time: time,
-          isMonday: isMonday,
-          isTuesday: isTuesday,
-          isWednesday: isWednesday,
-          isThursday: isThursday,
-          isFriday: isFriday,
-          isSaturday: isSaturday,
-          isSunday: isSunday,
+          ismonday: isMonday,
+          istuesday: isTuesday,
+          iswednesday: isWednesday,
+          isthursday: isThursday,
+          isfriday: isFriday,
+          issaturday: isSaturday,
+          issunday: isSunday,
           iscompleted: isCompleted,
         }),
       }
@@ -142,8 +119,7 @@ function AddItemForm() {
     return (
       <div>
         <Header bool={"form"} />
-        <Link to="/dashboard">
-        <form className="BlueForm" onSubmit={reminderClick} type="submit">
+        <form className="BlueFormRem">
           <h2 className="TitleForm">Add Reminder</h2>
           <div className="InpToDo">
             <h3>Task Name</h3>
@@ -185,25 +161,19 @@ function AddItemForm() {
               ></input>
             </div>
           </div>
-          <div>
-          <button  className="submitForm" >
+        </form>
+        <Link to="/">
+          <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
           </button>
-          </div>
-        
-        </form>
         </Link>
-        
       </div>
     );
   } else if (page === "Todos") {
     return (
       <div>
         <Header bool={"form"} />
-       
-<Link to="/dashboard">
-        <form className="BlueForm" type="submit"
- onSubmit={todoClick}>
+        <form className="BlueForm">
           <h2 className="TitleForm">Add To Do</h2>
 
           <div className="InpToDo">
@@ -240,45 +210,84 @@ function AddItemForm() {
 
           <div className="InpToDo">
             <h3>Reoccuring</h3>
-            <div className="urgencyDiv">
-              <button onClick={handleActive}>Choose day</button>
+            <div className="dateSection">
+              <button
+                type="button"
+                className="activeButton"
+                onClick={handleActive}
+              >
+                Choose day
+              </button>
 
               {isActive ? (
-                <div>
-                  <button className={String(isMonday)} onClick={handleMonday}>
+                <div className="buttonForm">
+                  <button
+                    type="button"
+                    className={String(isMonday)}
+                    onClick={() => {
+                      setIsMonday(!isMonday);
+                    }}
+                  >
                     {" "}
                     Monday{" "}
                   </button>
-                  <button className={String(isTuesday)} onClick={handleTuesday}>
+                  <button
+                    type="button"
+                    className={String(isTuesday)}
+                    onClick={() => {
+                      setIsTuesday(!isTuesday);
+                    }}
+                  >
                     {" "}
                     Tuesday{" "}
                   </button>
                   <button
+                    type="button"
                     className={String(isWednesday)}
-                    onClick={handleWednesday}
+                    onClick={() => {
+                      setIsWednesday(!isWednesday);
+                    }}
                   >
                     {" "}
                     Wednesday{" "}
                   </button>
                   <button
+                    type="button"
                     className={String(isThursday)}
-                    onClick={handleThursday}
+                    onClick={() => {
+                      setIsThursday(!isThursday);
+                    }}
                   >
                     {" "}
                     Thursday{" "}
                   </button>
-                  <button className={String(isFriday)} onClick={handleFriday}>
+                  <button
+                    type="button"
+                    className={String(isFriday)}
+                    onClick={() => {
+                      setIsFriday(!isFriday);
+                    }}
+                  >
                     {" "}
                     Friday{" "}
                   </button>
                   <button
+                    type="button"
                     className={String(isSaturday)}
-                    onClick={handleSaturday}
+                    onClick={() => {
+                      setIsSaturday(!isSaturday);
+                    }}
                   >
                     {" "}
                     Saturday{" "}
                   </button>
-                  <button className={String(isSunday)} onClick={handleSunday}>
+                  <button
+                    type="button"
+                    className={String(isSunday)}
+                    onClick={() => {
+                      setIsSunday(!isSunday);
+                    }}
+                  >
                     {" "}
                     Sunday{" "}
                   </button>
@@ -298,6 +307,11 @@ function AddItemForm() {
                 id="red"
                 onClick={(e) => {
                   setPriority(e.target.id);
+                  if(red && yellow && green){
+                    red.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                    green.style.boxShadow  = "none"
+                    yellow.style.boxShadow  = "none"
+                  }
                 }}
               ></button>
               <button
@@ -306,7 +320,12 @@ function AddItemForm() {
                 id="yellow"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                }}
+                  if(red && yellow && green){
+                    red.style.boxShadow  = "none"
+                    green.style.boxShadow  = "none"
+                    yellow.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"}
+                  }
+                }
               ></button>
               <button
                 className="urgency"
@@ -314,18 +333,21 @@ function AddItemForm() {
                 id="green"
                 onClick={(e) => {
                   setPriority(e.target.id);
+                  if(red && yellow && green){
+                    red.style.boxShadow  = "none"
+                    green.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                    yellow.style.boxShadow  = "none"
+                  }
                 }}
               ></button>
             </div>
-            </div>
-          <div>
-          <button  className="submitForm">
-            Submit
-          </button>
           </div>
         </form>
+        <Link to="/">
+          <button type="submit" className="submitForm" onClick={todoClick}>
+            Submit
+          </button>
         </Link>
-        
       </div>
     );
   }

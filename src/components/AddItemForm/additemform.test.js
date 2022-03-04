@@ -46,7 +46,7 @@ it("call fn on click", ()=>{
       expect(handleClick).toHaveBeenCalled();
   })
 
-  it("call fn on onchange", ()=>{
+  it("call fn on onchange and test value type", ()=>{
     const handleChange = jest.fn()
     const wrapper = shallow(<input
       required
@@ -55,10 +55,11 @@ it("call fn on click", ()=>{
       value="text"
     ></input>);
     wrapper.simulate("change");
+    wrapper.find('input').simulate("change", { target: { value: "abc" }})
     expect(handleChange).toHaveBeenCalled();
 })
 
-it("call fn on change", ()=>{
+it("call fn on change and test the value type", ()=>{
   const handleChange = jest.fn()
   const wrapper = shallow(<input
     required
@@ -70,6 +71,7 @@ it("call fn on change", ()=>{
     value="time"
   ></input>);
   wrapper.simulate("change");
+  wrapper.find('input').simulate("change", { target: { value: 123 }})
   expect(handleChange).toHaveBeenCalled();
 })
   
