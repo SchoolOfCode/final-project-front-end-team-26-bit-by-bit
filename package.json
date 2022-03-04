@@ -7,10 +7,12 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "chart.js": "^3.7.1",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "nanoid": "^3.3.1",
     "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
@@ -31,6 +33,7 @@
     "test-profile": "react-scripts test ./profile.test.js",
     "test-profilepage": "react-scripts test ./profilepage.test.js",
     "test-dashboard": "react-scripts test ./dashboard.test.js",
+
      "test-additemform": "react-scripts test ./additemform.test.js",
      "test-customise": "react-scripts test ./customise.test.js",
       "test-formexitbutton": "react-scripts test ./FormExitButton.test.js",
@@ -39,6 +42,7 @@
         "test-ReminderData": "react-scripts test ./ReminderData.test.js",
          "test-Settings": "react-scripts test ./Settings.test.js",
           "test-SignInButton": "react-scripts test ./SignInButton.test.js"
+
   },
   "eslintConfig": {
     "extends": [

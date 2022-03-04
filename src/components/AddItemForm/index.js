@@ -161,12 +161,17 @@ function AddItemForm() {
               ></input>
             </div>
           </div>
-        </form>
-        <Link to="/">
+
+          <div>
+
           <button type="submit" className="submitForm" onClick={reminderClick}>
             Submit
           </button>
-        </Link>
+          </div>
+        </form>
+      
+        
+        
       </div>
     );
   } else if (page === "Todos") {
@@ -342,12 +347,16 @@ function AddItemForm() {
               ></button>
             </div>
           </div>
-        </form>
-        <Link to="/">
+
+          <div>
           <button type="submit" className="submitForm" onClick={todoClick}>
             Submit
           </button>
-        </Link>
+          </div>
+        </form>
+      
+         
+     
       </div>
     );
   }

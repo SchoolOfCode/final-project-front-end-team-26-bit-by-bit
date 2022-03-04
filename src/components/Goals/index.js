@@ -1,3 +1,5 @@
+
+import PieChart from "../PieChart"
 import "./Goals.css"
 
 const Goals= () => {
@@ -5,7 +7,8 @@ const Goals= () => {
     return(
         <div className="Goals">
         <h1>Goals</h1>
-
+        <PieChart/>
+        <PieChart/>
         </div>
     )
   }
