@@ -27,10 +27,25 @@ const ToDoListItem = ({ item, setItems, items }) => {
     setTimeout(() => remove(e), 1000);
   }
 
-  return (
-    <div className="item" onClick={handleClick}>
-      <h3>{item.text}</h3>
-    </div>
-  );
-};
+  if(item.priority ==="high"){
+    return (
+      <div className="item-high" onClick={handleClick}>
+        <h3>{item.text}</h3>
+      </div>
+    );
+    }else if(item.priority ==="medium"){
+      return (
+        <div className="item-medium" onClick={handleClick}>
+          <h3>{item.text}</h3>
+        </div>
+      );
+    }
+    else{
+      return (
+        <div className="item-low" onClick={handleClick}>
+          <h3>{item.text}</h3>
+        </div>
+      );
+    }
+  };
 export default ToDoListItem;

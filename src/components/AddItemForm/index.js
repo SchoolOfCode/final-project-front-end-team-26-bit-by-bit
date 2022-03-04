@@ -26,6 +26,9 @@ function AddItemForm() {
   const [isSaturday, setIsSaturday] = useState(false);
   const [isSunday, setIsSunday] = useState(false);
 
+  const red = document.getElementById("red")
+  const yellow = document.getElementById("yellow")
+  const green = document.getElementById("green")
   function handleActive() {
     setIsActive(!isActive);
   }
@@ -290,6 +293,11 @@ function AddItemForm() {
                 id="red"
                 onClick={(e) => {
                   setPriority(e.target.id);
+                  if(red && yellow && green){
+                    red.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                    green.style.boxShadow  = "none"
+                    yellow.style.boxShadow  = "none"
+                  }
                 }}
               ></button>
               <button
@@ -298,7 +306,12 @@ function AddItemForm() {
                 id="yellow"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                }}
+                  if(red && yellow && green){
+                    red.style.boxShadow  = "none"
+                    green.style.boxShadow  = "none"
+                    yellow.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"}
+                  }
+                }
               ></button>
               <button
                 className="urgency"
@@ -306,6 +319,11 @@ function AddItemForm() {
                 id="green"
                 onClick={(e) => {
                   setPriority(e.target.id);
+                  if(red && yellow && green){
+                    red.style.boxShadow  = "none"
+                    green.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                    yellow.style.boxShadow  = "none"
+                  }
                 }}
               ></button>
             </div>

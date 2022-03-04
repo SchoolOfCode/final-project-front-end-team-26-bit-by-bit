@@ -21,7 +21,7 @@
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr auto 1fr;
     row-gap: 20px;
 }
 .TitleForm{
