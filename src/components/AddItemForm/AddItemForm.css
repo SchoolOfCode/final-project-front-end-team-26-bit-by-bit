@@ -113,13 +113,13 @@ button:hover{
     grid-template-rows: 1fr;
     
 }
-#red{
+#high{
     background-color: red;
 }
-#yellow{
+#medium{
     background-color: #FFD159;
 }
-#green{
+#low{
     background-color: #A3F596;
 }
 input{

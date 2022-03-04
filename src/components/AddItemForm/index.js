@@ -26,9 +26,9 @@ function AddItemForm() {
   const [isSaturday, setIsSaturday] = useState(false);
   const [isSunday, setIsSunday] = useState(false);
 
-  const red = document.getElementById("red")
-  const yellow = document.getElementById("yellow")
-  const green = document.getElementById("green")
+  const high = document.getElementById("high")
+  const medium = document.getElementById("medium")
+  const low = document.getElementById("low")
   function handleActive() {
     setIsActive(!isActive);
   }
@@ -135,7 +135,7 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Date</h3>
             <input
-              required
+              requihigh
               placeholder="YYYY/MM/DD"
               type="date"
               onChange={(event) => {
@@ -194,7 +194,7 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Time</h3>
             <input
-              required
+              requihigh
               type="number"
               min="0"
               max="24"
@@ -307,39 +307,39 @@ function AddItemForm() {
               <button
                 className="urgency"
                 type="button"
-                id="red"
+                id="high"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                  if(red && yellow && green){
-                    red.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
-                    green.style.boxShadow  = "none"
-                    yellow.style.boxShadow  = "none"
+                  if(high && medium && low){
+                    high.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                    low.style.boxShadow  = "none"
+                    medium.style.boxShadow  = "none"
                   }
                 }}
               ></button>
               <button
                 className="urgency"
                 type="button"
-                id="yellow"
+                id="medium"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                  if(red && yellow && green){
-                    red.style.boxShadow  = "none"
-                    green.style.boxShadow  = "none"
-                    yellow.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"}
+                  if(high && medium && low){
+                    high.style.boxShadow  = "none"
+                    low.style.boxShadow  = "none"
+                    medium.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"}
                   }
                 }
               ></button>
               <button
                 className="urgency"
                 type="button"
-                id="green"
+                id="low"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                  if(red && yellow && green){
-                    red.style.boxShadow  = "none"
-                    green.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
-                    yellow.style.boxShadow  = "none"
+                  if(high && medium && low){
+                    high.style.boxShadow  = "none"
+                    low.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
+                    medium.style.boxShadow  = "none"
                   }
                 }}
               ></button>
