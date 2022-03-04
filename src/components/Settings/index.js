@@ -7,26 +7,11 @@ function Settings() {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
   const [is_dark, setIs_Dark] = useState(false);
+  const [settingsData, setSettingsData] = useState({});
+  const [bool, setBool] = useState(false);
 
-  async function fetchPutSettings() {
-    let response = await fetch(
-      `https://simple-room27.herokuapp.com/users/${user_id}/settings`,
-      {
-        method: "PUT",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: user_id,
-          setting_id: 1,
-          is_dark: is_dark,
-        }),
-      }
-    );
-    let data = await response.json();
-    console.log("post dp", data);
-  }
+  // let randNum = Math.floor(1000 + Math.random() * 9000);
+  // const [settings_id, setSettings_id] = useState(randNum);
 
   useEffect(() => {
     async function fetchGetSettings() {
@@ -37,21 +22,46 @@ function Settings() {
       console.log(data.payload);
       return data.payload;
     }
-    let data = fetchGetSettings();
+    let getData = fetchGetSettings();
+    if (getData.length === 0) {
+      async function fetchPostSettings() {
+        let response = await fetch(
+          `https://simple-room27.herokuapp.com/users/${user_id}/settings`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user_id: user_id,
+              settings_id: 1,
+              is_dark: false,
+            }),
+          }
+        );
+        let data = await response.json();
+        console.log(data.payload);
+        //return data.payload[0];
+      }
+      fetchPostSettings();
+    }
+  }, [user_id]);
 
-    async function fetchPostSettings(is_dark) {
+  function onClick(e) {
+    async function fetchPutSettings() {
       let response = await fetch(
-        `https://simple-room27.herokuapp.com/users/${user_id}/settings`,
+        `https://simple-room27.herokuapp.com/users/${user_id}/settings/1`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
             user_id: user_id,
-            setting_id: 1,
-            is_dark: is_dark,
+            settings_id: 1,
+            is_dark: bool,
           }),
         }
       );
@@ -59,26 +69,20 @@ function Settings() {
       console.log(data.payload);
     }
 
-    if (data.length === 0) {
-      fetchPostSettings(false);
-    } else if (Object.keys(data[0]).contains("darkMode")) {
-      fetchPostSettings(data[0].is_dark);
-    }
-  }, [user_id, is_dark]);
-
-  function onClick(e) {
     console.log(e.target.style.backgroundColor); ///// help me
     const ratio = e.target;
     if (ratio.style.justifySelf !== "flex-end") {
       console.log("clicked1");
       ratio.style.backgroundColor = "#A3F596";
       ratio.style.justifySelf = "flex-end";
-      fetchPutSettings(true);
+      setBool(true);
+      fetchPutSettings();
     } else {
       console.log("clicked2");
       ratio.style.backgroundColor = "red";
       ratio.style.justifySelf = "flex-start";
-      fetchPutSettings(false);
+      setBool(false);
+      fetchPutSettings();
     }
   }
   return (
