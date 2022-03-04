@@ -19,10 +19,12 @@ function Settings() {
         `https://simple-room27.herokuapp.com/users/${user_id}/settings`
       );
       const data = await response.json();
-      console.log(data.payload);
+      console.log("get data payload", data.payload);
+      setBool(data.payload[4].is_dark);
       return data.payload;
     }
     let getData = fetchGetSettings();
+
     if (getData.length === 0) {
       async function fetchPostSettings() {
         let response = await fetch(
@@ -41,7 +43,7 @@ function Settings() {
           }
         );
         let data = await response.json();
-        console.log(data.payload);
+        console.log("post data payload", data.payload);
         //return data.payload[0];
       }
       fetchPostSettings();
@@ -49,7 +51,7 @@ function Settings() {
   }, [user_id]);
 
   function onClick(e) {
-    async function fetchPutSettings() {
+    async function fetchPutSettings(bool) {
       let response = await fetch(
         `https://simple-room27.herokuapp.com/users/${user_id}/settings/1`,
         {
@@ -66,23 +68,18 @@ function Settings() {
         }
       );
       let data = await response.json();
-      console.log(data.payload);
+      console.log("put data payload", data.payload);
     }
 
-    console.log(e.target.style.backgroundColor); ///// help me
-    const ratio = e.target;
-    if (ratio.style.justifySelf !== "flex-end") {
+    if (bool === false) {
       console.log("clicked1");
-      ratio.style.backgroundColor = "#A3F596";
-      ratio.style.justifySelf = "flex-end";
       setBool(true);
-      fetchPutSettings();
+      fetchPutSettings(true);
     } else {
       console.log("clicked2");
-      ratio.style.backgroundColor = "red";
-      ratio.style.justifySelf = "flex-start";
+
       setBool(false);
-      fetchPutSettings();
+      fetchPutSettings(false);
     }
   }
   return (
@@ -93,7 +90,11 @@ function Settings() {
         <div className="InpToDo">
           <h3>Dark Mode</h3>
           <div className="Switch">
-            <button id="0" className="Buttonswitch" onClick={onClick}></button>
+            <button
+              id={String(bool)}
+              className="Buttonswitch"
+              onClick={onClick}
+            ></button>
           </div>
         </div>
         <div className="InpToDo">
