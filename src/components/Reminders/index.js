@@ -23,15 +23,20 @@ const Reminders = () => {
     async function setRem() {
       let newArray = await fetchReminders();
       console.log(newArray);
-      setReminderData(newArray);
+
+      let filteredcomplete = newArray.filter((item) => {
+        return item.iscompleted === false;
+      });
+
+      setReminderData(filteredcomplete);
     }
     setRem();
-  }, [user_id]);
+  }, [user_id, reminderData]);
 
-  useEffect(() => {
-    //console.log("rd", reminderData);
-    //newArray = fetchReminders();
-  }, [reminderData]);
+  // useEffect(() => {
+  //   //console.log("rd", reminderData);
+  //   //newArray = fetchReminders();
+  // }, [reminderData]);
 
   return (
     <div className="Blue">

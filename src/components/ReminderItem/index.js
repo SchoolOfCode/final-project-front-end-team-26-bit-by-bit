@@ -23,7 +23,7 @@ const ReminderItem = ({
         let rid = String(item.reminder_id);
 
         let response = await fetch(
-          `https://simple-room27.herokuapp.com/users/${uid}/todo/${rid}`,
+          `https://simple-room27.herokuapp.com/users/${uid}/reminders/${rid}`,
           {
             method: "PUT",
             headers: {
@@ -32,7 +32,7 @@ const ReminderItem = ({
             },
             body: JSON.stringify({
               user_id: item.user_id,
-              todo_id: item.reminder_id,
+              reminder_id: item.reminder_id,
               text: item.text,
               due_date: item.due_date,
               time: item.time,
