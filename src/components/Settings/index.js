@@ -20,7 +20,11 @@ function Settings() {
       );
       const data = await response.json();
       console.log("get data payload", data.payload);
-      setBool(data.payload[4].is_dark);
+      if (data.payload.length > 0) {
+        setBool(data.payload[0].is_dark);
+      } else {
+        setBool(false);
+      }
       return data.payload;
     }
     let getData = fetchGetSettings();

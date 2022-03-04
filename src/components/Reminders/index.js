@@ -31,7 +31,7 @@ const Reminders = () => {
       setReminderData(filteredcomplete);
     }
     setRem();
-  }, [user_id, reminderData]);
+  }, [user_id]);
 
   // useEffect(() => {
   //   //console.log("rd", reminderData);

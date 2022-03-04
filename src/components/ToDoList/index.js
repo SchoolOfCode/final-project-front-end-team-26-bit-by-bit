@@ -48,7 +48,7 @@ const ToDoList = () => {
       }
     }
     getTodo();
-  }, [user_id, day, items]);
+  }, [user_id, day]);
 
   function changeDay(letter) {
     if (letter === "<") {
