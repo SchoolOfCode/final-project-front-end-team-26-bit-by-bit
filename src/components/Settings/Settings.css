@@ -24,3 +24,28 @@
     transition: all 1s ease-in;
 }
 
+#true  {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    border:none;
+    align-self: center;
+    justify-self: center;
+    background-color: #A3F596;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    justify-self: flex-end;
+    transition: all 1s ease-in;
+}
+
+#false {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    border:none;
+    align-self: center;
+    justify-self: center;
+    background-color: red;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    justify-self: flex-start;
+    transition: all 1s ease-in;
+}

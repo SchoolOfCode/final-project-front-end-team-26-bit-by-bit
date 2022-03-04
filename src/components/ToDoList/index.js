@@ -35,10 +35,10 @@ const ToDoList = () => {
         let filteredday = data.payload.filter((item) => {
           return item[day] === true;
         });
-        let filteredcomplete = filteredday.filter((item) => {
-          return item.iscompleted === false;
-        });
-        setItems(filteredcomplete);
+        // let filteredcomplete = filteredday.filter((item) => {
+        //   return item.iscompleted === false;
+        // });
+        setItems(filteredday);
         // let day = getDay();
         // setItems(
         //   items.filter((item) => {
@@ -99,35 +99,33 @@ const ToDoList = () => {
         </h2>
         <AddTodoListButton page={"Todos"} />
       </div>
-      {items.map((e)=>{
-        if(e.priority ==="high"){
-          e.value = 2
+      {items.map((e) => {
+        if (e.priority === "high") {
+          e.value = 2;
+        } else if (e.priority === "medium") {
+          e.value = 1;
+        } else {
+          e.value = 0;
         }
-        else if(e.priority ==="medium"){
-          e.value = 1
-        }
-        else{
-          e.value = 0
-        }
-        return console.log("sorted")
-        
+        return console.log("sorted");
       })}
-      <ul className ="ToDo" style={{ display: "block" }}>
-        {items.sort(function(a,b){
-          return b.value-a.value
-        }).map((item) => (
-          <ToDoListItem
-            key={item.todo_id}
-            item={item}
-            setItems={setItems}
-            items={items}
-            todo_id={item.todo_id}
-            time={item.time}
-            date={item.date}
-          />
-        ))}
+      <ul className="ToDo" style={{ display: "block" }}>
+        {items
+          .sort(function (a, b) {
+            return b.value - a.value;
+          })
+          .map((item) => (
+            <ToDoListItem
+              key={item.todo_id}
+              item={item}
+              setItems={setItems}
+              items={items}
+              todo_id={item.todo_id}
+              time={item.time}
+              date={item.date}
+            />
+          ))}
       </ul>
-      
     </div>
   );
 };
