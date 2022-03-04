@@ -23,7 +23,7 @@ const ReminderItem = ({
         let rid = String(item.reminder_id);
 
         let response = await fetch(
-          `https://simple-room27.herokuapp.com/users/${uid}/todo/${rid}`,
+          `https://simple-room27.herokuapp.com/users/${uid}/reminders/${rid}`,
           {
             method: "PUT",
             headers: {
