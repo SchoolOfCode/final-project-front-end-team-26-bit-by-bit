@@ -1,28 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const ToDoListItem = ({ item, setItems, items }) => {
+const ToDoListItem = ({ item, items, setItems, todo_id }) => {
+  // const { user, isAuthenticated, isLoading } = useAuth0();
+  // const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
   function handleClick(e) {
     e.target.style.backgroundColor = "#A3F596";
     e.target.style.borderRadius = "20px";
     console.log(e.target.innerText);
-    // this deletes if inner text is the same, can we delete by key?
+    console.log(item);
+    console.log(item.user_id, item.todo_id);
+
+    async function fetchPutTodos() {
+      let ud = String(item.user_id);
+      let td = String(item.todo_id);
+      console.log(ud, td);
+      console.log(item.time);
+
+      let response = await fetch(
+        `https://simple-room27.herokuapp.com/users/${ud}/todo/${td}`,
+        {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_id: item.user_id,
+            todo_id: item.todo_id,
+            text: item.text,
+            priority: item.priority,
+            time: item.time,
+            ismonday: item.ismonday,
+            istuesday: item.istuesday,
+            iswednesday: item.iswednesday,
+            isthursday: item.isthursday,
+            isfriday: item.isfriday,
+            issaturday: item.issaturday,
+            issunday: item.issunday,
+            iscompleted: true,
+            created: item.created,
+          }),
+        }
+      );
+      let data = await response.json();
+      console.log("put dp", data.payload);
+    }
+    fetchPutTodos();
+
     function remove(f) {
-      // async function deleteItem() {
-      //   let response = await fetch(
-      //     `https://simple-room27.herokuapp.com/users/${user_id}/todo/${todo_id}`,
-      //     {
-      //       method: "DELETE",
-      //       // headers: {
-      //       //   Accept: "application/json",
-      //       //   "Content-Type": "application/json",
-      //       // }
-      //     }
-      //   );
-      //   let data = await response.json();
-      //   console.log("post dp", data.payload);
-      // }
-      // deleteItem();
-      setItems(items.filter((e) => e.text !== f.target.innerText));
+      setItems(
+        items.filter((item) => {
+          return todo_id !== item.todo_id;
+        })
+      );
     }
     setTimeout(() => remove(e), 1000);
   }

@@ -9,7 +9,7 @@ const Reminders = () => {
   const [reminderData, setReminderData] = useState([]);
 
   const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)))
+  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
 
   useEffect(() => {
     async function fetchReminders() {
@@ -39,7 +39,10 @@ const Reminders = () => {
         <h2 className="reminders-header">Reminder </h2>
         <AddTodoListButton page={"Reminders"} />
       </div>
-      <ReminderData reminderData={reminderData} setReminderData={setReminderData} />
+      <ReminderData
+        reminderData={reminderData}
+        setReminderData={setReminderData}
+      />
     </div>
   );
 };

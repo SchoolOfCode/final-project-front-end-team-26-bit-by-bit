@@ -32,33 +32,7 @@ function AddItemForm() {
   function handleActive() {
     setIsActive(!isActive);
   }
-  function handleMonday() {
-    setIsMonday(!isMonday);
-  }
 
-  function handleTuesday() {
-    setIsTuesday(!isTuesday);
-  }
-
-  function handleWednesday() {
-    setIsWednesday(!isWednesday);
-  }
-  //
-  function handleThursday() {
-    setIsThursday(!isThursday);
-  }
-  //
-  function handleFriday() {
-    setIsFriday(!isFriday);
-  }
-  //
-  function handleSaturday() {
-    setIsSaturday(!isSaturday);
-  }
-  //
-  function handleSunday() {
-    setIsSunday(!isSunday);
-  }
   //
 
   function reminderClick() {
@@ -95,6 +69,7 @@ function AddItemForm() {
   // user_id int,
 
   function todoClick() {
+    console.log(text, time, priority, isCompleted, isMonday, user_id);
     fetchPostTodos();
     setText("");
     setTime("");
@@ -125,13 +100,13 @@ function AddItemForm() {
           text: text,
           priority: priority,
           time: time,
-          isMonday: isMonday,
-          isTuesday: isTuesday,
-          isWednesday: isWednesday,
-          isThursday: isThursday,
-          isFriday: isFriday,
-          isSaturday: isSaturday,
-          isSunday: isSunday,
+          ismonday: isMonday,
+          istuesday: isTuesday,
+          iswednesday: isWednesday,
+          isthursday: isThursday,
+          isfriday: isFriday,
+          issaturday: isSaturday,
+          issunday: isSunday,
           iscompleted: isCompleted,
         }),
       }
@@ -144,7 +119,7 @@ function AddItemForm() {
     return (
       <div>
         <Header bool={"form"} />
-        <form className="BlueForm">
+        <form className="BlueFormRem">
           <h2 className="TitleForm">Add Reminder</h2>
           <div className="InpToDo">
             <h3>Task Name</h3>
@@ -235,45 +210,84 @@ function AddItemForm() {
 
           <div className="InpToDo">
             <h3>Reoccuring</h3>
-            <div className="urgencyDiv">
-              <button onClick={handleActive}>Choose day</button>
+            <div className="dateSection">
+              <button
+                type="button"
+                className="activeButton"
+                onClick={handleActive}
+              >
+                Choose day
+              </button>
 
               {isActive ? (
-                <div>
-                  <button className={String(isMonday)} onClick={handleMonday}>
+                <div className="buttonForm">
+                  <button
+                    type="button"
+                    className={String(isMonday)}
+                    onClick={() => {
+                      setIsMonday(!isMonday);
+                    }}
+                  >
                     {" "}
                     Monday{" "}
                   </button>
-                  <button className={String(isTuesday)} onClick={handleTuesday}>
+                  <button
+                    type="button"
+                    className={String(isTuesday)}
+                    onClick={() => {
+                      setIsTuesday(!isTuesday);
+                    }}
+                  >
                     {" "}
                     Tuesday{" "}
                   </button>
                   <button
+                    type="button"
                     className={String(isWednesday)}
-                    onClick={handleWednesday}
+                    onClick={() => {
+                      setIsWednesday(!isWednesday);
+                    }}
                   >
                     {" "}
                     Wednesday{" "}
                   </button>
                   <button
+                    type="button"
                     className={String(isThursday)}
-                    onClick={handleThursday}
+                    onClick={() => {
+                      setIsThursday(!isThursday);
+                    }}
                   >
                     {" "}
                     Thursday{" "}
                   </button>
-                  <button className={String(isFriday)} onClick={handleFriday}>
+                  <button
+                    type="button"
+                    className={String(isFriday)}
+                    onClick={() => {
+                      setIsFriday(!isFriday);
+                    }}
+                  >
                     {" "}
                     Friday{" "}
                   </button>
                   <button
+                    type="button"
                     className={String(isSaturday)}
-                    onClick={handleSaturday}
+                    onClick={() => {
+                      setIsSaturday(!isSaturday);
+                    }}
                   >
                     {" "}
                     Saturday{" "}
                   </button>
-                  <button className={String(isSunday)} onClick={handleSunday}>
+                  <button
+                    type="button"
+                    className={String(isSunday)}
+                    onClick={() => {
+                      setIsSunday(!isSunday);
+                    }}
+                  >
                     {" "}
                     Sunday{" "}
                   </button>

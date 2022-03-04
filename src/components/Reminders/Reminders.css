@@ -84,4 +84,13 @@ h2{
     align-items: center;
     margin-bottom: .5em;
 
+
+
+.daybutton {
+    background-color: white;
+    color: #3C5E90;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-style: none;
+
 }
