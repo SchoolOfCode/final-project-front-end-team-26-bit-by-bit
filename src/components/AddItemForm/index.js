@@ -9,7 +9,6 @@ function AddItemForm() {
   let page = location.state;
 
   const { user, isAuthenticated, isLoading } = useAuth0();
-
   const [user_id, setUser_id] = useState(Number(user?.sub.substring(14, 18)));
   const [isActive, setIsActive] = useState(false);
 
@@ -26,9 +25,11 @@ function AddItemForm() {
   const [isSaturday, setIsSaturday] = useState(false);
   const [isSunday, setIsSunday] = useState(false);
 
-  const high = document.getElementById("high")
-  const medium = document.getElementById("medium")
-  const low = document.getElementById("low")
+
+
+  const high = document.getElementById("high");
+  const medium = document.getElementById("medium");
+  const low = document.getElementById("low");
   function handleActive() {
     setIsActive(!isActive);
   }
@@ -115,6 +116,7 @@ function AddItemForm() {
     console.log("post dp", data);
   }
 
+
   if (page === "Reminders") {
     return (
       <div>
@@ -162,14 +164,15 @@ function AddItemForm() {
             </div>
           </div>
           <div>
-          <button type="submit" className="submitForm" onClick={reminderClick}>
-            Submit
-          </button>
+            <button
+              type="submit"
+              className="submitForm"
+              onClick={reminderClick}
+            >
+              Submit
+            </button>
           </div>
         </form>
-      
-        
-        
       </div>
     );
   } else if (page === "Todos") {
@@ -194,7 +197,7 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Time</h3>
             <input
-              requihigh
+              required
               type="number"
               min="0"
               max="24"
@@ -214,8 +217,6 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Reoccuring</h3>
             <div className="dateSection">
-
-
               {isActive ? (
                 <div className="buttonForm">
                   <button
@@ -223,8 +224,6 @@ function AddItemForm() {
                     className={String(isMonday)}
                     onClick={() => {
                       setIsMonday(!isMonday);
-                      
-                      
                     }}
                   >
                     {" "}
@@ -235,7 +234,6 @@ function AddItemForm() {
                     className={String(isTuesday)}
                     onClick={() => {
                       setIsTuesday(!isTuesday);
-                      
                     }}
                   >
                     {" "}
@@ -246,7 +244,6 @@ function AddItemForm() {
                     className={String(isWednesday)}
                     onClick={() => {
                       setIsWednesday(!isWednesday);
-                     
                     }}
                   >
                     {" "}
@@ -257,7 +254,6 @@ function AddItemForm() {
                     className={String(isThursday)}
                     onClick={() => {
                       setIsThursday(!isThursday);
-                      
                     }}
                   >
                     {" "}
@@ -268,7 +264,6 @@ function AddItemForm() {
                     className={String(isFriday)}
                     onClick={() => {
                       setIsFriday(!isFriday);
-                      
                     }}
                   >
                     {" "}
@@ -279,7 +274,6 @@ function AddItemForm() {
                     className={String(isSaturday)}
                     onClick={() => {
                       setIsSaturday(!isSaturday);
-                      
                     }}
                   >
                     {" "}
@@ -290,28 +284,27 @@ function AddItemForm() {
                     className={String(isSunday)}
                     onClick={() => {
                       setIsSunday(!isSunday);
-                      
                     }}
                   >
                     {" "}
                     Sunday{" "}
                   </button>
                   <button
-                      type="button"
-                      className="doneButton"
-                      onClick={handleActive}
-                    >
+                    type="button"
+                    className="doneButton"
+                    onClick={handleActive}
+                  >
                     Done
                   </button>
                 </div>
               ) : (
                 <button
-                type="button"
-                className="activeButton"
-                onClick={handleActive}
-              >
-                Choose day
-              </button>
+                  type="button"
+                  className="activeButton"
+                  onClick={handleActive}
+                >
+                  Choose day
+                </button>
               )}
             </div>
           </div>
@@ -325,10 +318,11 @@ function AddItemForm() {
                 id="high"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                  if(high && medium && low){
-                    high.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
-                    low.style.boxShadow  = "none"
-                    medium.style.boxShadow  = "none"
+                  if (high && medium && low) {
+                    high.style.boxShadow =
+                      "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)";
+                    low.style.boxShadow = "none";
+                    medium.style.boxShadow = "none";
                   }
                 }}
               ></button>
@@ -338,12 +332,13 @@ function AddItemForm() {
                 id="medium"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                  if(high && medium && low){
-                    high.style.boxShadow  = "none"
-                    low.style.boxShadow  = "none"
-                    medium.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"}
+                  if (high && medium && low) {
+                    high.style.boxShadow = "none";
+                    low.style.boxShadow = "none";
+                    medium.style.boxShadow =
+                      "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)";
                   }
-                }
+                }}
               ></button>
               <button
                 className="urgency"
@@ -351,24 +346,22 @@ function AddItemForm() {
                 id="low"
                 onClick={(e) => {
                   setPriority(e.target.id);
-                  if(high && medium && low){
-                    high.style.boxShadow  = "none"
-                    low.style.boxShadow  = "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)"
-                    medium.style.boxShadow  = "none"
+                  if (high && medium && low) {
+                    high.style.boxShadow = "none";
+                    low.style.boxShadow =
+                      "inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3)";
+                    medium.style.boxShadow = "none";
                   }
                 }}
               ></button>
             </div>
           </div>
           <div>
-          <button type="submit" className="submitForm" onClick={todoClick}>
-            Submit
-          </button>
+            <button type="submit" className="submitForm" onClick={todoClick}>
+              Submit
+            </button>
           </div>
         </form>
-      
-         
-     
       </div>
     );
   }

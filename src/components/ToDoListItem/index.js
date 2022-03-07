@@ -4,6 +4,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 const ToDoListItem = ({ item, items, setItems, todo_id }) => {
   // const { user, isAuthenticated, isLoading } = useAuth0();
   // const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
+  const [goals, setGoals] = useState([])
+
   function handleClick(e) {
     e.target.style.backgroundColor = "#A3F596";
     e.target.style.borderRadius = "20px";
@@ -47,6 +49,20 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
       console.log("put dp", data.payload);
     }
     fetchPutTodos();
+
+    async function fetchGetGoals() {
+      let response = await fetch(
+        `https://simple-room27.herokuapp.com/users/1055/goals`
+      );
+      let data = await response.json();
+      console.log("get data", data);
+      setGoals(data.payload)
+      return data.payload
+    }
+    fetchGetGoals()
+
+    // if item clicked matches goals.text, then send a put request to the gols page, that adds 1 to the amount
+    // check if completed
 
     function remove(f) {
       setItems(
