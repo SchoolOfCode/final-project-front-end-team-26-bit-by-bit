@@ -7,6 +7,13 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
   const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
   const [goals, setGoals] = useState([])
 
+  function remove() {
+    setItems(
+      items.filter((item) => {
+        return todo_id !== item.todo_id;
+      })
+    );
+  }
 
   async function fetchPutTodos(bool) {
 
@@ -41,8 +48,13 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
     return data.payload
   }
 
-  async function handleClick(e) {
-    e.target.style.backgroundColor = "#A3F596";
+  async function handleClickDel(e) {
+    e.target.style.backgroundColor = "red";
+    e.target.style.borderRadius = "20px";
+    setTimeout(() => remove(e), 1000);
+  }
+  async function handleClickComp(e) {
+    e.target.style.color = "#A3F596";
     e.target.style.borderRadius = "20px";
     console.log(e.target.innerText);
     console.log(item);
@@ -62,7 +74,7 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
     }
     let goals = await fetchGetGoals()
     console.log("goals", goals)
-goals.forEach((goal) => {
+    goals.forEach((goal) => {
   
   if (item.text === goal.text) {
     if(goal.iscompleted === false && goal.currentamount+1 !== goal.amount) {
@@ -129,13 +141,6 @@ goals.forEach((goal) => {
     // then send a put request to the goals page, that adds 1 to the amount
     // check if completed
 
-    function remove(f) {
-      setItems(
-        items.filter((item) => {
-          return todo_id !== item.todo_id
-        })
-      );
-    }
     setTimeout(() => remove(e), 1000);
   }
 
@@ -148,21 +153,24 @@ schedule.scheduleJob('0 0 * * *', function(){
 
   if(item.priority ==="high"){
     return (
-      <div className="item-high" onClick={handleClick}>
-        <h3>{item.text}</h3>
+      <div className="item-high" >
+        <h3 className="itemTitle" onClick={handleClickComp}>{item.text}</h3>
+        <h3 className="itemDelete" onClick={handleClickDel}>X</h3>
       </div>
     );
     }else if(item.priority ==="medium"){
       return (
-        <div className="item-medium" onClick={handleClick}>
-          <h3>{item.text}</h3>
+        <div className="item-medium" >
+          <h3 className="itemTitle" onClick={handleClickComp}>{item.text}</h3>
+          <h3 className="itemDelete" onClick={handleClickDel}>X</h3>
         </div>
       );
     }
     else{
       return (
-        <div className="item-low" onClick={handleClick}>
-          <h3>{item.text}</h3>
+        <div className="item-low" >
+          <h3 className="itemTitle" onClick={handleClickComp}>{item.text}</h3>
+          <h3 className="itemDelete" onClick={handleClickDel}>X</h3>
         </div>
       );
     }
