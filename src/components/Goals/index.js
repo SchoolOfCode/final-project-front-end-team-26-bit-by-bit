@@ -26,7 +26,7 @@ const [items, setItems] = useState([])
     }
 
     fetchGetGoals()
-  }, [setItems])
+  }, [user_id])
 
 
   return (

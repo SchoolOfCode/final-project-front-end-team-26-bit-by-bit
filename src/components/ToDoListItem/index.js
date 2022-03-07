@@ -38,6 +38,7 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
     );
     let data = await response.json();
     console.log("put dp", data.payload);
+    return data.payload
   }
 
   async function handleClick(e) {
@@ -124,7 +125,6 @@ goals.forEach((goal) => {
 }
 })
 
-
     // for each item in goals, if item.text clicked on todo list matches goals.text, 
     // then send a put request to the goals page, that adds 1 to the amount
     // check if completed
@@ -132,7 +132,7 @@ goals.forEach((goal) => {
     function remove(f) {
       setItems(
         items.filter((item) => {
-          return todo_id !== item.todo_id;
+          return todo_id !== item.todo_id
         })
       );
     }
