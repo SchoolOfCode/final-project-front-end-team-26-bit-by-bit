@@ -1,11 +1,11 @@
 import AddItemForm from ".";
 import Header from "../Header";
-import React, {useState} from "react";
-import {render, fireEvent} from '@testing-library/react'
-import { mount, shallow } from "enzyme";
+import React from "react";
+import { shallow } from "enzyme";
 import {BrowserRouter} from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react";
 import { mocked } from "ts-jest/utils";
+import '@testing-library/jest-dom'
 
 
 
@@ -81,19 +81,23 @@ it("call fn on change and test the value type", ()=>{
   expect(handleChange).toHaveBeenCalled();
 })
   
-it("call fn change and test the value type", ()=>{
+it("call fn change", ()=>{
   const handleChange = jest.fn()
   const wrapper = shallow(<input
-    requihigh
+    required
     placeholder="YYYY/MM/DD"
     type="date"
     onChange={handleChange}
     value="date"
     ></input>);
 
+  wrapper.find('input').simulate('Required');
+  wrapper.find('input').simulate('placeholder', {target: 'YYYY/MM/DD'})
   wrapper.find('input').simulate("change", { target: { value: "2022/02/11" }})
   wrapper.simulate("change");
   expect(handleChange).toHaveBeenCalled();
+ 
+
 })
   it("All the button called fn",()=>{
     const handleClick = jest.fn()
@@ -206,6 +210,7 @@ expect(handleClick).toHaveBeenCalled();
  })
 
 })
+
 
 
 

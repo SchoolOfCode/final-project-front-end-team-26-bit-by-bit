@@ -4,8 +4,7 @@ import { mount, shallow } from 'enzyme';
 import { render, screen } from "@testing-library/react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { mocked } from "ts-jest/utils";
-import AddTodoListButton from '../AddButton/index.js';
-import { BrowserRouter } from 'react-router-dom';
+
 
 const user = {
     email: "joanchenuk@gmail.com",
@@ -36,14 +35,7 @@ describe("ToDoList components Component Tests - Logged in", () => {
         shallow(<ToDoList/>);
     });
 
-    it("header should have a H2 tag",() => {
-
-        const wrapper = shallow(<ToDoList />)
-        const header = (<h2 className="todo-header">To Do List</h2>);
-        expect(wrapper.contains(header)).toEqual(true)
-
-
-    })
+  
 
     // it("accepts props", () => {
     //     const testProps = "Todos"
@@ -52,7 +44,7 @@ describe("ToDoList components Component Tests - Logged in", () => {
     //     const wrapper = mount(<BrowserRouter> <AddTodoListButton page={props}/></BrowserRouter>);
     //     expect(wrapper.props().props).toBe(testProps);
     //   });
-    //receiving undefined 
+    // receiving undefined 
 
     
     
