@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ToDoListItem from "../ToDoListItem";
 
-import AddTodoListButton from "../AddButton";
+import AddTodoListButton from "../AddTodoListButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ToDoList = () => {
@@ -97,7 +97,7 @@ const ToDoList = () => {
             {">"}{" "}
           </button>
         </h2>
-        <AddTodoListButton page={"Todos"} />
+        <AddTodoListButton page={"Todos"} target={"/add"}/>
       </div>
       {items.map((e) => {
         if (e.priority === "high") {

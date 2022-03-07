@@ -3,12 +3,13 @@ import "./Goals.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import AddTodoListButton from "../AddTodoListButton";
 
 
 const Goals = () => {
   
-// const { user, isAuthenticated, isLoading } = useAuth0();
-// const [user_id, setUser_id] = useState(Number(user?.sub.substring(14, 18)));
+const { user, isAuthenticated, isLoading } = useAuth0();
+const user_id = Number(user?.sub.substring(14, 18));
 const [items, setItems] = useState([])
 
 
@@ -16,7 +17,7 @@ const [items, setItems] = useState([])
   useEffect(()=> {
     async function fetchGetGoals() {
       let response = await fetch(
-        `https://simple-room27.herokuapp.com/users/1055/goals`
+        `https://simple-room27.herokuapp.com/users/${user_id}/goals`
       );
       let data = await response.json();
       console.log("get data", data);
@@ -30,15 +31,15 @@ const [items, setItems] = useState([])
 
   return (
     <div className="Goals">
-      <h1>Goals</h1>
-      <Link to="/addgoals" aria-label="addgoals">
-        Add Goals
-      </Link>
-      {items.map((item)=>{ return (
+      <div className="goalsTitleContainer">
+      <h1 className="goalsTitle">Goals</h1>
+      <AddTodoListButton target="/addgoals"/>
+      </div>
+      {/* {items.map((item)=>{ return (
         <div>{item.text}, {item.amount}, {item.currentamount}</div>
 
       )
-      })}
+      })} */}
       {items.map((item)=>{ return (
         <PieChart item={item}/>
       )

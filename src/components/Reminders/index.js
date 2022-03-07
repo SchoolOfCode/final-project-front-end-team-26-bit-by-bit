@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Reminders.css";
 // import { FaCommentsDollar, FaPlus } from "react-icons/fa";
 import ReminderData from "../ReminderData";
-import AddTodoListButton from "../AddButton";
+import AddTodoListButton from "../AddTodoListButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Reminders = () => {
@@ -42,7 +42,7 @@ const Reminders = () => {
     <div className="Blue">
       <div className="header">
         <h2 className="reminders-header">Reminder </h2>
-        <AddTodoListButton page={"Reminders"} />
+        <AddTodoListButton page={"Reminders"} target={"/add"}/>
       </div>
       <ReminderData
         reminderData={reminderData}

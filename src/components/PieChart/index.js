@@ -23,11 +23,9 @@ const PieChart = ({item}) =>{
 
     return(
         <div className="ChartContainer">
-    <div>{item.text}</div>
-        <Doughnut data={data}/>
-        <br/>
-        <hr/>
-        <br/>
+        <div>{item.text}</div>
+        <Doughnut className="Chart"data={data}/>
+
         </div>
     )
 }

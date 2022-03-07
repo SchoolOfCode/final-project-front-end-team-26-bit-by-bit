@@ -5,8 +5,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export function AddGoals() {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
+  const { user } = useAuth0();
+  const user_id = Number(user?.sub.substring(14, 18));
   const [goalName, setGoalName] = useState("");
   const [amount, setAmount] = useState(1);
 
@@ -43,7 +43,7 @@ export function AddGoals() {
 
   return (
     <div>
-      <Header bool={"form"} />
+      <Header bool={"goalform"} />
       <form className="BlueForm">
         <h2 className="TitleForm">Add Goals</h2>
 
@@ -71,10 +71,11 @@ export function AddGoals() {
             }}
           ></input>
         </div>
-      </form>
-      <button type="submit" className="submitForm" onClick={()=>{goalClick()}}>
+        <button type="submit" className="submitForm" onClick={()=>{goalClick()}}>
           Submit
         </button>
+      </form>
+
     </div>
   );
 }

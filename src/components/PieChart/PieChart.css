@@ -1,6 +1,11 @@
 .ChartContainer{
     align-content: center;
-    height: 60%;
-    width: 60%;
+    height: 100%;
+    width: 90%;
     margin: 0px;
+    background-color: white;
+    border-radius: 20px;
+    align-self: center;
+    justify-self: center;
+
 }
