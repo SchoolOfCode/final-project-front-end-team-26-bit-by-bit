@@ -9,7 +9,7 @@ const PieChart = ({item}) =>{
         labels,
         datasets:[{
             label: "goals",
-            data:[item.amount, item.currentamount],
+            data:[item.amount-item.currentamount, item.currentamount],
             backgroundColor:[
                 "rgb(0, 174, 255)",
                 "rgb(4, 0, 255)"
