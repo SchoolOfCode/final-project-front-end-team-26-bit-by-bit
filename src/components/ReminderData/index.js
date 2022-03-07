@@ -22,10 +22,4 @@ const ReminderData = ({ reminderData, setReminderData }) => {
   );
 };
 
-//   return (
-//     <div className="item">
-//       <h3 className="remName">Loading...</h3>{" "}
-//     </div>
-//   );
-// };
 export default ReminderData;

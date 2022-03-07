@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
 
 const ToDoListItem = ({ item, items, setItems, todo_id }) => {
-  // const { user, isAuthenticated, isLoading } = useAuth0();
-  // const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
+
   function handleClick(e) {
     e.target.style.backgroundColor = "#A3F596";
     e.target.style.borderRadius = "20px";

@@ -6,8 +6,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const ToDoList = () => {
   const [items, setItems] = useState([]);
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
+  const { user } = useAuth0();
+  const user_id = Number(user.sub.substring(14, 18));
   const [count, setCount] = useState(0);
 
   const weekday = [
@@ -131,6 +131,3 @@ const ToDoList = () => {
 };
 export default ToDoList;
 
-/**
- * convert items into state hook and place in reminders/todo
- */

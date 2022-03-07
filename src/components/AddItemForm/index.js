@@ -1,16 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./AddItemForm.css";
 import Header from "../Header";
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function AddItemForm() {
   const location = useLocation();
   let page = location.state;
 
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user } = useAuth0();
 
-  const [user_id, setUser_id] = useState(Number(user?.sub.substring(14, 18)));
+  const user_id = Number(user?.sub.substring(14, 18));
   const [isActive, setIsActive] = useState(false);
 
   const [text, setText] = useState("");

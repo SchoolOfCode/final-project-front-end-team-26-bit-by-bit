@@ -5,7 +5,7 @@ import Header from "../Header";
 
 function Customise() {
     function onClick(e){
-        console.log(e.target.style.backgroundColor)///// help me
+        console.log(e.target.style.backgroundColor)
         const ratio = e.target
         if (ratio.style.justifySelf !== "flex-end"){
             console.log("clicked1")
