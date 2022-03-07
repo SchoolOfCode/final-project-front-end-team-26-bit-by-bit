@@ -44,7 +44,7 @@ export function AddGoals() {
   return (
     <div>
       <Header bool={"goalform"} />
-      <form className="BlueForm">
+      <form className="BlueFormGoals">
         <h2 className="TitleForm">Add Goals</h2>
 
         <div className="InpToDo">

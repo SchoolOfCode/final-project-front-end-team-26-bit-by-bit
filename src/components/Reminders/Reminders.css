@@ -75,9 +75,13 @@ h2{
     width: 90%;
     background-color: white;
     margin-left: 5%;
+    margin-right: 5%;
+    margin-top: .5em;
     border-radius: 20px;
     border: 5px solid #A3F596;
-    display: flex;
+    display: grid;
+    grid-template-columns: 9fr 10%;
+    grid-template-rows: 1fr;
     justify-content: center;
     align-items: center;
     margin-bottom: .5em;
@@ -91,5 +95,35 @@ h2{
     margin-left: 2%;
     margin-right: 2%;
     border-style: none;
-
+    box-shadow: none;
+    font-weight: bolder;
+    cursor: pointer;
+    
+}
+.daybutton:hover{
+    box-shadow: none;
+    color: red;
+}
+.itemDelete{
+    border:none;
+    font-weight:bold ;
+    background-color: #3C5E90;
+    color: white;
+    margin: 0;
+    height:1.5em;
+    width:1.5em;
+    border-radius: 50%;
+    line-height: 1.5em;
+    justify-self: flex-end;
+    margin-right: 5px;
+    box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.itemTitle{
+    margin:0;
+    margin-left: 11%;
+    height: 100%;
+    width: 90%;
+    cursor: pointer;
 }

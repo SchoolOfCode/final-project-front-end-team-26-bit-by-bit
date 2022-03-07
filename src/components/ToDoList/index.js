@@ -85,7 +85,7 @@ const ToDoList = () => {
           >
             {"<"}{" "}
           </button>
-          {day.substring(2)} To Do List
+          {day.substring(2).charAt(0).toUpperCase()+day.substring(2).slice(1)} To Do List
           <button
             type="button"
             className="daybutton"
@@ -109,7 +109,7 @@ const ToDoList = () => {
         }
         return console.log("sorted");
       })}
-      <ul className="ToDo" style={{ display: "block" }}>
+      <div className="ToDo" style={{ display: "block" }}>
         {items
           .sort(function (a, b) {
             return b.value - a.value;
@@ -125,7 +125,7 @@ const ToDoList = () => {
               date={item.date}
             />
           ))}
-      </ul>
+      </div>
     </div>
   );
 };

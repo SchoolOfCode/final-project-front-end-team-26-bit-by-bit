@@ -23,7 +23,7 @@ const PieChart = ({item}) =>{
 
     return(
         <div className="ChartContainer">
-        <div>{item.text}</div>
+        <div style={{fontSize:"25px"}}>{item.text}</div>
         <Doughnut className="Chart"data={data}/>
 
         </div>

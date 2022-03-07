@@ -74,6 +74,7 @@ input{
     background-color:#B9D5FF;
     font-size: 1.5em;
     color:  #3C5E90;
+    cursor: pointer;
     
 }
 
@@ -193,4 +194,18 @@ input{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin-left: 20%;
 
+}
+.BlueFormGoals{
+    background-color: #3C5E90;
+    height: auto;
+    width: 90%;
+    border-radius: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 20px;
 }
