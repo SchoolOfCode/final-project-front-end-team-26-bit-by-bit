@@ -45,6 +45,7 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
     );
     let data = await response.json();
     console.log("put dp", data.payload);
+    return data.payload
   }
 
   async function handleClickDel(e) {
@@ -136,11 +137,9 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
 }
 })
 
-
     // for each item in goals, if item.text clicked on todo list matches goals.text, 
     // then send a put request to the goals page, that adds 1 to the amount
     // check if completed
-
 
     setTimeout(() => remove(e), 1000);
   }

@@ -4,7 +4,7 @@ import { Doughnut } from "react-chartjs-2"
 import "./PieChart.css"
 
 const PieChart = ({item}) =>{
-    const labels = ["goals completed","current goals"]
+    const labels = ["goals remaining","current goals"]
     const data = {
         labels,
         datasets:[{
