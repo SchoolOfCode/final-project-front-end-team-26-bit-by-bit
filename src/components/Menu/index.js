@@ -1,7 +1,9 @@
 import React from "react";
 import "./Menu.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import SignOutButton from "../SignOutButton";
+
+import {Link} from "react-router-dom";
+import SignOutButton from '../SignOutButton';
+
 
 const Menu = () => {
   function openNav() {

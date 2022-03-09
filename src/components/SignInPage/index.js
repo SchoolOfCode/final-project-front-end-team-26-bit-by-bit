@@ -3,7 +3,7 @@ import SignInButton from '../SignInButton';
 import './SignInPage.css'
 
 
-export function SignInPage(props) {
+export function SignInPage() {
     
 
     return (
