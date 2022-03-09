@@ -8,7 +8,7 @@ export function AddGoals() {
   const { user } = useAuth0();
   const user_id = Number(user?.sub.substring(14, 18));
   const [goalName, setGoalName] = useState("");
-  const [amount, setAmount] = useState(1);
+  const [amount, setAmount] = useState(0);
 
   async function fetchPostGoals() {
     console.log(user_id)
@@ -39,7 +39,7 @@ export function AddGoals() {
     console.log("x");
     fetchPostGoals();
     setGoalName("");
-    setAmount(1);
+    setAmount(0);
   }
 
   return (
@@ -56,6 +56,7 @@ export function AddGoals() {
             onChange={(event) => {
               setGoalName(event.target.value);
             }}
+            value={goalName}
           ></input>
         </div>
 
@@ -70,12 +71,15 @@ export function AddGoals() {
             onChange={(event) => {
               setAmount(event.target.value);
             }}
+            value={amount}
           ></input>
         </div>
-      </form>
-      <button type="submit" className="submitForm" onClick={()=>{goalClick()}}>
+        <div>
+        <button type="submit" className="submitForm" onClick={()=>{goalClick()}}>
           Submit
         </button>
+        </div>
+      </form>
     </div>
   );
 }
