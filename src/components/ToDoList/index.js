@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ToDoListItem from "../ToDoListItem";
 
-import AddTodoListButton from "../AddButton";
+import AddTodoListButton from "../AddTodoListButton";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const ToDoList = () => {
@@ -20,9 +20,9 @@ const ToDoList = () => {
     "issaturday",
   ];
   let day1 = new Date();
-  let day2 = weekday[day1.getDay()];
-
-  const [day, setDay] = useState(day2);
+  let today = weekday[day1.getDay()];
+  const [day, setDay] = useState(today);
+  
 
   useEffect(() => {
     async function getTodo() {
@@ -33,42 +33,49 @@ const ToDoList = () => {
       if (data.success) {
         console.log(data.payload);
         let filteredday = data.payload.filter((item) => {
-          return item[day] === true;
+          return (item[day] === true);
         });
-        // let filteredcomplete = filteredday.filter((item) => {
-        //   return item.iscompleted === false;
-        // });
-        setItems(filteredday);
-        // let day = getDay();
-        // setItems(
-        //   items.filter((item) => {
-        //     return item[day] === true;
-        //   })
-        // );
+        let filteredcomplete = filteredday.filter((item) => {
+          if (day === today) {
+            return item.iscompleted === false
+          }
+          else {
+            return true;
+          }
+        })
+        console.log("day", day)
+        setItems(filteredcomplete);
+
       }
     }
     getTodo();
-  }, [user_id, day]);
+  }, [user_id, day, today, count, setCount]);
+
+
+  useEffect(()=> {
+    if (day1.getDay() + count > 0 && day1.getDay() + count < 7) {
+    setDay(weekday[day1.getDay() + count]);
+    } 
+    else if (count <= 0) {
+      setDay(weekday[day1.getDay() + count + 6])
+    }
+    else if (count >= 6) {
+      setDay(weekday[day1.getDay() + count - 6])
+    }
+
+    // else if (day1.getDay() + count === -1) {
+    //   setDay(weekday[6])
+    // } else if (day1.getDay() + count === 7) {
+    //   setDay(weekday[0])
+    // }
+
+  }, [count, day1, day, weekday])
 
   function changeDay(letter) {
     if (letter === "<") {
-      if (day1.getDay() + count === 0) {
-        setCount(count + 6);
-      } else {
-        setCount(count - 1);
-      }
-      setDay(weekday[day1.getDay() + count]);
-      console.log(day, count);
-      return day;
+      setCount(count - 1)
     } else if (letter === ">") {
-      if (day1.getDay() + count === 6) {
-        setCount(count - 6);
-      } else {
         setCount(count + 1);
-      }
-      setDay(weekday[day1.getDay() + count]);
-      console.log(day, count);
-      return day;
     }
   }
 
@@ -85,7 +92,7 @@ const ToDoList = () => {
           >
             {"<"}{" "}
           </button>
-          {day.substring(2)} To Do List
+          {day.substring(2).charAt(0).toUpperCase()+day.substring(2).slice(1)} To Do List
           <button
             type="button"
             className="daybutton"
@@ -97,7 +104,7 @@ const ToDoList = () => {
             {">"}{" "}
           </button>
         </h2>
-        <AddTodoListButton page={"Todos"} />
+        <AddTodoListButton page={"Todos"} target={"/add"}/>
       </div>
       {items.map((e) => {
         if (e.priority === "high") {
@@ -109,7 +116,7 @@ const ToDoList = () => {
         }
         return console.log("sorted");
       })}
-      <ul className="ToDo" style={{ display: "block" }}>
+      <div className="ToDo" style={{ display: "block" }}>
         {items
           .sort(function (a, b) {
             return b.value - a.value;
@@ -125,7 +132,7 @@ const ToDoList = () => {
               date={item.date}
             />
           ))}
-      </ul>
+      </div>
     </div>
   );
 };
