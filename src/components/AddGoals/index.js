@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../AddItemForm/AddItemForm.css";
 import Header from "../Header";
-import { Link, useLocation } from "react-router-dom";
+
 import { useAuth0 } from "@auth0/auth0-react";
 
 export function AddGoals() {

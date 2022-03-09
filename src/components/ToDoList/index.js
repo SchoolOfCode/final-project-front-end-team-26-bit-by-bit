@@ -11,7 +11,8 @@ const ToDoList = () => {
   const [count, setCount] = useState(0);
 
   console.log(items)
-  const weekday = [
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  let weekday = [
     "issunday",
     "ismonday",
     "istuesday",
@@ -20,6 +21,8 @@ const ToDoList = () => {
     "isfriday",
     "issaturday",
   ];
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   let day1 = new Date();
   let today = weekday[day1.getDay()];
   const [day, setDay] = useState(today);

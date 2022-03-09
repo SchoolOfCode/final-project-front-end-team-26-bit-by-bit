@@ -3,7 +3,7 @@ import Dashboard from "../Dashboard";
 import ProfilePage from "../ProfilePage";
 import { SignInPage } from "../SignInPage";
 
-import { Routes, Route, Router } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { AddGoals } from "../AddGoals";
 
 import AddItemForm from "../AddItemForm";

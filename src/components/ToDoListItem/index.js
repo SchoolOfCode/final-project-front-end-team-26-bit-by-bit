@@ -3,9 +3,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import schedule from "node-schedule";
 
 const ToDoListItem = ({ item, items, setItems, todo_id }) => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
-  const [goals, setGoals] = useState([]);
+  const { user } = useAuth0();
+  const [user_id] = useState(Number(user.sub.substring(14, 18)));
+  const [setGoals] = useState([]);
 
   function remove() {
     setItems(

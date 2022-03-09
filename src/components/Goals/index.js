@@ -1,12 +1,12 @@
 import PieChart from "../PieChart";
 import "./Goals.css";
-import { Link } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import AddTodoListButton from "../AddTodoListButton";
 
 const Goals = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user } = useAuth0();
   const user_id = Number(user?.sub.substring(14, 18));
   const [items, setItems] = useState([]);
 
