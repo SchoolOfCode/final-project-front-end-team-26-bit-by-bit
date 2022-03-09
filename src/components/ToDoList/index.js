@@ -10,6 +10,8 @@ const ToDoList = () => {
   const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
   const [count, setCount] = useState(0);
 
+
+  //wrap in useMemo hook
   const weekday = [
     "issunday",
     "ismonday",
@@ -19,6 +21,7 @@ const ToDoList = () => {
     "isfriday",
     "issaturday",
   ];
+
   let day1 = new Date();
   let today = weekday[day1.getDay()];
   const [day, setDay] = useState(today);

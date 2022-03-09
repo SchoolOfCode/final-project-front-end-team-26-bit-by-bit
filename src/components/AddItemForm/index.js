@@ -151,9 +151,7 @@ function AddItemForm() {
             <div className="time">
               <input
                 required
-                type="number"
-                min="0"
-                max="24"
+                type="time"
                 // type="time"
                 placeholder="Time"
                 onChange={(event) => {
@@ -198,9 +196,7 @@ function AddItemForm() {
             <h3>Time</h3>
             <input
               required
-              type="number"
-              min="0"
-              max="24"
+              type="time"
               // type="time"
               placeholder="Time"
               onChange={(event) => {

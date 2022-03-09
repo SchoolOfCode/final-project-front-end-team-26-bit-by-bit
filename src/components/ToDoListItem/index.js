@@ -39,7 +39,6 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
           issaturday: item.issaturday,
           issunday: item.issunday,
           iscompleted: bool,
-          created: item.created,
         }),
       }
     );
@@ -47,6 +46,30 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
     console.log("put dp", data.payload);
     return data.payload
   }
+
+  async function fetchPatchTodos() {
+
+    let response = await fetch(
+      `https://simple-room27.herokuapp.com/users/${user_id}/todo`,
+      {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: user_id,
+          iscompleted: false
+        }),
+      }
+    );
+    let data = await response.json();
+    console.log("put dp", data.payload);
+    return data.payload
+  }
+
+
+
 
   async function handleClickDel(e) {
     e.target.style.backgroundColor = "red";
@@ -146,7 +169,7 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
 
 
 schedule.scheduleJob('0 0 * * *', function(){
-  fetchPutTodos(false);
+  fetchPatchTodos();
   console.log("job")
 });
 
