@@ -2,7 +2,10 @@ import "./App.css";
 import Dashboard from "../Dashboard";
 import ProfilePage from "../ProfilePage";
 import { SignInPage } from "../SignInPage";
-import { Routes, Route} from "react-router-dom";
+
+import { Routes, Route, Router } from "react-router-dom";
+import { AddGoals } from "../AddGoals";
+
 import AddItemForm from "../AddItemForm";
 import Settings from "../Settings";
 import Customise from "../Customise";
@@ -12,9 +15,11 @@ function App() {
   const { isAuthenticated } = useAuth0();
   return (
     <div className="App">
+
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/add" element={<AddItemForm />} />
+        <Route path="/addgoals" element={<AddGoals />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/customise" element={<Customise />} />
         <Route
@@ -26,8 +31,6 @@ function App() {
           element={!isAuthenticated ? <SignInPage /> : <ProfilePage />}
         />
       </Routes>
-     
-      
     </div>
   );
 }

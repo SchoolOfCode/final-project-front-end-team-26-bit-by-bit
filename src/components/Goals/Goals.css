@@ -1,5 +1,5 @@
 .Goals{
-    background-color: white;
+    background-color: #3C5E90;
     height: auto;
     width: 80vw;
     align-self: center;
@@ -7,8 +7,37 @@
     border-radius: 2em;
     margin: auto;
     margin-bottom: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+
+    row-gap: 10px;
     padding-bottom: 5%;
+
+}
+@media screen and (max-width: 700px){
+    .Goals{
+        grid-template-rows: repeat(auto,1fr);
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (min-width: 701px){
+    .Goals{
+        grid-template-rows: repeat(auto,1fr);
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .goalsTitleContainer{
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+}
+.goalsTitleContainer{
+    background-color: white;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 10fr 40px;
+    border-radius: 20px;
+}
+.goalsTitle{
+    margin: 0;
+    margin-left: 40px;
 }

@@ -20,7 +20,16 @@ const Header = ({bool}) =>{
             <div className="Header">
                 <Menu />
                 <h1 className="Logo">Simple</h1>
-                <FormExitButton/>
+                <FormExitButton location="dash"/>
+            </div>)
+    }
+    else if(bool === "goalform"){
+        console.log(bool)
+        return(
+            <div className="Header">
+                <Menu />
+                <h1 className="Logo">Simple</h1>
+                <FormExitButton location="goals"/>
             </div>)
     }
     return(
