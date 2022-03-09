@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddItemForm.css";
 import Header from "../Header";
-import {  useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function AddItemForm() {
@@ -10,7 +10,7 @@ function AddItemForm() {
 
   const { user } = useAuth0();
 
-  const user_id = Number(user?.sub.substring(14, 18))
+  const user_id = Number(user?.sub.substring(14, 18));
   const [isActive, setIsActive] = useState(false);
 
   const [text, setText] = useState("");
@@ -25,8 +25,6 @@ function AddItemForm() {
   const [isFriday, setIsFriday] = useState(false);
   const [isSaturday, setIsSaturday] = useState(false);
   const [isSunday, setIsSunday] = useState(false);
-
-
 
   const high = document.getElementById("high");
   const medium = document.getElementById("medium");
@@ -47,7 +45,7 @@ function AddItemForm() {
   async function fetchPostRem() {
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room27.herokuapp.com/users/${user_id}/reminders`,
+      `https://simple-room26.herokuapp.com/users/${user_id}/reminders`,
       {
         method: "POST",
         headers: {
@@ -89,7 +87,7 @@ function AddItemForm() {
   async function fetchPostTodos() {
     let todo_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room27.herokuapp.com/users/${user_id}/todo`,
+      `https://simple-room26.herokuapp.com/users/${user_id}/todo`,
       {
         method: "POST",
         headers: {
@@ -116,7 +114,6 @@ function AddItemForm() {
     let data = await response.json();
     console.log("post dp", data);
   }
-
 
   if (page === "Reminders") {
     return (
@@ -150,16 +147,16 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Time</h3>
             <div className="time">
-            <input
-             type="time"
-              min="00:00"
-              max="23:59"
-              placeholder="Time"
-              onChange={(event) => {
-                setTime(event.target.value);
-              }}
-              value={time}
-            ></input>
+              <input
+                type="time"
+                min="00:00"
+                max="23:59"
+                placeholder="Time"
+                onChange={(event) => {
+                  setTime(event.target.value);
+                }}
+                value={time}
+              ></input>
             </div>
           </div>
           <div>
@@ -197,7 +194,7 @@ function AddItemForm() {
             <h3>Time</h3>
 
             <input
-             type="time"
+              type="time"
               min="00:00"
               max="23:59"
               placeholder="Time"

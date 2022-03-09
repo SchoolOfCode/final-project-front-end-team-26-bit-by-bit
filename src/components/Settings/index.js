@@ -16,7 +16,7 @@ function Settings() {
   useEffect(() => {
     async function fetchGetSettings() {
       const response = await fetch(
-        `https://simple-room27.herokuapp.com/users/${user_id}/settings`
+        `https://simple-room26.herokuapp.com/users/${user_id}/settings`
       );
       const data = await response.json();
       console.log("get data payload", data.payload);
@@ -32,7 +32,7 @@ function Settings() {
     if (getData.length === 0) {
       async function fetchPostSettings() {
         let response = await fetch(
-          `https://simple-room27.herokuapp.com/users/${user_id}/settings`,
+          `https://simple-room26.herokuapp.com/users/${user_id}/settings`,
           {
             method: "POST",
             headers: {
@@ -57,7 +57,7 @@ function Settings() {
   function onClick(e) {
     async function fetchPutSettings(bool) {
       let response = await fetch(
-        `https://simple-room27.herokuapp.com/users/${user_id}/settings/1`,
+        `https://simple-room26.herokuapp.com/users/${user_id}/settings/1`,
         {
           method: "PUT",
           headers: {

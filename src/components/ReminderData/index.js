@@ -4,11 +4,10 @@ import ReminderItem from "../ReminderItem";
 const ReminderData = ({ reminderData, setReminderData }) => {
   return (
     <div>
-      {reminderData.map((item, index) => {
+      {reminderData.map((item) => {
         return (
           <ReminderItem
-            key={index}
-            index={index}
+            key={item.reminder_id}
             item={item}
             name={item.text}
             time={item.time}

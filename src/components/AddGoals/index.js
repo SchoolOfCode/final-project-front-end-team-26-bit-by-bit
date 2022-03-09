@@ -11,10 +11,10 @@ export function AddGoals() {
   const [amount, setAmount] = useState(0);
 
   async function fetchPostGoals() {
-    console.log(user_id)
+    console.log(user_id);
     let goals_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room27.herokuapp.com/users/${user_id}/goals`,
+      `https://simple-room26.herokuapp.com/users/${user_id}/goals`,
       {
         method: "POST",
         headers: {
@@ -27,7 +27,7 @@ export function AddGoals() {
           text: goalName,
           amount: amount,
           currentamount: 0,
-          iscompleted: false
+          iscompleted: false,
         }),
       }
     );
@@ -75,9 +75,15 @@ export function AddGoals() {
           ></input>
         </div>
         <div>
-        <button type="submit" className="submitForm" onClick={()=>{goalClick()}}>
-          Submit
-        </button>
+          <button
+            type="submit"
+            className="submitForm"
+            onClick={() => {
+              goalClick();
+            }}
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>

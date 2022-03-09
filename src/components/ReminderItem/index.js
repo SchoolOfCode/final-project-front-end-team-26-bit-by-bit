@@ -8,18 +8,18 @@ const ReminderItem = ({
   reminderData,
   setReminderData,
 }) => {
-
   function handleClick(e) {
     e.target.style.backgroundColor = "#A3F596";
     e.target.style.borderRadius = "20px";
     console.log(e.target.innerText);
-    function remove(f) {
+    
+    function remove() {
       async function fetchPutTodos() {
         let uid = String(item.user_id);
         let rid = String(item.reminder_id);
 
         let response = await fetch(
-          `https://simple-room27.herokuapp.com/users/${uid}/reminders/${rid}`,
+          `https://simple-room26.herokuapp.com/users/${uid}/reminders/${rid}`,
           {
             method: "PUT",
             headers: {
@@ -46,12 +46,13 @@ const ReminderItem = ({
       });
       setReminderData(newData);
     }
-    setTimeout(() => remove(e), 1000);
+    console.log(remove())
+    setTimeout(() => remove(), 500);
   }
   return (
     <div className="item" onClick={handleClick}>
       <h3>
-        {name}, {String(due_date).substring(0, 10)}, {time}
+        {name},{time}, {String(due_date).substring(0, 10)}
       </h3>
     </div>
   );
