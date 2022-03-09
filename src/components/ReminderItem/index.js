@@ -52,7 +52,7 @@ const ReminderItem = ({
   return (
     <div className="item" onClick={handleClick}>
       <h3>
-        {name},{time}, {String(due_date).substring(0, 10)}
+        {name}, {time}, {String(due_date).substring(0, 10)}
       </h3>
     </div>
   );
