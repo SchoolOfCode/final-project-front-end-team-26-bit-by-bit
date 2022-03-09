@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import schedule from 'node-schedule';
 
 const ToDoListItem = ({ item, items, setItems, todo_id }) => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-  const [user_id, setUser_id] = useState(Number(user.sub.substring(14, 18)));
-  const [goals, setGoals] = useState([])
+  const { user} = useAuth0();
+  const user_id = Number(user.sub.substring(14, 18));
+  // const [goals, setGoals] = useState([])
 
   function remove() {
     setItems(
@@ -69,7 +69,7 @@ const ToDoListItem = ({ item, items, setItems, todo_id }) => {
       );
       let data = await response.json();
       console.log("get data", data);
-      setGoals(data.payload)
+      // setGoals(data.payload)
       return data.payload
     }
     let goals = await fetchGetGoals()

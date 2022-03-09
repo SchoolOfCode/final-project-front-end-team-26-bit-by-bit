@@ -3,12 +3,14 @@ import ToDoListItem from "../ToDoListItem";
 
 import AddTodoListButton from "../AddTodoListButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const ToDoList = () => {
   const [items, setItems] = useState([]);
   const { user } = useAuth0();
   const user_id = Number(user.sub.substring(14, 18));
-  const [count, setCount] = useState(0);
+
 
   const weekday = [
     "issunday",
@@ -19,9 +21,11 @@ const ToDoList = () => {
     "isfriday",
     "issaturday",
   ];
-  let day1 = new Date();
-  let today = weekday[day1.getDay()];
+  let day1 = new Date().getDay();
+  let today = weekday[day1]; 
+  const [count, setCount] = useState(day1);
   const [day, setDay] = useState(today);
+  
   
 
   useEffect(() => {
@@ -32,106 +36,72 @@ const ToDoList = () => {
       let data = await response.json();
       if (data.success) {
         console.log(data.payload);
-        let filteredday = data.payload.filter((item) => {
-          return (item[day] === true);
-        });
-        let filteredcomplete = filteredday.filter((item) => {
-          if (day === today) {
-            return item.iscompleted === false
-          }
-          else {
-            return true;
-          }
-        })
+        let filtered = data.payload.filter((item) => (item[day] === true)).filter((item) =>!item.iscompleted)
         console.log("day", day)
-        setItems(filteredcomplete);
-
+        setItems(filtered);
       }
     }
     getTodo();
-  }, [user_id, day, today, count, setCount]);
+  }, [user_id, day, today]);
 
-
-  useEffect(()=> {
-    if (day1.getDay() + count > 0 && day1.getDay() + count < 7) {
-    setDay(weekday[day1.getDay() + count]);
-    } 
-    else if (count <= 0) {
-      setDay(weekday[day1.getDay() + count + 6])
+    function changeDayIncrease(){
+      let newCount = count+1
+      if (newCount >6){
+        newCount = 0
+      }
+      else if (newCount <0){
+        newCount = 6
+      }
+      setCount(newCount)
     }
-    else if (count >= 6) {
-      setDay(weekday[day1.getDay() + count - 6])
+    function changeDayDecrease(){
+      let newCount = count-1
+      if (newCount >6){
+        newCount = 0
+      }
+      else if (newCount <0){
+        newCount = 6
+      }
+      
+      setCount(newCount)
     }
-
-    // else if (day1.getDay() + count === -1) {
-    //   setDay(weekday[6])
-    // } else if (day1.getDay() + count === 7) {
-    //   setDay(weekday[0])
-    // }
-
-  }, [count, day1, day, weekday])
-
-  function changeDay(letter) {
-    if (letter === "<") {
-      setCount(count - 1)
-    } else if (letter === ">") {
-        setCount(count + 1);
-    }
-  }
-
-  return (
+    useEffect(()=>{
+      setDay(weekday[count])
+    },[count,weekday])
+    
+    items.map((e) => {
+      if (e.priority === "high") {
+        e.value = 2;
+      } else if (e.priority === "medium") {
+        e.value = 1;
+      } else {
+        e.value = 0;
+      }
+      return console.log("sorted");
+    })
+    const todos = items.sort((a, b) => b.value - a.value)
+    return (
     <div className="Blue">
       <div className="header">
-        <h2 className="todo-header">
-          <button
-            type="button"
-            className="daybutton"
-            onClick={() => {
-              changeDay("<");
-            }}
-          >
-            {"<"}{" "}
-          </button>
-          {day.substring(2).charAt(0).toUpperCase()+day.substring(2).slice(1)} To Do List
-          <button
-            type="button"
-            className="daybutton"
-            onClick={() => {
-              changeDay(">");
-            }}
-          >
-            {" "}
-            {">"}{" "}
-          </button>
-        </h2>
+        <div className="todo-header">
+          <AiOutlineArrowLeft id="leftArrow"className="daybutton"onClick={changeDayDecrease}/>
+          <h2 id="toDoTitle">{day.substring(2).charAt(0).toUpperCase()+day.substring(2).slice(1)} To Do List </h2>
+          <AiOutlineArrowRight className="daybutton"onClick={changeDayIncrease}/>
+        </div>
         <AddTodoListButton page={"Todos"} target={"/add"}/>
       </div>
-      {items.map((e) => {
-        if (e.priority === "high") {
-          e.value = 2;
-        } else if (e.priority === "medium") {
-          e.value = 1;
-        } else {
-          e.value = 0;
-        }
-        return console.log("sorted");
-      })}
       <div className="ToDo" style={{ display: "block" }}>
-        {items
-          .sort(function (a, b) {
-            return b.value - a.value;
-          })
-          .map((item) => (
-            <ToDoListItem
-              key={item.todo_id}
-              item={item}
-              setItems={setItems}
-              items={items}
-              todo_id={item.todo_id}
-              time={item.time}
-              date={item.date}
-            />
-          ))}
+      {todos.map((item) => (
+      <ToDoListItem
+        key={item.todo_id}
+        item={item}
+        setItems={setItems}
+        items={items}
+        todo_id={item.todo_id}
+      />
+    ))}
+          
+
       </div>
     </div>
   );

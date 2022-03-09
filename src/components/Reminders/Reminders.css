@@ -135,3 +135,17 @@ h2{
     width: 90%;
     cursor: pointer;
 }
+.todo-header{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+}
+#toDoTitle{
+    padding:0
+}
+#leftArrow{
+    justify-self: flex-end
+}
