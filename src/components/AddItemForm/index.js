@@ -150,18 +150,16 @@ function AddItemForm() {
           <div className="InpToDo">
             <h3>Time</h3>
             <div className="time">
-              <input
-                required
-                type="number"
-                min="0"
-                max="24"
-                // type="time"
-                placeholder="Time"
-                onChange={(event) => {
-                  setTime(event.target.value);
-                }}
-                value={time}
-              ></input>
+            <input
+             type="time"
+              min="00:00"
+              max="23:59"
+              placeholder="Time"
+              onChange={(event) => {
+                setTime(event.target.value);
+              }}
+              value={time}
+            ></input>
             </div>
           </div>
           <div>
@@ -197,18 +195,13 @@ function AddItemForm() {
 
           <div className="InpToDo">
             <h3>Time</h3>
+
             <input
-              required
-              type="number"
-              min="0"
-              max="24"
-              // type="time"
+             type="time"
+              min="00:00"
+              max="23:59"
               placeholder="Time"
               onChange={(event) => {
-                //   let intTime = Number(
-                //     String(event.target.value).substring(0, 2)
-                //   );
-                //   setTime(intTime);
                 setTime(event.target.value);
               }}
               value={time}
