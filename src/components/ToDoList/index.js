@@ -54,6 +54,7 @@ const ToDoList = () => {
       }
       setCount(newCount)
     }
+
     function changeDayDecrease(){
       let newCount = count-1
       if (newCount >6){
@@ -80,8 +81,9 @@ const ToDoList = () => {
       return console.log("sorted");
     })
     const todos = items.sort((a, b) => b.value - a.value)
-    return (
-    <div className="Blue">
+
+  return (
+    <div className="list-container blue-background">
       <div className="header">
         <div className="todo-header">
           <AiOutlineArrowLeft id="leftArrow"className="daybutton"onClick={changeDayDecrease}/>
@@ -103,6 +105,32 @@ const ToDoList = () => {
           
 
       </div>
+      {items.map((e) => {
+        if (e.priority === "high") {
+          e.value = 2;
+        } else if (e.priority === "medium") {
+          e.value = 1;
+        } else {
+          e.value = 0;
+        }
+        return console.log("sorted");
+      })}
+      <ul className="ToDo" style={{ display: "block" }}>
+        {items.sort(function (a, b) {
+            return b.value - a.value;
+          })
+          .map((item) => (
+            <ToDoListItem
+              key={item.todo_id}
+              item={item}
+              setItems={setItems}
+              items={items}
+              todo_id={item.todo_id}
+              time={item.time}
+              date={item.date}
+            />
+          ))}
+      </ul>
     </div>
   );
 };

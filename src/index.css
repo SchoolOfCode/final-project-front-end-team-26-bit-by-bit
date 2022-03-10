@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #B9D5FF;
+  /* background-color: #B9D5FF; */
   color: #3C5E90;
 }
 button{
