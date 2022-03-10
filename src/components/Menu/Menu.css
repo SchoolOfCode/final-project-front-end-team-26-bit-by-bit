@@ -1,35 +1,46 @@
+:root {
+  --sky: #b9d5ff;
+  --blue: #3c5e90;
+  --white: #fff;
+  --red: #ff0000;
+  --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  --yellow: #ffd159;
+  --light-green: #a3f596;
+}
+
 .overlay {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1; 
+  z-index: 1;
   left: 0;
   top: 0;
-  background-color: #3C5E90;
-  overflow-x: hidden; 
+  background-color: var(--blue);
+  overflow-x: hidden;
   transition: 0.5s;
 }
 
 .overlay-content {
   position: relative;
-  top: 25%; 
+  top: 25%;
   width: 100%;
-  text-align: center; 
-  margin-top: 30px; }
+  text-align: center;
+  margin-top: 30px;
+}
 
 .overlay a {
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
-  color: #EDF3FF;
+  color: #edf3ff;
   display: block;
-  transition: text-decoration 1s; 
+  transition: text-decoration 1s;
 }
-.overlay a:hover, .overlay a:focus {
+.overlay a:hover,
+.overlay a:focus {
   text-decoration: underline;
-  
 }
-
 
 .overlay .closebtn {
   position: absolute;
@@ -38,16 +49,17 @@
   font-size: 60px;
 }
 
-
 @media screen and (max-height: 450px) {
-  .overlay a {font-size: 20px}
+  .overlay a {
+    font-size: 20px;
+  }
   .overlay .closebtn {
     font-size: 40px;
     top: 15px;
     right: 35px;
   }
 }
-#menuIcon{
+#menuIcon {
   font-size: 30px;
   padding-left: 5vw;
   cursor: pointer;

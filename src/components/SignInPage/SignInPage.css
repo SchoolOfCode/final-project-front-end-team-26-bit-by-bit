@@ -1,22 +1,31 @@
-
-.SignInPage{
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+:root {
+  --sky: #b9d5ff;
+  --blue: var(--blue);
+  --white: var(--white);
+  --red: #ff0000;
+  --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  --yellow: #ffd159;
+  --light-green: #a3f596;
 }
 
-.name-app{
-    font-size: 7rem;
-    font-weight: 350;
-    margin: 0px;
-    margin-bottom: 20vh;
+.SignInPage {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.welcome-title{
-    font-size: 2.5rem;
-    margin-top: 30vh;
-    font-weight: 200;
-    margin-bottom: 0px;
+.name-app {
+  font-size: 7rem;
+  font-weight: 350;
+  margin: 0px;
+  margin-bottom: 20vh;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  margin-top: 30vh;
+  font-weight: 200;
+  margin-bottom: 0px;
 }

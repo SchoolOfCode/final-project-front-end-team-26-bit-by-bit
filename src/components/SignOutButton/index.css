@@ -1,23 +1,33 @@
-.overlay-content {
-    position: relative;
-    top: 25%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-  }
+:root {
+  --sky: #b9d5ff;
+  --blue: #3c5e90;
+  --white: #fff;
+  --red: #ff0000;
+  --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  --yellow: #ffd159;
+  --light-green: #a3f596;
+}
 
-  .signout-button {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #EDF3FF;
-    display: block; /* Display block instead of inline */
-    transition: text-decoration 1s; /* Transition effects on hover (color) */
-  }
-  
-  
-  /* When you mouse over the navigation links, change their color */
-  .signout-button :hover, .signout-button :focus {
-    text-decoration: underline;
-    
-  }
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+.signout-button {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #edf3ff;
+  display: block; /* Display block instead of inline */
+  transition: text-decoration 1s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.signout-button :hover,
+.signout-button :focus {
+  text-decoration: underline;
+}

@@ -1,51 +1,62 @@
-.Switch{
-    height: 3em;
-    width: 7em;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    background-color: white;
-    border-radius: 1.5em;
-    box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
-    justify-self: flex-end;
-    align-self: center;
-    margin-right: 10px;
+:root {
+    --sky: #b9d5ff;
+    --blue: #3c5e90;
+    --white: #fff;
+    --red: #ff0000;
+    --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --yellow: #ffd159;
+    --light-green: #a3f596;
+  }
+
+.Switch {
+  height: 3em;
+  width: 7em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: white;
+  border-radius: 1.5em;
+  box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  justify-self: flex-end;
+  align-self: center;
+  margin-right: 10px;
 }
-.Buttonswitch{
-    border-radius: 50%;
-    width: 3em;
-    height: 3em;
-    border:none;
-    align-self: center;
-    justify-self: center;
-    background-color: red;
-    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
-    justify-self: flex-start;
-    transition: all 1s ease-in;
+.Buttonswitch {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  background-color: red;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  justify-self: flex-start;
+  transition: all 1s ease-in;
 }
 
-#true  {
-    border-radius: 50%;
-    width: 3em;
-    height: 3em;
-    border:none;
-    align-self: center;
-    justify-self: center;
-    background-color: #A3F596;
-    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
-    justify-self: flex-end;
-    transition: all 1s ease-in;
+#true {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  background-color: #a3f596;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  justify-self: flex-end;
+  transition: all 1s ease-in;
 }
 
 #false {
-    border-radius: 50%;
-    width: 3em;
-    height: 3em;
-    border:none;
-    align-self: center;
-    justify-self: center;
-    background-color: red;
-    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
-    justify-self: flex-start;
-    transition: all 1s ease-in;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  background-color: red;
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  justify-self: flex-start;
+  transition: all 1s ease-in;
 }

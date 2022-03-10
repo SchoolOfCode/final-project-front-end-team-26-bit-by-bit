@@ -1,15 +1,26 @@
-.AddItem{
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
+:root {
+    --sky: #b9d5ff;
+    --blue: #3c5e90;
+    --white: #fff;
+    --red: #ff0000;
+    --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --yellow: #ffd159;
+    --light-green: #a3f596;
+  }
+
+.AddItem {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
-.addLink{
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    color: inherit;
+.addLink {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: inherit;
 }

@@ -1,12 +1,42 @@
 :root {
-  --sky: #b9d5ff;
-  --blue: #3c5e90;
-  --white: #fff;
   --red: #ff0000;
   --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
   --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
   --yellow: #ffd159;
   --light-green: #a3f596;
+}
+
+.color {
+  --sky: var(--sky);
+  --blue: var(--blue);
+  --white: var(--white);
+}
+
+.dark {
+  --sky: var(--sky);
+  --blue: var(--blue);
+  --white: var(--white);
+}
+
+body {
+  margin: 0;
+  font-family: "Sulphur Point", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--sky);
+  color: var(--blue);
+}
+button {
+  font-family: "Sulphur Point";
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  text-align: center;
 }
 
 .InpToDo {
@@ -19,7 +49,7 @@
   align-self: center;
   justify-self: center;
   border-radius: 40px;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 }
 
 .BlueForm {
@@ -55,7 +85,7 @@
 }
 
 .TitleForm {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 20px;
   padding: 0;
   height: 40px;
@@ -80,7 +110,7 @@ input {
   border: none;
   align-self: center;
   justify-self: center;
-  background-color: #b9d5ff;
+  background-color: var(--sky);
   font-size: 1.5em;
   color: var(--blue);
   cursor: pointer;
@@ -98,8 +128,8 @@ input {
   border: none;
   align-self: center;
   justify-self: center;
-  background-color: red;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  background-color: var(--red);
+  box-shadow: var(--box-shadow);
 }
 .urgency {
   height: 2.5em;
@@ -108,7 +138,7 @@ input {
   border: 0;
   justify-self: center;
   align-self: center;
-  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 }
 button:hover {
   box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
@@ -120,20 +150,20 @@ button:hover {
   grid-template-rows: 1fr;
 }
 #high {
-  background-color: red;
+  background-color: var(--red);
 }
 #medium {
-  background-color: #ffd159;
+  background-color: var(--yellow);
 }
 #low {
-  background-color: #a3f596;
+  background-color: var(--light-green);
 }
 input {
   box-shadow: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
 }
 
 .true {
-  background-color: #a3f596;
+  background-color: var(--light-green);
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
 
   width: 80%;
@@ -207,4 +237,112 @@ input {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   row-gap: 20px;
+}
+
+.Switch {
+  height: 3em;
+  width: 7em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: white;
+  border-radius: 1.5em;
+  box-shadow: var(--box-shadow-insert);
+  justify-self: flex-end;
+  align-self: center;
+  margin-right: 10px;
+}
+.Buttonswitch {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  background-color: var(--red);
+  box-shadow: var(--box-shadow);
+  justify-self: flex-start;
+  transition: all 1s ease-in;
+}
+
+#true {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  background-color: var(--light-green);
+  box-shadow: var(--box-shadow);
+  justify-self: flex-end;
+  transition: all 1s ease-in;
+}
+
+#false {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  background-color: var(--red);
+  box-shadow: var(--box-shadow);
+  justify-self: flex-start;
+  transition: all 1s ease-in;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: var(--blue);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: var(--white);
+  display: block;
+  transition: text-decoration 1s;
+}
+.overlay a:hover,
+.overlay a:focus {
+  text-decoration: underline;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+#menuIcon {
+  font-size: 30px;
+  padding-left: 5vw;
+  cursor: pointer;
 }

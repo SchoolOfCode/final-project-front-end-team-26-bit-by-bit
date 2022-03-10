@@ -1,12 +1,22 @@
-.sign-btn{
-    width: 60%;
-    height: 3rem;
-    border-radius: 1.5rem;
-    border: none;
-    align-self: center;
-    justify-self: center;
-    background-color:#3C5E90;
-    font-size: 1.5em;
-    color: #B9D5FF;
-    
+:root {
+    --sky: #b9d5ff;
+    --blue: #3c5e90;
+    --white: #fff;
+    --red: #ff0000;
+    --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --yellow: #ffd159;
+    --light-green: #a3f596;
+  }
+
+.sign-btn {
+  width: 60%;
+  height: 3rem;
+  border-radius: 1.5rem;
+  border: none;
+  align-self: center;
+  justify-self: center;
+  background-color: var(--blue);
+  font-size: 1.5em;
+  color: var(--sky);
 }

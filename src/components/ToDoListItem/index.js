@@ -5,7 +5,8 @@ import schedule from "node-schedule";
 const ToDoListItem = ({ item, items, setItems, todo_id }) => {
   const { user } = useAuth0();
   const [user_id] = useState(Number(user.sub.substring(14, 18)));
-  const [setGoals] = useState([]);
+  const [goals, setGoals] = useState([]);
+  console.log(goals)
 
   function remove() {
     setItems(

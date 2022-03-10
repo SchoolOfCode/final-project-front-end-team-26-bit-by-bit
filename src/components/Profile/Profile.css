@@ -1,17 +1,28 @@
-.profileName{
-    margin-top: 1em;
-    padding: 0px;
+:root {
+    --sky: #b9d5ff;
+    --blue: #3c5e90;
+    --white: #fff;
+    --red: #ff0000;
+    --box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --box-shadow-insert: inset 1px 1px 8px 1px rgba(0, 0, 0, 0.3);
+    --yellow: #ffd159;
+    --light-green: #a3f596;
+  }
+
+.profileName {
+  margin-top: 1em;
+  padding: 0px;
 }
-.profilePic{
-    border-radius: 50%;
-    height: 10em;
-    width: 10em;
-    image-rendering: crisp-edges;
+.profilePic {
+  border-radius: 50%;
+  height: 10em;
+  width: 10em;
+  image-rendering: crisp-edges;
 }
-.profile{
-    margin-top: 3em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.profile {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
