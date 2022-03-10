@@ -9,10 +9,18 @@ function Settings() {
   // const [is_dark, setIs_Dark] = useState(false);
   // const [settingsData, setSettingsData] = useState({});
   const [bool, setBool] = useState(false);
-
+  const [darkMode, setDarkMode] = useState(false);
+ 
   // let randNum = Math.floor(1000 + Math.random() * 9000);
   // const [settings_id, setSettings_id] = useState(randNum);
 
+  useEffect(() => {
+    const isDarkMode = localStorage.getItem("darkModeEnabled");
+    setDarkMode(isDarkMode);
+  }, [])
+
+  console.log("darkMode: ", darkMode);
+  
   useEffect(() => {
     async function fetchGetSettings() {
       const response = await fetch(
@@ -54,7 +62,10 @@ function Settings() {
     }
   }, [user_id]);
 
-  function onClick(e) {
+  function toggleDarkMode(e) {
+    localStorage.setItem("darkModeEnabled", !darkMode);
+    setDarkMode(!darkMode);
+
     async function fetchPutSettings(bool) {
       let response = await fetch(
         `https://simple-room27.herokuapp.com/users/${user_id}/settings/1`,
@@ -72,19 +83,23 @@ function Settings() {
         }
       );
       let data = await response.json();
-      console.log("put data payload", data.payload);
+      // console.log("put data payload", data.payload);
     }
 
     if (bool === false) {
-      console.log("clicked1");
+      // console.log("clicked1");
       setBool(true);
       fetchPutSettings(true);
     } else {
-      console.log("clicked2");
+      // console.log("clicked2");
 
       setBool(false);
       fetchPutSettings(false);
     }
+  }
+
+  function onClick() {
+    console.log("test")
   }
   return (
     <div>
@@ -95,9 +110,9 @@ function Settings() {
           <h3>Dark Mode</h3>
           <div className="Switch">
             <button
-              id={String(bool)}
+              id={String(darkMode)}
               className="Buttonswitch"
-              onClick={onClick}
+              onClick={toggleDarkMode}
             ></button>
           </div>
         </div>

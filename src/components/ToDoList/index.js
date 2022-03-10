@@ -73,7 +73,7 @@ const ToDoList = () => {
   }
 
   return (
-    <div className="Blue">
+    <div className="list-container blue-background">
       <div className="header">
         <h2 className="todo-header">
           <button
@@ -110,7 +110,7 @@ const ToDoList = () => {
         return console.log("sorted");
       })}
       <ul className="ToDo" style={{ display: "block" }}>
-        {items
+        {[{"text": "hello"}, {"text": "bye"},{"text": "salaam", "priority": "high"}]
           .sort(function (a, b) {
             return b.value - a.value;
           })

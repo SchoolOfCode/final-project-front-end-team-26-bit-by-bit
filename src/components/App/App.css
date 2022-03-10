@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
+.core-background-color-light {
+  background-color: #B9D5FF;
+}
 
+.core-background-color-dark {
+  background-color: #7191BF;
+}
+
+.blue-background {
+  background-color: #3C5E90;
+}

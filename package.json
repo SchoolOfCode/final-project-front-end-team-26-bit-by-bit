@@ -8,6 +8,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^3.7.1",
+    "classnames": "^2.3.1",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.6.2",
     "nanoid": "^3.3.1",

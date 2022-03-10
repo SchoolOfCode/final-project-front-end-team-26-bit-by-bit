@@ -33,7 +33,7 @@ const Reminders = () => {
   }, [user_id]);
 
   return (
-    <div className="Blue">
+    <div className="list-container blue-background">
       <div className="header">
         <h2 className="reminders-header">Reminder </h2>
         <AddTodoListButton page={"Reminders"} />
