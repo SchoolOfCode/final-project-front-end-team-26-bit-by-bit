@@ -22,13 +22,20 @@ function Customise() {
         <Header/>
         <div className='BlueForm'>
             <h2 className='TitleForm'>Customise</h2>
-            <div className='InpToDo'>
-                <h3>Reminders</h3>
-                <div className='Switch'><button id="0" className='Buttonswitch' onClick={onClick}></button></div>
+            <div className='customiseInput'>
+                <h3>Feature 1</h3>
+                <p>Description</p>
+                <div className='Switch customiseToggle'><button id="0" className='Buttonswitch' onClick={onClick}></button></div>
             </div>
-            <div className='InpToDo'>
-                <h3>To Do list</h3>
-                <div className='Switch'><button id="1" className='Buttonswitch' onClick={onClick}></button></div>
+            <div className='customiseInput'>
+                <h3>Feature 2</h3>
+                <p>Description</p>
+                <div className='Switch customiseToggle'><button id="1" className='Buttonswitch' onClick={onClick}></button></div>
+            </div>
+            <div className='customiseInput'>
+                <h3>Feature 3</h3>
+                <p>Description</p>
+                <div className='Switch customiseToggle'><button id="1" className='Buttonswitch' onClick={onClick}></button></div>
             </div>
         </div>
     </div>

@@ -195,7 +195,7 @@ function AddItemForm() {
             ></input>
           </div>
 
-          <div className="InpToDo">
+          {/* <div className="InpToDo">
             <h3>Time</h3>
             <input
               required
@@ -213,10 +213,11 @@ function AddItemForm() {
               }}
               value={time}
             ></input>
-          </div>
+          </div> */}
+          {/* TODO: remove time from api routes including SQL statement, and variables */}
 
           <div className="InpToDo">
-            <h3>Reoccuring</h3>
+            <h3>Days</h3>
             <div className="dateSection">
               {isActive ? (
                 <div className="buttonForm">
