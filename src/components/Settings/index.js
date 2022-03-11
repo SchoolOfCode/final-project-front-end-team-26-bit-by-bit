@@ -30,14 +30,14 @@ function Settings() {
             <button
               id={String(!toggle)}
               className="Buttonswitch"
-              onClick={()=> setColor(toggle? null : Dark )}
+              onClick={()=> setColor(toggle? Normal : Dark )}
             ></button>
           </div>
         </div>
         <div className="InpToDo">
           <h3>Dark Mode</h3>
           <div className="Switch">
-            <button id={String(toggle)}  className="Buttonswitch" onClick={()=> setColor(toggle? Normal : null)}></button>
+            <button id={String(toggle)}  className="Buttonswitch" onClick={()=> setColor(toggle? Normal : Dark)}></button>
           </div>
         </div>
       
