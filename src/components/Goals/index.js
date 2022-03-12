@@ -1,5 +1,6 @@
 import PieChart from "../PieChart";
 import "./Goals.css";
+import { API_URL } from "../../config";
 
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -12,9 +13,7 @@ const Goals = () => {
 
   useEffect(() => {
     async function fetchGetGoals() {
-      let response = await fetch(
-        `https://simple-room26.herokuapp.com/users/${user_id}/goals`
-      );
+      let response = await fetch(`${API_URL}/users/${user_id}/goals`);
       let data = await response.json();
       console.log("get data", data);
       setItems(data.payload);
