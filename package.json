@@ -35,10 +35,8 @@
     "test-profilepage": "react-scripts test ./profilepage.test.js",
     "test-dashboard": "react-scripts test ./dashboard.test.js",
     "test-additemform": "react-scripts test ./additemform.test.js",
-    "test-customise":"react-scripts test ./customise.test.js",
-    "test-fromEbutton":"react-scripts test ./FromExitButton.test.js"
-
-
+    "test-customise": "react-scripts test ./customise.test.js",
+    "test-fromEbutton": "react-scripts test ./FromExitButton.test.js"
   },
   "eslintConfig": {
     "extends": [
