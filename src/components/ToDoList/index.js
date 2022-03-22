@@ -87,10 +87,10 @@ const ToDoList = () => {
               changeDay("<");
             }}
           >
-            {"<"}{" "}
+            {"<"}
           </button>
           {day.substring(2).charAt(0).toUpperCase() + day.substring(2).slice(1)}{" "}
-          To Do List
+          To Do
           <button
             type="button"
             className="daybutton"
