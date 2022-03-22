@@ -17,19 +17,12 @@ function App() {
     <div className="App">
 
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/add" element={<AddItemForm />} />
-        <Route path="/addgoals" element={<AddGoals />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/customise" element={<Customise />} />
-        <Route
-          path="/"
-          element={!isAuthenticated ? <SignInPage /> : <Dashboard />}
-        />
-        <Route
-          path="/profile"
-          element={!isAuthenticated ? <SignInPage /> : <ProfilePage />}
-        />
+      <Route path="/"element={!isAuthenticated? <SignInPage /> : <Dashboard />}/>
+        <Route path="/profile" element={!isAuthenticated? <SignInPage /> :<ProfilePage />} />
+        <Route path="/add" element={!isAuthenticated? <SignInPage /> :<AddItemForm />} />
+        <Route path="/addgoals" element={!isAuthenticated? <SignInPage /> :<AddGoals />} />
+        <Route path="/settings" element={!isAuthenticated? <SignInPage /> :<Settings />} />
+        <Route path="/customise" element={!isAuthenticated? <SignInPage /> :<Customise />} />
       </Routes>
     </div>
   );
