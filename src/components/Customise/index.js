@@ -3,8 +3,9 @@ import './Customise.css';
 import Header from "../Header";
 
 
+
 function Customise() {
-    function onClick(e){
+        function onClick(e){
         console.log(e.target.style.backgroundColor)
         const ratio = e.target
         if (ratio.style.justifySelf !== "flex-end"){
@@ -24,11 +25,11 @@ function Customise() {
             <h2 className='TitleForm'>Customise</h2>
             <div className='InpToDo'>
                 <h3>Reminders</h3>
-                <div className='Switch'><button id="0" className='Buttonswitch' onClick={onClick}></button></div>
+                <div className='Switch'><button id='0' className='Buttonswitch' onClick={onClick} ></button></div>
             </div>
             <div className='InpToDo'>
                 <h3>To Do list</h3>
-                <div className='Switch'><button id="1" className='Buttonswitch' onClick={onClick}></button></div>
+                <div className='Switch'><button id='1' className='Buttonswitch' onClick={onClick}></button></div>
             </div>
         </div>
     </div>

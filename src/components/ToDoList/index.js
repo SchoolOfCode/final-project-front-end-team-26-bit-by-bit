@@ -3,6 +3,7 @@ import ToDoListItem from "../ToDoListItem";
 
 import AddTodoListButton from "../AddTodoListButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import { API_URL } from "../../config";
 
 const ToDoList = () => {
   const [items, setItems] = useState([]);
@@ -10,7 +11,7 @@ const ToDoList = () => {
   const user_id = Number(user.sub.substring(14, 18));
   const [count, setCount] = useState(0);
 
-  console.log(items)
+  console.log(items);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   let weekday = [
     "issunday",
@@ -21,7 +22,7 @@ const ToDoList = () => {
     "isfriday",
     "issaturday",
   ];
-  
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   let day1 = new Date();
   let today = weekday[day1.getDay()];
@@ -29,9 +30,7 @@ const ToDoList = () => {
 
   useEffect(() => {
     async function getTodo() {
-      let response = await fetch(
-        `https://simple-room26.herokuapp.com/users/${user_id}/todo`
-      );
+      let response = await fetch(`${API_URL}/users/${user_id}/todo`);
       let data = await response.json();
       if (data.success) {
         console.log(data.payload);
@@ -127,11 +126,8 @@ const ToDoList = () => {
               items={items}
               todo_id={item.todo_id}
               time={item.time}
-      
             />
           ))}
-            
-        
       </div>
     </div>
   );

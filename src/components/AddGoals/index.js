@@ -3,7 +3,7 @@ import "../AddItemForm/AddItemForm.css";
 import Header from "../Header";
 
 import { useAuth0 } from "@auth0/auth0-react";
-
+import { API_URL } from "../../config";
 export function AddGoals() {
   const { user } = useAuth0();
   const user_id = Number(user?.sub.substring(14, 18));
@@ -14,13 +14,13 @@ export function AddGoals() {
     console.log(user_id);
     let goals_id = Math.floor(1000 + Math.random() * 9000);
     let response = await fetch(
-      `https://simple-room26.herokuapp.com/users/${user_id}/goals`,
+      `${API_URL}/users/${user_id}/goals`,
       {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+        mode: 'cors',
+      headers: {
+        "Content-Type": "application/json"
+      },
         body: JSON.stringify({
           user_id: user_id,
           goals_id: goals_id,

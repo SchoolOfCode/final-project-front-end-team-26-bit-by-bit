@@ -3,6 +3,7 @@ import "./Reminders.css";
 import ReminderData from "../ReminderData";
 import AddTodoListButton from "../AddTodoListButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import { API_URL } from "../../config";
 
 const Reminders = () => {
   const [reminderData, setReminderData] = useState([]);
@@ -12,9 +13,7 @@ const Reminders = () => {
 
   useEffect(() => {
     async function fetchReminders() {
-      const response = await fetch(
-        `https://simple-room26.herokuapp.com/users/${user_id}/reminders`
-      );
+      const response = await fetch(`${API_URL}/users/${user_id}/reminders`);
       const data = await response.json();
       //console.log(response.payload);
       return data.payload;

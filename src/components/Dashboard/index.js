@@ -3,6 +3,7 @@ import Reminders from "../Reminders";
 import ToDoList from "../ToDoList";
 import Header from "../Header";
 import { useAuth0 } from "@auth0/auth0-react";
+import { API_URL } from "../../config";
 
 const Dashboard = () => {
   const { user } = useAuth0();
@@ -13,7 +14,7 @@ const Dashboard = () => {
     setUser_id(Number(user.sub.substring(14, 18)));
     setFullName(user.name);
     async function fetchPostUsers() {
-      let response = await fetch(`https://simple-room26.herokuapp.com/users`, {
+      let response = await fetch(`${API_URL}/users`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -27,15 +28,13 @@ const Dashboard = () => {
     fetchPostUsers();
 
     async function fetchGetUsers() {
-      let response = await fetch(
-        `https://simple-room26.herokuapp.com/users/${user_id}`
-      );
+      let response = await fetch(`${API_URL}/users/${user_id}`);
       let data = await response.json();
       console.log("get data", data);
     }
     fetchGetUsers();
   }, [user_id, full_name, user.sub, user.name]);
-  
+
   return (
     <div className="Dashboard">
       <Header bool={"dashboard"} />

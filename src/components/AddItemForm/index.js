@@ -3,6 +3,7 @@ import "./AddItemForm.css";
 import Header from "../Header";
 import { useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { API_URL } from "../../config";
 
 function AddItemForm() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function AddItemForm() {
   }
 
   //
+  console.log(API_URL)
 
   function reminderClick() {
     fetchPostRem();
@@ -44,24 +46,21 @@ function AddItemForm() {
 
   async function fetchPostRem() {
     let reminder_id = Math.floor(1000 + Math.random() * 9000);
-    let response = await fetch(
-      `https://simple-room26.herokuapp.com/users/${user_id}/reminders`,
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: user_id,
-          reminder_id: reminder_id,
-          text: text,
-          due_date: date,
-          time: time,
-          iscompleted: false,
-        }),
-      }
-    );
+    let response = await fetch(`${API_URL}/users/${user_id}/reminders`, {
+      method: "POST",
+      mode: 'cors',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: user_id,
+        reminder_id: reminder_id,
+        text: text,
+        due_date: date,
+        time: time,
+        iscompleted: false,
+      }),
+    });
     let data = await response.json();
     console.log("post dp", data);
   }
@@ -86,31 +85,28 @@ function AddItemForm() {
 
   async function fetchPostTodos() {
     let todo_id = Math.floor(1000 + Math.random() * 9000);
-    let response = await fetch(
-      `https://simple-room26.herokuapp.com/users/${user_id}/todo`,
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: user_id,
-          todo_id: todo_id,
-          text: text,
-          priority: priority,
-          time: time,
-          ismonday: isMonday,
-          istuesday: isTuesday,
-          iswednesday: isWednesday,
-          isthursday: isThursday,
-          isfriday: isFriday,
-          issaturday: isSaturday,
-          issunday: isSunday,
-          iscompleted: isCompleted,
-        }),
-      }
-    );
+    let response = await fetch(`${API_URL}/users/${user_id}/todo`, {
+      method: "POST",
+      mode: 'cors',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: user_id,
+        todo_id: todo_id,
+        text: text,
+        priority: priority,
+        time: time,
+        ismonday: isMonday,
+        istuesday: isTuesday,
+        iswednesday: isWednesday,
+        isthursday: isThursday,
+        isfriday: isFriday,
+        issaturday: isSaturday,
+        issunday: isSunday,
+        iscompleted: isCompleted,
+      }),
+    });
     let data = await response.json();
     console.log("post dp", data);
   }
